@@ -3,7 +3,7 @@
 
     var tpl = {
         "font-styles": function(locale, options) {
-            var size = (options && options.size) ? ' btn-'+options.size : '';
+            var size = (options && options.size) ? ' btn-' + options.size : '';
             return "<li class='dropdown'>" +
               "<a class='btn  btn-default dropdown-toggle" + size + "' data-toggle='dropdown' href='#'>" +
               "<span class='glyphicon glyphicon-font'></span>&nbsp;<span class='current-font'>" + locale.font_styles.normal + "</span>&nbsp;<b class='caret'></b>" +
