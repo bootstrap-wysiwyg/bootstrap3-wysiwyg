@@ -18,12 +18,12 @@ task :default do
     version = File.open(File.join(ROOT, 'VERSION')).read
     output_path = File.join(ROOT, "dist")
 
-    js_input_path = File.join('src', 'bootstrap-wysihtml5.js')
-    css_input_path = File.join('src', 'bootstrap-wysihtml5.css')
+    js_input_path = File.join('src', 'bootstrap3-wysihtml5.js')
+    css_input_path = File.join('src', 'bootstrap3-wysihtml5.css')
 
-    js_output_path = File.join(output_path, "bootstrap-wysihtml5-#{version}.js")
-    minified_js_output_path = File.join(output_path, "bootstrap-wysihtml5-#{version}.min.js")
-	css_output_path = File.join(output_path, "bootstrap-wysihtml5-#{version}.css")
+    js_output_path = File.join(output_path, "bootstrap3-wysihtml5-#{version}.js")
+    minified_js_output_path = File.join(output_path, "bootstrap3-wysihtml5-#{version}.min.js")
+  	css_output_path = File.join(output_path, "bootstrap3-wysihtml5-#{version}.css")
 
     minified_js = Uglifier.compile(File.read(js_input_path))
      
