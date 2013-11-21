@@ -1,7 +1,7 @@
 {
   "name": "bootstrap3-wysihtml5-bower",
-  "version": "0.0.1",
-  "description": "Bootstrap 3 compatible Wyswig Editor",
+  "version": "0.0.2",
+  "description": "Bootstrap 3 compatible wysiwyg editor",
   "directories": {
     "test": "test"
   },
@@ -9,7 +9,9 @@
     "grunt": "~0.4.1",
     "grunt-contrib-uglify": "~0.2.7"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "grunt-contrib-cssmin": "~0.7.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -19,9 +21,9 @@
   },
   "keywords": [
     "bootstrap",
-    "wysiwig"
+    "wysiwyg"
   ],
-  "author": "Christian Sterzl (christian.sterzl@gmail.com)",
+  "author": "Christian Sterzl <christian.sterzl@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues"

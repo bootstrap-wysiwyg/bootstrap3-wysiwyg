@@ -1,8 +1,30 @@
 {
-    "name": "bootstrap3-wysihtml5-bower”,
-    "version": "0.1.0",
-    "main": ["src/bootstrap3-wysihtml5.css", "src/bootstrap3-wysihtml5.js"],
-    "dependencies": {
-        "wysihtml5": "~0.3.0"
-    }
+  "name": "bootstrap3-wysihtml5-bower",
+  "version": "0.0.2",
+  "main": [
+    "src/bootstrap3-wysihtml5.css",
+    "src/bootstrap3-wysihtml5.js"
+  ],
+  "dependencies": {
+    "wysihtml5": "~0.3.0",
+    "bootstrap": "~3.0.0"
+  },
+  "homepage": "https://github.com/Waxolunist/bootstrap3-wysihtml5-bower",
+  "authors": [
+    "Christian Sterzl <christian.sterzl@gmail.com>"
+  ],
+  "description": "Bootstrap 3 compatible wysiwyg editor",
+  "keywords": [
+    "bootstrap",
+    "wysiwyg"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "components",
+    "test",
+    "tests"
+  ]
 }
