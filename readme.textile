@@ -1,10 +1,16 @@
 h1. About this fork
 
-This fork provides the same functionality as the original by jhollingworth but skips bootstrap 2 support and adds bootstrap 3 support.
+This fork provides the same functionality as the original by <a href="https://github.com/jhollingworth/bootstrap-wysihtml5">jhollingworth</a> but skips bootstrap 2 support and adds bootstrap 3 support.
 
-Besides it does not download automatically css files. Those have to be included manually.
+Besides it uses bower for client side dependency management.
 
-It adds correct bower support like ignoring unneccessary directories.
+h2. Why a fork again?
+
+The old repository seems to be dead. Pull Requests are not accepted anymore since some time. The other bootstrap-wysihtml5 packages in the bower registry do NOT provide bootstrap 3 support, even if the name so suggests. The are not maintained either.
+
+Furthermore the packages on bower do not use proper dependency management.
+
+I will maintain this repo and I will accept pull requests.
 
 h1. Overview
 
@@ -16,29 +22,20 @@ h1. Examples
 
 h1. Quick Start
 
-If you are using rails use the "bootstrap-wysihtml5-rails gem":http://rubygems.org/gems/bootstrap-wysihtml5-rails.
+If you are using bower use the "bootstrap3-wysihtml5-bower" package. 
 
 <pre>
-gem install bootstrap-wysihtml5-rails
+bower install bootstrap3-wysihtml5-bower
 </pre>
-
-Otherwise, download "the latest version of bootstrap-wysihtml5":https://github.com/jhollingworth/bootstrap-wysihtml5/downloads.
 
 h2. Files to reference
 
-<pre>
-<link rel="stylesheet" type="text/css" href="/css/bootstrap-wysihtml5.css"></link>
-<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"></link>
-<script src="js/wysihtml5-0.3.0.js"></script>
-<script src="js/jquery-1.7.2.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/bootstrap-wysihtml5.js"></script>
-</pre>
+See the dist folder.
 
 h2. Usage
 
 <pre>
-<textarea id="some-textarea" placeholder="Enter text ..."></textarea>
+<textarea id="some-textarea" placeholder="Enter text ..." style="styles to copy to the iframe"></textarea>
 <script type="text/javascript">
 	$('#some-textarea').wysihtml5();
 </script>
@@ -72,7 +69,8 @@ $('#some-textarea').wysihtml5({
 	"html": false, //Button which allows you to edit the generated HTML. Default false
 	"link": true, //Button to insert a link. Default true
 	"image": true, //Button to insert an image. Default true,
-	"color": false //Button to change color of font  
+	"color": false, //Button to change color of font  
+  "size": <buttonsize> //default: default
 });
 </pre>
 
