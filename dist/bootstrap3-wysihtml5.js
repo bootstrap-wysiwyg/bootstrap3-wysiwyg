@@ -437,9 +437,11 @@
                 },
                 "a":  {
                     check_attributes: {
-                        'href': "url", // important to avoid XSS
-                        'target': 'alt',
-                        'rel': 'alt'
+                      'href': "url" // important to avoid XSS
+                    },
+                    "set_attributes": {
+                      "target": "_blank",
+                      "rel": "nofollow"
                     }
                 },
                 "span": 1,
