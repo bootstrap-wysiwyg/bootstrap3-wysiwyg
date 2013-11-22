@@ -22,14 +22,22 @@ module.exports = function(grunt) {
           'dist/bootstrap3-wysihtml5.min.css': ['src/bootstrap3-wysihtml5.css']
         }
       }
+    },
+    copy: {
+      main: {
+        files: [
+          {expand: true, cwd: 'src/', src: ['**'], dest: 'dist/'},
+        ]
+      }
     }
   });
 
   // Load the plugin that provides the "uglify" task.
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-contrib-copy');
 
   // Default task(s).
-  grunt.registerTask('default', ['uglify', 'cssmin']);
+  grunt.registerTask('default', ['uglify', 'cssmin', 'copy']);
 
 };
