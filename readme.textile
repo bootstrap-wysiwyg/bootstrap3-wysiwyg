@@ -204,7 +204,7 @@ It is possible to use custom translations as well. Just add a new key to $.fn.wy
 
 h1. TODO
 
-- Upload gh-pages and update according to readme
-- Tests should run again
-- Substitute old component.json with newer bower.json
-- Add bower install command to readme
+- -Upload gh-pages and update according to readme-
+- -Tests should run again-
+- -Substitute old component.json with newer bower.json-
+- -Add bower install command to readme-
