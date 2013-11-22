@@ -18,7 +18,7 @@ Bootstrap-wysihtml5 is a javascript plugin that makes it easy to create simple, 
 
 h1. Examples
 
-* "http://jhollingworth.github.com/bootstrap-wysihtml5":http://jhollingworth.github.com/bootstrap-wysihtml5/
+* "http://waxolunist.github.io/bootstrap3-wysihtml5-bower/":http://waxolunist.github.io/bootstrap3-wysihtml5-bower/
 
 h1. Quick Start
 
