@@ -3,9 +3,9 @@
 
     var tpl = {
         "font-styles": function(locale, options) {
-            var size = (options && options.size) ? ' btn-' + options.size : ' btn-default';
+            var size = (options && options.size) ? ' btn-' + options.size : ' ';
             return "<li class='dropdown'>" +
-              "<a class='btn  btn-default dropdown-toggle" + size + "' data-toggle='dropdown' href='#'>" +
+              "<a class='btn btn-default dropdown-toggle" + size + "' data-toggle='dropdown' href='#'>" +
               "<span class='glyphicon glyphicon-font'></span>&nbsp;<span class='current-font'>" + locale.font_styles.normal + "</span>&nbsp;<b class='caret'></b>" +
               "</a>" +
               "<ul class='dropdown-menu'>" +
@@ -21,7 +21,7 @@
         },
 
         "emphasis": function(locale, options) {
-            var size = (options && options.size) ? ' btn-'+options.size : ' btn-default';
+            var size = (options && options.size) ? ' btn-'+options.size : ' ';
             return "<li>" +
               "<div class='btn-group'>" +
                 "<a class='btn" + size + " btn-default' data-wysihtml5-command='bold' title='CTRL+B' tabindex='-1'>" + locale.emphasis.bold + "</a>" +
@@ -32,7 +32,7 @@
         },
 
         "lists": function(locale, options) {
-            var size = (options && options.size) ? ' btn-'+options.size : ' btn-default';
+            var size = (options && options.size) ? ' btn-'+options.size : ' ';
             return "<li>" +
               "<div class='btn-group'>" +
                 "<a class='btn" + size + " btn-default' data-wysihtml5-command='insertUnorderedList' title='" + locale.lists.unordered + "' tabindex='-1'><span class='glyphicon glyphicon-list'></span></a>" +
@@ -44,7 +44,7 @@
         },
 
         "link": function(locale, options) {
-            var size = (options && options.size) ? ' btn-'+options.size : ' btn-default';
+            var size = (options && options.size) ? ' btn-'+options.size : ' ';
             return "<li>" +
               "<div class='bootstrap-wysihtml5-insert-link-modal modal fade'><div class='modal-dialog'><div class='modal-content'>" +
                 "<div class='modal-header'>" +
@@ -65,7 +65,7 @@
         },
 
         "image": function(locale, options) {
-            var size = (options && options.size) ? ' btn-'+options.size : ' btn-default';
+            var size = (options && options.size) ? ' btn-'+options.size : ' ';
             return "<li>" +
               "<div class='bootstrap-wysihtml5-insert-image-modal modal fade'><div class='modal-dialog'><div class='modal-content'>" +
                 "<div class='modal-header'>" +
@@ -85,7 +85,7 @@
         },
 
         "html": function(locale, options) {
-            var size = (options && options.size) ? ' btn-'+options.size : ' btn-default';
+            var size = (options && options.size) ? ' btn-'+options.size : ' ';
             return "<li>" +
               "<div class='btn-group'>" +
                 "<a class='btn" + size + " btn-default' data-wysihtml5-action='change_view' title='" + locale.html.edit + "' tabindex='-1'><span class='glyphicon glyphicon-pencil'></span></a>" +
@@ -94,7 +94,7 @@
         },
 
         "color": function(locale, options) {
-            var size = (options && options.size) ? ' btn-'+options.size : ' btn-default';
+            var size = (options && options.size) ? ' btn-'+options.size : ' ';
             return "<li class='dropdown'>" +
               "<a class='btn btn-default dropdown-toggle" + size + "' data-toggle='dropdown' href='#' tabindex='-1'>" +
                 "<span class='current-color'>" + locale.colours.black + "</span>&nbsp;<b class='caret'></b>" +
