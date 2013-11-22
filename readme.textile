@@ -6,7 +6,7 @@ Besides it uses bower for client side dependency management.
 
 h2. Why a fork again?
 
-The old repository seems to be dead. Pull Requests are not accepted anymore since some time. The other bootstrap-wysihtml5 packages in the bower registry do NOT provide bootstrap 3 support, even if the name so suggests. The are not maintained either.
+The old repository seems to be dead. Pull Requests are not accepted anymore since some time. The other bootstrap-wysihtml5 packages in the bower registry do NOT provide bootstrap 3 support, even if the name so suggests. They are not maintained either.
 
 Furthermore the packages on bower do not use proper dependency management.
 
