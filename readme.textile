@@ -46,11 +46,11 @@ h1. Overview
 
 Bootstrap-wysihtml5 is a javascript plugin that makes it easy to create simple, beautiful wysiwyg editors with the help of "wysihtml5":https://github.com/xing/wysihtml5 and "Twitter Bootstrap":http://twitter.github.com/bootstrap/.
 
-h1. Examples
+h2. Examples
 
 * "http://waxolunist.github.io/bootstrap3-wysihtml5-bower/":http://waxolunist.github.io/bootstrap3-wysihtml5-bower/
 
-h1. Quick Start
+h2. Quick Start
 
 If you are using bower use the "bootstrap3-wysihtml5-bower" package. 
 
@@ -58,11 +58,11 @@ If you are using bower use the "bootstrap3-wysihtml5-bower" package.
 bower install bootstrap3-wysihtml5-bower
 </pre>
 
-h2. Files to reference
+h3. Files to reference
 
-See the dist folder.
+See the example or the different index files in the repo.
 
-h2. Usage
+h3. Usage
 
 <pre>
 <textarea id="some-textarea" placeholder="Enter text ..." style="styles to copy to the iframe"></textarea>
@@ -87,7 +87,7 @@ An options object can be passed in to .wysihtml5() to configure the editor:
 $('#some-textarea').wysihtml5({someOption: 23, ...})
 </pre>
 
-h3. Buttons
+h4. Buttons
 
 To override which buttons to show, set the appropriate flags:
 
@@ -104,7 +104,7 @@ $('#some-textarea').wysihtml5({
 });
 </pre>
 
-h3. Custom Templates for Toolbar Buttons
+h4. Custom Templates for Toolbar Buttons
 
 To define custom templates for buttons, you can submit a customTemplates hash with the new definitions.  Each entry should be a function which expects 'locale' and optional 'options' to manage the translations.
 
@@ -141,7 +141,7 @@ $('#some-textarea').wysihtml5({
 This will override only the toolbar template for html, and all others will use the default.
 
 
-h3. Stylesheets
+h4. Stylesheets
 
 It is possible to supply a number of stylesheets for inclusion in the editor `<iframe>`:
 
@@ -151,7 +151,7 @@ $('#some-textarea').wysihtml5({
 });
 </pre>
 
-h3. Events
+h4. Events
 
 Wysihtml5 exposes a "number of events":https://github.com/xing/wysihtml5/wiki/Events. You can hook into these events when initialising the editor:
 
@@ -168,11 +168,11 @@ $('#some-textarea').wysihtml5({
 });
 </pre>
 
-h3. Shallow copy by default, deep on request
+h4. Shallow copy by default, deep on request
 
 Options you pass in will be added to the defaults via a shallow copy.  (see "jQuery.extend()":http://api.jquery.com/jQuery.extend/ for details). You can use a deep copy instead (which is probably what you want if you're adding tags or classes to parserRules) via 'deepExtend', as in the parserRules example below.
 
-h3. Parser Rules
+h4. Parser Rules
 
 If you find the editor is stripping out tags or attributes you need, then you'll want to extend (or replace) parserRules.  This example extends the defaults to allow the <code><strong></code> and <code><em></code> tags, and the class "middle":
 
@@ -192,7 +192,7 @@ $('#some-textarea').wysihtml5('deepExtend', {
 
 There's quite a bit that can be done with parserRules; see "wysihtml5's advanced parser ruleset":https://github.com/xing/wysihtml5/blob/master/parser_rules/advanced.js for details.  bootstrap-wysihtml5's default parserRules can be found "in the source":https://github.com/jhollingworth/bootstrap-wysihtml5/blob/master/src/bootstrap-wysihtml5.js (just search for 'parserRules' in the file).
 
-h3. Defaults
+h4. Defaults
 
 You can change bootstrap-wysihtml5's defaults by altering:
 
@@ -208,7 +208,7 @@ $(this).wysihtml5('resetDefaults')
 
 Operations on the defaults are not thread-safe; if you're going to change the defaults, you probably want to do it only once, after you load the bootstrap-wysihtml plugin and before you start instantiating your editors.
 
-h2. The underlying wysihtml5 object
+h3. The underlying wysihtml5 object
 
 You can access the "wysihtml5 editor object":https://github.com/xing/wysihtml5 like this:
 
@@ -218,7 +218,7 @@ wysihtml5Editor.composer.commands.exec("bold");
 </pre>
 
 
-h2. I18n
+h3. I18n
 
 You can use Bootstrap-wysihtml5 in other languages. There are some translations available in the src/locales directory. You can include your desired one after the plugin and pass its key to the editor. Example:
 
@@ -233,18 +233,22 @@ It is possible to use custom translations as well. Just add a new key to $.fn.wy
 
 h1. Release Notes
 
-- *0.2.0* (2013/11/22): 
-  - Clean up code (jshint).
-  - Add handlebars for better maintainability of templates.
-- *0.1.0* (2013/11/20): 
-  - Forked code and made it fit for bower.
-  - Add build tasks for grunt.
-  - Some bug fixes, to run tests again.
+* *0.2.1* (2013/11/23): 
+** Updated french translation.
+** Added hungarian translation.
+** Allow strong, p and em to the list of allowed tags.
+* *0.2.0* (2013/11/22): 
+** Clean up code (jshint).
+** Add handlebars for better maintainability of templates.
+* *0.1.0* (2013/11/20): 
+** Forked code and made it fit for bower.
+** Add build tasks for grunt.
+** Some bug fixes, to run tests again.
 
 h1. TODO
 
-- -Upload gh-pages and update according to readme-
-- -Tests should run again-
-- -Substitute old component.json with newer bower.json-
-- -Add bower install command to readme-
-- Test other features such as color, etc.
+* -Upload gh-pages and update according to readme-
+* -Tests should run again-
+* -Substitute old component.json with newer bower.json-
+* -Add bower install command to readme-
+* Test other features such as color, etc.
