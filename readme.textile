@@ -233,6 +233,8 @@ It is possible to use custom translations as well. Just add a new key to $.fn.wy
 
 h1. Release Notes
 
+* *0.2.2* (2013/11/23): 
+** Polish translatio update
 * *0.2.1* (2013/11/23): 
 ** Updated french translation.
 ** Added hungarian translation.
