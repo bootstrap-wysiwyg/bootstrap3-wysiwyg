@@ -7,7 +7,10 @@
             normal: "Normální text",
             h1: "Nadpis úrovně 1",
             h2: "Nadpis úrovně 2",
-            h3: "Nadpis úrovně 3"
+            h3: "Nadpis úrovně 3",
+            h4: "Nadpis úrovně 4",
+            h5: "Nadpis úrovně 5",
+            h6: "Nadpis úrovně 6"
         },
         emphasis: {
             bold: "Tučné",

@@ -7,7 +7,10 @@
             normal: "Normal tekst",
             h1: "Overskrift 1",
             h2: "Overskrift 2",
-            h3: "Overskrift 3"
+            h3: "Overskrift 3",
+            h4: "Overskrift 4",
+            h5: "Overskrift 5",
+            h6: "Overskrift 6"
         },
         emphasis: {
             bold: "Fed",
