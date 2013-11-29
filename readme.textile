@@ -255,4 +255,4 @@ h1. TODO
 * -Add bower install command to readme-
 * Test other features such as color, etc.
 
-[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/26b1987d3632c76a1697e97b6147f68e "githalytics.com")](http://githalytics.com/Waxolunist/bootstrap3-wysihtml5-bower)
+!https://cruel-carlota.pagodabox.com/26b1987d3632c76a1697e97b6147f68e!:http://githalytics.com/Waxolunist/bootstrap3-wysihtml5-bower
