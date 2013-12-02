@@ -16,7 +16,7 @@ h2. Dependencies
 
 Additionally to the existing dependencies I added handlebars in version 0.2.0. You only need the handlebars.runtime.min.js. The templates are precompiled during build. This adds less than 7kB to your client (~3kB gzipped). Thus it is easier to maintain the code.
 
-Becaus maintaining code requires maintainable code.
+Because maintaining code requires maintainable code.
 
 h2. Development
 
