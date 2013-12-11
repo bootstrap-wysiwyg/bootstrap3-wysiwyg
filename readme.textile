@@ -16,7 +16,7 @@ h2. Dependencies
 
 Additionally to the existing dependencies I added handlebars in version 0.2.0. You only need the handlebars.runtime.min.js. The templates are precompiled during build. This adds less than 7kB to your client (~3kB gzipped). Thus it is easier to maintain the code.
 
-Becaus maintaining code requires maintainable code.
+Because maintaining code requires maintainable code.
 
 h2. Development
 
@@ -233,8 +233,15 @@ It is possible to use custom translations as well. Just add a new key to $.fn.wy
 
 h1. Release Notes
 
+* *0.2.3* (2013/12/11): 
+** Updated arabic translation.
+** Updated bulgarian translation.
+** Updated danish translation.
+** Updated czech translation.
+** Updated catalan translation.
+** Updated brazilian translation.
 * *0.2.2* (2013/11/23): 
-** Polish translation update
+** Updated polish translation.
 * *0.2.1* (2013/11/23): 
 ** Updated french translation.
 ** Added hungarian translation.
@@ -254,3 +261,5 @@ h1. TODO
 * -Substitute old component.json with newer bower.json-
 * -Add bower install command to readme-
 * Test other features such as color, etc.
+
+!https://cruel-carlota.pagodabox.com/26b1987d3632c76a1697e97b6147f68e!:http://githalytics.com/Waxolunist/bootstrap3-wysihtml5-bower
