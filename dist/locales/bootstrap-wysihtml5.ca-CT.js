@@ -6,7 +6,11 @@
         font_styles: {
               normal: "Text normal",
               h1: "Títol 1",
-              h2: "Títol 2"
+              h2: "Títol 2",
+              h3: "Títol 3",
+              h4: "Títol 4",
+              h5: "Títol 5",
+              h6: "Títol 6"
         },
         emphasis: {
               bold: "Negreta",

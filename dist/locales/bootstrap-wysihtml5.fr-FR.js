@@ -21,8 +21,7 @@
               unordered: "Liste à puces",
               ordered: "Liste numérotée",
               outdent: "Diminuer le retrait",
-              indent: "Augmenter le retrait",
-              indered: "Augmenter le retrait"
+              indent: "Augmenter le retrait"
         },
         link: {
               target: "Ouvrir le lien dans une nouvelle fenêtre",
