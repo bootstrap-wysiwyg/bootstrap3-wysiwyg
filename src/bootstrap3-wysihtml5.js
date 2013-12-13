@@ -92,7 +92,9 @@
       toolbar.find('a[data-wysihtml5-command="formatBlock"]').click(function(e) {
         var target = e.target || e.srcElement;
         var el = $(target);
-        self.toolbar.find('.current-font').text(el.html());
+        if(el.data('wysihtml5-display-format-name') !== 'false') {
+          self.toolbar.find('.current-font').text(el.data('wysihtml5-format-name') || el.html());
+        }
       });
 
       toolbar.find('a[data-wysihtml5-command="foreColor"]').click(function(e) {

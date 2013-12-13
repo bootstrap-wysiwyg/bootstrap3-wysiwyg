@@ -100,6 +100,7 @@ $('#some-textarea').wysihtml5({
 	"link": true, //Button to insert a link. Default true
 	"image": true, //Button to insert an image. Default true,
 	"color": false, //Button to change color of font  
+	"blockquote": true, //Blockquote  
   "size": <buttonsize> //default: default
 });
 </pre>
@@ -140,6 +141,16 @@ $('#some-textarea').wysihtml5({
 
 This will override only the toolbar template for html, and all others will use the default.
 
+h5. Data Attributes
+
+As of version 0.2.4 there are two new data attributes. 
+
+<dl>
+  <dt>data-wysihtml5-format-name</dt>
+  <dd>Normally the inner html of the format command is used to display as current font style. This attribute overrides this value.</dd>
+  <dt>data-wysihtml5-display-format-name</dt>
+  <dd>Whether to show the current font style in the toolbar anyways.</dd>
+</dl>
 
 h4. Stylesheets
 
@@ -233,6 +244,9 @@ It is possible to use custom translations as well. Just add a new key to $.fn.wy
 
 h1. Release Notes
 
+* *0.2.4* (2013/12/13): 
+** Added blockquote format button
+** Added 2 new data attributes: data-wysihtml5-display-format-name and data-wysihtml5-format-name
 * *0.2.3* (2013/12/11): 
 ** Updated arabic translation.
 ** Updated bulgarian translation.
