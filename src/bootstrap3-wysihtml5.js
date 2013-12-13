@@ -90,10 +90,12 @@
       }
 
       toolbar.find('a[data-wysihtml5-command="formatBlock"]').click(function(e) {
-        var target = e.target || e.srcElement;
-        var el = $(target);
-        if(el.data('wysihtml5-display-format-name') !== 'false') {
-          self.toolbar.find('.current-font').text(el.data('wysihtml5-format-name') || el.html());
+        var target = e.delegateTarget || e.target || e.srcElement,
+            el = $(target),
+            showformat = el.data('wysihtml5-display-format-name'),
+            formatname = el.data('wysihtml5-format-name') || el.html();
+        if(showformat === undefined || showformat === 'true') {
+          self.toolbar.find('.current-font').text(formatname);
         }
       });
 
