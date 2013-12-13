@@ -273,6 +273,7 @@
     'font-styles': true,
     'color': false,
     'emphasis': true,
+    'blockquote': true,
     'lists': true,
     'html': false,
     'link': true,
