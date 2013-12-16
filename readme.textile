@@ -1,10 +1,14 @@
-h1. About this fork
+h1. Overview
+
+Bootstrap-wysihtml5 is a javascript plugin that makes it easy to create simple, beautiful wysiwyg editors with the help of "wysihtml5":https://github.com/xing/wysihtml5 and "Twitter Bootstrap":http://twitter.github.com/bootstrap/.
+
+h2. About this fork
 
 This fork provides the same functionality as the original by <a href="https://github.com/jhollingworth/bootstrap-wysihtml5">jhollingworth</a> but skips bootstrap 2 support and adds bootstrap 3 support.
 
 Besides it uses bower for client side dependency management.
 
-h2. Why a fork again?
+h3. Why a fork again?
 
 The old repository seems to be dead. Pull Requests are not accepted anymore since some time. The other bootstrap-wysihtml5 packages in the bower registry do NOT provide bootstrap 3 support, even if the name so suggests. They are not maintained either.
 
@@ -42,15 +46,7 @@ grunt
 
 on the command line and everything should build fine.
 
-h1. Overview
-
-Bootstrap-wysihtml5 is a javascript plugin that makes it easy to create simple, beautiful wysiwyg editors with the help of "wysihtml5":https://github.com/xing/wysihtml5 and "Twitter Bootstrap":http://twitter.github.com/bootstrap/.
-
-h2. Examples
-
-* "http://waxolunist.github.io/bootstrap3-wysihtml5-bower/":http://waxolunist.github.io/bootstrap3-wysihtml5-bower/
-
-h2. Quick Start
+h2. Installation
 
 If you are using bower use the "bootstrap3-wysihtml5-bower" package. 
 
@@ -58,9 +54,19 @@ If you are using bower use the "bootstrap3-wysihtml5-bower" package.
 bower install bootstrap3-wysihtml5-bower
 </pre>
 
+h2. Examples
+
+* "http://waxolunist.github.io/bootstrap3-wysihtml5-bower/":http://waxolunist.github.io/bootstrap3-wysihtml5-bower/
+
 h3. Files to reference
 
-See the example or the different index files in the repo.
+In the folder dist you will the plain unminified javascript files and two kinds of minified files.
+
+*bootstrap3-wysihtml5.min.js*: This file contains the jquery plugin, the templates and the english translations. If you are referencing this file, you have to reference jquery, bootstrap jquery plugin, handlebars runtime and wysihtml.js.
+
+*bootstrap3-wysihtml5.all.min.js*: This file contains all of the normal minified file plus the handlebars runtime and editor library. If you are referencing this file, you have to reference jquery and bootstrap jquery plugin.
+
+*bootstrap3-wysihtml5.min.css*: This is the stylesheet for this plugin.
 
 h3. Usage
 
