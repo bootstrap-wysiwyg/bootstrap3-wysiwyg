@@ -68,6 +68,8 @@ In the folder dist you will the plain unminified javascript files and two kinds 
 
 *bootstrap3-wysihtml5.min.css*: This is the stylesheet for this plugin.
 
+If you are using any other translation than english, you have to either build this plugin yourself, or reference it separately.
+
 h3. Usage
 
 <pre>
