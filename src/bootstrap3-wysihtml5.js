@@ -55,6 +55,10 @@
         'style': 'display:none'
       });
       var culture = options.locale || defaultOptions.locale || 'en';
+      if(!locale.hasOwnProperty(culture)) {
+        console.debug('Locale \'' + culture + '\' not found. Available locales are: ' + Object.keys(locale) + '. Falling back to \'en\'.');
+        culture = 'en';
+      }
       for(var key in defaultOptions) {
         var value = false;
 
