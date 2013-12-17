@@ -252,6 +252,9 @@ It is possible to use custom translations as well. Just add a new key to $.fn.wy
 
 h1. Release Notes
 
+* *0.2.5* (2013/12/17): 
+** Updated german translation
+** Fix issue #8: Provide fallback if locale is not found.
 * *0.2.4* (2013/12/13): 
 ** Added blockquote format button
 ** Added 2 new data attributes: data-wysihtml5-display-format-name and data-wysihtml5-format-name
