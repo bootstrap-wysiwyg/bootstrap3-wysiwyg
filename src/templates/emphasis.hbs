@@ -3,5 +3,8 @@
     <a class="btn {{#if options.size}}btn-{{options.size}}{{/if}} btn-default" data-wysihtml5-command="bold" title="CTRL+B" tabindex="-1">{{locale.emphasis.bold}}</a>
     <a class="btn {{#if options.size}}btn-{{options.size}}{{/if}} btn-default" data-wysihtml5-command="italic" title="CTRL+I" tabindex="-1">{{locale.emphasis.italic}}</a>
     <a class="btn {{#if options.size}}btn-{{options.size}}{{/if}} btn-default" data-wysihtml5-command="underline" title="CTRL+U" tabindex="-1">{{locale.emphasis.underline}}</a>
+    {{#if options.emSmall}}
+    <a class="btn {{#if options.size}}btn-{{options.size}}{{/if}} btn-default" data-wysihtml5-command="small" title="CTRL+S" tabindex="-1">{{locale.emphasis.small}}</a>
+    {{/if}}
   </div>
 </li>
