@@ -61,12 +61,14 @@
 <script src="components/handlebars/handlebars.runtime.min.js"></script>
 <script src="src/generated/templates.js"></script>
 <script src="src/bootstrap3-wysihtml5.js"></script>
-<script src="src/generated/commands.js"></script>
 <script src="src/locales/bootstrap-wysihtml5.en-US.js"></script>
+<script src="src/locales/bootstrap-wysihtml5.de-DE.js"></script>
+<script src="src/generated/commands.js"></script>
 
 <script>
   $('.textarea').wysihtml5({
-    'html': true
+    'html': true,
+    locale: 'de-DE'
   });
 </script>
 

@@ -61,6 +61,7 @@
         console.debug('Locale \'' + culture + '\' not found. Available locales are: ' + Object.keys(locale) + '. Falling back to \'en\'.');
         culture = 'en';
       }
+      var localeObject = $.extend(true, {}, locale.en, locale[culture]);
       for(var key in defaultOptions) {
         var value = false;
 
@@ -73,7 +74,7 @@
         }
 
         if(value === true) {
-          toolbar.append(templates(key, locale[culture], options));
+          toolbar.append(templates(key, localeObject, options));
 
           if(key === 'html') {
             this.initHtml(toolbar);
