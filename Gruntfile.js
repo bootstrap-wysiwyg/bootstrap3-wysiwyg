@@ -13,7 +13,7 @@ module.exports = function(grunt) {
           node: true
         },
         files: {
-          'src/templates.js': ['src/templates/*.hbs']
+          'src/generated/templates.js': ['src/templates/*.hbs']
         }
       }
     },
@@ -24,15 +24,17 @@ module.exports = function(grunt) {
       build: {
         files: {
           'dist/bootstrap3-wysihtml5.min.js': [
-            'src/templates.js', 
+            'src/generated/templates.js', 
             'src/bootstrap3-wysihtml5.js',
+            'src/generated/commands.js', 
             'src/locales/bootstrap-wysihtml5.en-US.js'
           ],
           'dist/bootstrap3-wysihtml5.all.min.js': [
             'components/wysihtml5/dist/wysihtml5-0.3.0.min.js',
             'components/handlebars/handlebars.runtime.min.js',
-            'src/templates.js', 
+            'src/generated/templates.js', 
             'src/bootstrap3-wysihtml5.js',
+            'src/generated/commands.js', 
             'src/locales/bootstrap-wysihtml5.en-US.js'
           ]          
         }
@@ -56,6 +58,15 @@ module.exports = function(grunt) {
           {expand: true, cwd: 'src/', src: ['locales/*.js'], dest: 'dist/'},
         ]
       }
+    },
+    concat: {
+      options: {
+        separator: '',
+      },
+      commands: {
+        src: ['src/commands/small.js'],
+        dest: 'src/generated/commands.js',
+      },
     }
   });
 
@@ -63,9 +74,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-handlebars');
 
   // Default task(s).
-  grunt.registerTask('default', ['handlebars', 'uglify', 'cssmin', 'copy']);
+  grunt.registerTask('dev', ['handlebars', 'concat:commands']);
+  grunt.registerTask('default', ['handlebars', 'concat:commands', 'uglify', 'cssmin', 'copy']);
 
 };
