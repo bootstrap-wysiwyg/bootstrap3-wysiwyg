@@ -1,16 +1,16 @@
 /* jshint expr: true */
-!(function($, wysi) {
+!(function($, wysihtml5) {
   'use strict';
 
   var templates = function(key, locale, options) {
-    return wysi.tpl[key]({locale: locale, options: options});
+    return wysihtml5.tpl[key]({locale: locale, options: options});
   };
 
   var Wysihtml5 = function(el, options) {
     this.el = el;
     var toolbarOpts = options || defaultOptions;
     for(var t in toolbarOpts.customTemplates) {
-      wysi.tpl[t] = toolbarOpts.customTemplates[t];
+      wysihtml5.tpl[t] = toolbarOpts.customTemplates[t];
     }
     this.toolbar = this.createToolbar(el, toolbarOpts);
     this.editor =  this.createEditor(options);
@@ -38,8 +38,10 @@
       options = $.extend(true, {}, options);
       options.toolbar = this.toolbar[0];
 
-      var editor = new wysi.Editor(this.el[0], options);
+      var editor = new wysihtml5.Editor(this.el[0], options);
 
+      this.addMoreShortcuts(editor, editor.currentView.iframe.contentDocument.body);    
+      
       if(options && options.events) {
         for(var eventName in options.events) {
           editor.on(eventName, options.events[eventName]);
@@ -235,6 +237,21 @@
           return true;
         }
       });
+    },
+
+    addMoreShortcuts: function(editor, el) {
+      /* some additional shortcuts */
+      var shortcuts = {
+        '83': 'small'     // S
+      };
+      wysihtml5.dom.observe(el, 'keydown', function(event) {
+        var keyCode  = event.keyCode,
+            command  = shortcuts[keyCode];
+        if ((event.ctrlKey || event.metaKey) && !event.altKey && command && wysihtml5.commands[command]) {
+          wysihtml5.commands[command].exec(editor.composer, command);
+          event.preventDefault();
+        }
+      });
     }
   };
 
@@ -343,11 +360,13 @@
         },
         'span': 1,
         'div': 1,
+        'small': 1,
         // to allow save and edit files with code tag hacks
         'code': 1,
         'pre': 1
       }
     },
+    emSmall: 1,
     locale: 'en'
   };
 
