@@ -109,7 +109,7 @@ $('#some-textarea').wysihtml5({
 	"image": true, //Button to insert an image. Default true,
 	"color": false, //Button to change color of font  
 	"blockquote": true, //Blockquote  
-  "size": <buttonsize> //default: default
+  "size": <buttonsize> //default: none, other options are xs, sm, lg
 });
 </pre>
 
