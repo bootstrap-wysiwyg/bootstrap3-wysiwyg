@@ -8,9 +8,7 @@
 
   var Wysihtml5 = function(el, options) {
     this.el = el;
-    var toolbarOpts = options || defaultOptions;
-    //extend shortcuts instead of overwriting em
-    $.extend(toolbarOpts.shortcuts, defaultOptions.shortcuts);
+    var toolbarOpts = $.extend(true, {}, defaultOptions, options);
     for(var t in toolbarOpts.customTemplates) {
       wysihtml5.tpl[t] = toolbarOpts.customTemplates[t];
     }
@@ -64,18 +62,8 @@
         culture = 'en';
       }
       var localeObject = $.extend(true, {}, locale.en, locale[culture]);
-      for(var key in defaultOptions) {
-        var value = false;
-
-        if(options[key] !== undefined) {
-          if(options[key] === true) {
-            value = true;
-          }
-        } else {
-          value = defaultOptions[key];
-        }
-
-        if(value === true) {
+      for(var key in defaultOptions.toolbar) {
+        if(options.toolbar[key]) {
           toolbar.append(templates(key, localeObject, options));
 
           if(key === 'html') {
@@ -89,12 +77,6 @@
           if(key === 'image') {
             this.initInsertImage(toolbar);
           }
-        }
-      }
-
-      if(options.toolbar) {
-        for(key in options.toolbar) {
-          toolbar.append(options.toolbar[key]);
         }
       }
 
@@ -295,14 +277,18 @@
   $.fn.wysihtml5.Constructor = Wysihtml5;
 
   var defaultOptions = $.fn.wysihtml5.defaultOptions = {
-    'font-styles': true,
-    'color': false,
-    'emphasis': true,
-    'blockquote': true,
-    'lists': true,
-    'html': false,
-    'link': true,
-    'image': true,
+    toolbar: {
+      'font-styles': true,
+      'color': false,
+      'emphasis': {
+        'small': true
+      },
+      'blockquote': true,
+      'lists': true,
+      'html': false,
+      'link': true,
+      'image': true,
+    },
     events: {},
     parserRules: {
       classes: {
@@ -366,7 +352,6 @@
         'pre': 1
       }
     },
-    emSmall: 1,
     locale: 'en',
     shortcuts: {
       '83': 'small'     // S

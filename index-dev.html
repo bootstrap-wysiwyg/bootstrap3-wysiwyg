@@ -67,7 +67,13 @@
 
 <script>
   $('.textarea').wysihtml5({
-    'html': true,
+    toolbar: {
+      'font-styles': {},
+      'emphasis': {
+        'small': false
+      },
+      'html': false
+    },
     locale: 'de-DE'
   });
 </script>
