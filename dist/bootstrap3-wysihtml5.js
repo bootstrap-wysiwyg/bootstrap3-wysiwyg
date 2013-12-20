@@ -1,19 +1,21 @@
 /* jshint expr: true */
-!(function($, wysi) {
+!(function($, wysihtml5) {
   'use strict';
 
   var templates = function(key, locale, options) {
-    return wysi.tpl[key]({locale: locale, options: options});
+    return wysihtml5.tpl[key]({locale: locale, options: options});
   };
 
   var Wysihtml5 = function(el, options) {
     this.el = el;
     var toolbarOpts = options || defaultOptions;
+    //extend shortcuts instead of overwriting em
+    $.extend(toolbarOpts.shortcuts, defaultOptions.shortcuts);
     for(var t in toolbarOpts.customTemplates) {
-      wysi.tpl[t] = toolbarOpts.customTemplates[t];
+      wysihtml5.tpl[t] = toolbarOpts.customTemplates[t];
     }
     this.toolbar = this.createToolbar(el, toolbarOpts);
-    this.editor =  this.createEditor(options);
+    this.editor =  this.createEditor(toolbarOpts);
 
     window.editor = this.editor;
 
@@ -38,8 +40,10 @@
       options = $.extend(true, {}, options);
       options.toolbar = this.toolbar[0];
 
-      var editor = new wysi.Editor(this.el[0], options);
+      var editor = new wysihtml5.Editor(this.el[0], options);
 
+      this.addMoreShortcuts(editor, editor.currentView.iframe.contentDocument.body, options.shortcuts);    
+      
       if(options && options.events) {
         for(var eventName in options.events) {
           editor.on(eventName, options.events[eventName]);
@@ -59,6 +63,7 @@
         console.debug('Locale \'' + culture + '\' not found. Available locales are: ' + Object.keys(locale) + '. Falling back to \'en\'.');
         culture = 'en';
       }
+      var localeObject = $.extend(true, {}, locale.en, locale[culture]);
       for(var key in defaultOptions) {
         var value = false;
 
@@ -71,7 +76,7 @@
         }
 
         if(value === true) {
-          toolbar.append(templates(key, locale[culture], options));
+          toolbar.append(templates(key, localeObject, options));
 
           if(key === 'html') {
             this.initHtml(toolbar);
@@ -235,6 +240,18 @@
           return true;
         }
       });
+    },
+
+    addMoreShortcuts: function(editor, el, shortcuts) {
+      /* some additional shortcuts */
+      wysihtml5.dom.observe(el, 'keydown', function(event) {
+        var keyCode  = event.keyCode,
+            command  = shortcuts[keyCode];
+        if ((event.ctrlKey || event.metaKey) && !event.altKey && command && wysihtml5.commands[command]) {
+          wysihtml5.commands[command].exec(editor.composer, command);
+          event.preventDefault();
+        }
+      });
     }
   };
 
@@ -343,12 +360,18 @@
         },
         'span': 1,
         'div': 1,
+        'small': 1,
         // to allow save and edit files with code tag hacks
         'code': 1,
         'pre': 1
       }
     },
-    locale: 'en'
+    emSmall: 1,
+    locale: 'en',
+    shortcuts: {
+      '83': 'small'     // S
+    }
+    
   };
 
   if (typeof $.fn.wysihtml5.defaultOptionsCache === 'undefined') {

@@ -211,6 +211,18 @@ $('#some-textarea').wysihtml5('deepExtend', {
 
 There's quite a bit that can be done with parserRules; see "wysihtml5's advanced parser ruleset":https://github.com/xing/wysihtml5/blob/master/parser_rules/advanced.js for details.  bootstrap-wysihtml5's default parserRules can be found "in the source":https://github.com/jhollingworth/bootstrap-wysihtml5/blob/master/src/bootstrap-wysihtml5.js (just search for 'parserRules' in the file).
 
+h4. Shortcuts
+
+You can map your own shortcuts to commands. For example if you want to map the underline command to Ctrl+T call the editor with following options:
+
+<pre>
+$('#some-textarea').wysihtml5({
+  shortcuts: {
+    '84': 'underline'
+  }
+});
+</pre>
+
 h4. Defaults
 
 You can change bootstrap-wysihtml5's defaults by altering:
@@ -252,6 +264,13 @@ It is possible to use custom translations as well. Just add a new key to $.fn.wy
 
 h1. Release Notes
 
+* *0.2.6* (2013/12/20): 
+** Ability to define own shortcuts ("#23":"https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/23").
+** New command "small" ("#19":"https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/19").
+** Normal text writes now "p" instead of "div" ("#21":"https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/21").
+** If a text element has no translation it falls back to english instead of an empty string ("#24":"https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/24").
+** Some refactoring to add new commands in the future with ease.
+** New build task for easier development.
 * *0.2.5* (2013/12/17): 
 ** Updated german translation
 ** Fix issue "#8":https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/8: Provide fallback if locale is not found.
@@ -286,5 +305,6 @@ h1. TODO
 * -Substitute old component.json with newer bower.json-
 * -Add bower install command to readme-
 * Test other features such as color, etc.
+* Prepare the code for new features. This is needed for the further development.
 
 !https://cruel-carlota.pagodabox.com/26b1987d3632c76a1697e97b6147f68e!:http://githalytics.com/Waxolunist/bootstrap3-wysihtml5-bower

@@ -15,7 +15,8 @@
     emphasis: {
       bold: 'Bold',
       italic: 'Italic',
-      underline: 'Underline'
+      underline: 'Underline',
+      small: 'Small'
     },
     lists: {
       unordered: 'Unordered list',
