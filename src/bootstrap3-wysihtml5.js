@@ -9,11 +9,13 @@
   var Wysihtml5 = function(el, options) {
     this.el = el;
     var toolbarOpts = options || defaultOptions;
+    //extend shortcuts instead of overwriting em
+    $.extend(toolbarOpts.shortcuts, defaultOptions.shortcuts);
     for(var t in toolbarOpts.customTemplates) {
       wysihtml5.tpl[t] = toolbarOpts.customTemplates[t];
     }
     this.toolbar = this.createToolbar(el, toolbarOpts);
-    this.editor =  this.createEditor(options);
+    this.editor =  this.createEditor(toolbarOpts);
 
     window.editor = this.editor;
 
@@ -40,7 +42,7 @@
 
       var editor = new wysihtml5.Editor(this.el[0], options);
 
-      this.addMoreShortcuts(editor, editor.currentView.iframe.contentDocument.body);    
+      this.addMoreShortcuts(editor, editor.currentView.iframe.contentDocument.body, options.shortcuts);    
       
       if(options && options.events) {
         for(var eventName in options.events) {
@@ -240,11 +242,8 @@
       });
     },
 
-    addMoreShortcuts: function(editor, el) {
+    addMoreShortcuts: function(editor, el, shortcuts) {
       /* some additional shortcuts */
-      var shortcuts = {
-        '83': 'small'     // S
-      };
       wysihtml5.dom.observe(el, 'keydown', function(event) {
         var keyCode  = event.keyCode,
             command  = shortcuts[keyCode];
@@ -368,7 +367,11 @@
       }
     },
     emSmall: 1,
-    locale: 'en'
+    locale: 'en',
+    shortcuts: {
+      '83': 'small'     // S
+    }
+    
   };
 
   if (typeof $.fn.wysihtml5.defaultOptionsCache === 'undefined') {
