@@ -1,6 +1,6 @@
 {
   "name": "bootstrap3-wysihtml5-bower",
-  "version": "0.2.0",
+  "version": "0.2.7",
   "description": "Bootstrap 3 compatible wysiwyg editor",
   "directories": {
     "test": "test"
