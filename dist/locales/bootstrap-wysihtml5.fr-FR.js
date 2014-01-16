@@ -15,8 +15,7 @@
     emphasis: {
       bold: "Gras",
       italic: "Italique",
-      underline: "Souligné",
-      small: "Petit"
+      underline: "Souligné"
     },
     lists: {
       unordered: "Liste à puces",
