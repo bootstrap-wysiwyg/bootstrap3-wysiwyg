@@ -106,7 +106,11 @@ ul.wysihtml5-toolbar div[data-wysihtml5-command-value="orange"] {
   font-family: Georgia, serif;
   font-size: 50px;
   position: absolute;
-  top: -19px;
+  top: -4px;
   left: -3px;
   max-height: 100%;
+}
+
+.glyphicon-quote:after {
+  content: "\0000a0";
 }
