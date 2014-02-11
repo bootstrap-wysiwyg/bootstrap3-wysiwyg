@@ -1,0 +1,126 @@
+html {
+  background: transparent;
+}
+
+body {
+  margin-bottom: 25px;
+  font-family: Helvetica, Arial, Verdana !important;
+}
+
+h1, h2 {
+  line-height: 1;
+  font-family: Rockwell, "Courier New", Courier, Georgia;
+  border-bottom: 1px solid #999;
+  font-weight: bold;
+  margin: 0 5px 25px 0;
+  padding: 0 0 8px;
+}
+
+h1 {
+  font-size: 27px;
+}
+
+h2 {
+  font-size: 18px;
+}
+
+p, li {
+  line-height: 1.5;
+}
+
+p, ul, ol {
+  padding-bottom: 25px;
+}
+
+a {
+  color: inherit;
+}
+
+strong, b {
+  font-weight: bold;
+}
+
+i, em {
+  font-style: italic;
+}
+
+li {
+  margin-left: 30px;
+}
+
+ul li {
+  list-style: disc outside;
+}
+
+ol li {
+  list-style: decimal outside;
+}
+
+li img {
+  vertical-align: middle;
+  margin: 2px 5px 5px 0;
+}
+
+.wysiwyg-color-black {
+  color: black;
+}
+
+.wysiwyg-color-silver {
+  color: silver;
+}
+
+.wysiwyg-color-gray {
+  color: gray;
+}
+
+.wysiwyg-color-white {
+  color: white;
+}
+
+.wysiwyg-color-maroon {
+  color: maroon;
+}
+
+.wysiwyg-color-red {
+  color: red;
+}
+
+.wysiwyg-color-purple {
+  color: purple;
+}
+
+.wysiwyg-color-fuchsia {
+  color: fuchsia;
+}
+
+.wysiwyg-color-green {
+  color: green;
+}
+
+.wysiwyg-color-lime {
+  color: lime;
+}
+
+.wysiwyg-color-olive {
+  color: olive;
+}
+
+.wysiwyg-color-yellow {
+  color: yellow;
+}
+
+.wysiwyg-color-navy {
+  color: navy;
+}
+
+.wysiwyg-color-blue {
+  color: blue;
+}
+
+.wysiwyg-color-teal {
+  color: teal;
+}
+
+.wysiwyg-color-aqua {
+  color: aqua;
+}

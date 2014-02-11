@@ -1,10 +1,14 @@
-h1. About this fork
+h1. Overview
+
+Bootstrap-wysihtml5 is a javascript plugin that makes it easy to create simple, beautiful wysiwyg editors with the help of "wysihtml5":https://github.com/xing/wysihtml5 and "Twitter Bootstrap":http://twitter.github.com/bootstrap/.
+
+h2. About this fork
 
 This fork provides the same functionality as the original by <a href="https://github.com/jhollingworth/bootstrap-wysihtml5">jhollingworth</a> but skips bootstrap 2 support and adds bootstrap 3 support.
 
 Besides it uses bower for client side dependency management.
 
-h2. Why a fork again?
+h3. Why a fork again?
 
 The old repository seems to be dead. Pull Requests are not accepted anymore since some time. The other bootstrap-wysihtml5 packages in the bower registry do NOT provide bootstrap 3 support, even if the name so suggests. They are not maintained either.
 
@@ -42,15 +46,7 @@ grunt
 
 on the command line and everything should build fine.
 
-h1. Overview
-
-Bootstrap-wysihtml5 is a javascript plugin that makes it easy to create simple, beautiful wysiwyg editors with the help of "wysihtml5":https://github.com/xing/wysihtml5 and "Twitter Bootstrap":http://twitter.github.com/bootstrap/.
-
-h2. Examples
-
-* "http://waxolunist.github.io/bootstrap3-wysihtml5-bower/":http://waxolunist.github.io/bootstrap3-wysihtml5-bower/
-
-h2. Quick Start
+h2. Installation
 
 If you are using bower use the "bootstrap3-wysihtml5-bower" package. 
 
@@ -58,9 +54,21 @@ If you are using bower use the "bootstrap3-wysihtml5-bower" package.
 bower install bootstrap3-wysihtml5-bower
 </pre>
 
+h2. Examples
+
+* "http://waxolunist.github.io/bootstrap3-wysihtml5-bower/":http://waxolunist.github.io/bootstrap3-wysihtml5-bower/
+
 h3. Files to reference
 
-See the example or the different index files in the repo.
+In the folder dist you will the plain unminified javascript files and two kinds of minified files.
+
+*bootstrap3-wysihtml5.min.js*: This file contains the jquery plugin, the templates and the english translations. If you are referencing this file, you have to reference jquery, bootstrap jquery plugin, handlebars runtime and wysihtml.js.
+
+*bootstrap3-wysihtml5.all.min.js*: This file contains all of the normal minified file plus the handlebars runtime and editor library. If you are referencing this file, you have to reference jquery and bootstrap jquery plugin.
+
+*bootstrap3-wysihtml5.min.css*: This is the stylesheet for this plugin.
+
+If you are using any other translation than english, you have to either build this plugin yourself, or reference it separately.
 
 h3. Usage
 
@@ -101,7 +109,7 @@ $('#some-textarea').wysihtml5({
 	"image": true, //Button to insert an image. Default true,
 	"color": false, //Button to change color of font  
 	"blockquote": true, //Blockquote  
-  "size": <buttonsize> //default: default
+  "size": <buttonsize> //default: none, other options are xs, sm, lg
 });
 </pre>
 
@@ -203,6 +211,18 @@ $('#some-textarea').wysihtml5('deepExtend', {
 
 There's quite a bit that can be done with parserRules; see "wysihtml5's advanced parser ruleset":https://github.com/xing/wysihtml5/blob/master/parser_rules/advanced.js for details.  bootstrap-wysihtml5's default parserRules can be found "in the source":https://github.com/jhollingworth/bootstrap-wysihtml5/blob/master/src/bootstrap-wysihtml5.js (just search for 'parserRules' in the file).
 
+h4. Shortcuts
+
+You can map your own shortcuts to commands. For example if you want to map the underline command to Ctrl+T call the editor with following options:
+
+<pre>
+$('#some-textarea').wysihtml5({
+  shortcuts: {
+    '84': 'underline'
+  }
+});
+</pre>
+
 h4. Defaults
 
 You can change bootstrap-wysihtml5's defaults by altering:
@@ -244,6 +264,24 @@ It is possible to use custom translations as well. Just add a new key to $.fn.wy
 
 h1. Release Notes
 
+* *0.2.8* (2014/02/11):
+* Updated bootstrap to version 0.3.1 ("32":"https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/32")
+* Fixed issue with IE10 ("30":"https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/30")
+* *0.2.7* (2014/01/16):
+** Updated brazilian translation. ("26":"https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/pull/26")
+** Updated french translation. ("27":"https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/pull/27")
+** Updated Bootstrap to the latest version 3.0.3 ("28":"https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/pull/28")
+** Updated handlebars to the latest version 1.3.0 ("28":"https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/pull/28")
+* *0.2.6* (2013/12/20): 
+** Ability to define own shortcuts ("#23":"https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/23").
+** New command "small" ("#19":"https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/19").
+** Normal text writes now "p" instead of "div" ("#21":"https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/21").
+** If a text element has no translation it falls back to english instead of an empty string ("#24":"https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/24").
+** Some refactoring to add new commands in the future with ease.
+** New build task for easier development.
+* *0.2.5* (2013/12/17): 
+** Updated german translation
+** Fix issue "#8":https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/8: Provide fallback if locale is not found.
 * *0.2.4* (2013/12/13): 
 ** Added blockquote format button
 ** Added 2 new data attributes: data-wysihtml5-display-format-name and data-wysihtml5-format-name
@@ -268,6 +306,13 @@ h1. Release Notes
 ** Add build tasks for grunt.
 ** Some bug fixes, to run tests again.
 
+h1. Thanks for assistance and contributions
+
+* Garito (Github)
+* SiamKreative (Github)
+* Adriano Ueda (aueda on Github)
+* Oliver Kopp (koppor on Github)
+
 h1. TODO
 
 * -Upload gh-pages and update according to readme-
@@ -275,5 +320,6 @@ h1. TODO
 * -Substitute old component.json with newer bower.json-
 * -Add bower install command to readme-
 * Test other features such as color, etc.
+* Prepare the code for new features. This is needed for the further development.
 
 !https://cruel-carlota.pagodabox.com/26b1987d3632c76a1697e97b6147f68e!:http://githalytics.com/Waxolunist/bootstrap3-wysihtml5-bower
