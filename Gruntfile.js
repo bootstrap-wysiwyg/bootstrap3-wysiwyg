@@ -30,7 +30,7 @@ module.exports = function(grunt) {
             'src/locales/bootstrap-wysihtml5.en-US.js'
           ],
           'dist/bootstrap3-wysihtml5.all.min.js': [
-            'components/wysihtml5/dist/wysihtml5-0.3.0.min.js',
+            'lib/wysihtml5x-0.4.2-toolbar.js',
             'components/handlebars/handlebars.runtime.min.js',
             'src/generated/templates.js', 
             'src/bootstrap3-wysihtml5.js',

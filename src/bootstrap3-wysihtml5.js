@@ -41,8 +41,8 @@
       var editor = new wysihtml5.Editor(this.el[0], options);
 
       // #30 - body is in IE 10 not created by default, which leads to nullpointer
-      // TODO - wysihtml5-0.4 
-//      this.addMoreShortcuts(editor, editor.currentView.iframe.contentDocument.body || editor.currentView.iframe.contentDocument, options.shortcuts);    
+      // 2014/02/13 - adapted to wysihtml5-0.4, does not work in IE
+      this.addMoreShortcuts(editor, editor.composer.editableArea.contentDocument.body || editor.composer.editableArea.contentDocument, options.shortcuts);    
       
       if(options && options.events) {
         for(var eventName in options.events) {
