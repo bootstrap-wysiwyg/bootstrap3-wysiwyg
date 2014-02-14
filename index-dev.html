@@ -21,6 +21,15 @@
     -moz-border-radius: 6px;
     border-radius: 6px;
   }
+
+  .editable {
+    width: 100%; 
+    height: 200px; 
+    font-size: 14px; 
+    line-height: 18px;
+    background-color: white;
+    overflow-y: scroll;
+  }
 </style>
 
 </head>
@@ -29,7 +38,7 @@
   <div class="jumbotron" style="margin-top:40px">
     <h1 style="font-size:58px">bootstrap-wysihtml5 <br/><small>Simple, beautiful wysiwyg editors</small></h1>
     <hr style="border-color: white"/>
-    <textarea class="textarea" placeholder="Enter text ..." style="width: 100%; height: 200px; font-size: 14px; line-height: 18px;"></textarea>
+    <div class="editable" placeholder="Enter text ..."></div>
   </div>
 
   <div class="row">
@@ -58,7 +67,7 @@
 <!--
 <script src="components/wysihtml5/dist/wysihtml5-0.3.0.js"></script>
 -->
-<script src="lib/wysihtml5x-0.4.2-toolbar.js"></script>
+<script src="components/wysihtml5x/dist/wysihtml5x-0.4.2-toolbar.js"></script>
 <script src="components/jquery/jquery.min.js"></script>
 <script src="components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="components/handlebars/handlebars.runtime.min.js"></script>
@@ -69,7 +78,7 @@
 <script src="src/generated/commands.js"></script>
 
 <script>
-  $('.textarea').wysihtml5({
+  $('.editable').wysihtml5({
     toolbar: {
       'font-styles': {},
       'emphasis': {

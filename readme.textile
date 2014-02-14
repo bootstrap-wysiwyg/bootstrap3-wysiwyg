@@ -72,6 +72,18 @@ If you are using any other translation than english, you have to either build th
 
 h3. Usage
 
+h5. Editable Div
+
+This is the new style from version 0.3 on and will be supported on all browsers.
+
+<div class="editable" placeholder="Enter text ..."></div>
+
+The javascript will keep the same.
+
+h4. Textarea
+
+This is the old style usage and does use a sandboxed iframe, which will from version 0.3 on not work in IE.
+
 <pre>
 <textarea id="some-textarea" placeholder="Enter text ..." style="styles to copy to the iframe"></textarea>
 <script type="text/javascript">
