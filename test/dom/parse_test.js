@@ -1,8 +1,13 @@
 if (wysihtml5.browser.supported()) {
 
   module("wysihtml5.dom.parse", {
-    sanitize: function(html, rules, context, cleanUp) {
-      return wysihtml5.dom.parse(html, rules, context, cleanUp);
+    sanitize: function(html, rules, context, cleanUp, uneditableClass) {
+      return wysihtml5.dom.parse(html, {
+        "rules": rules,
+        "cleanUp": cleanUp,
+        "context": context,
+        "uneditableClass": uneditableClass
+      });
     },
 
     equal: function(actual, expected, message) {
@@ -98,17 +103,88 @@ if (wysihtml5.browser.supported()) {
         '<h1 id="main-headline" >take this you snorty little sanitizer</h1>' +
         '<h2>yes, you!</h2>' +
         '<h3>i\'m old and ready to die</h3>' +
-        '<div><video src="pr0n.avi">foobar</video><img src="http://foo.gif" height="10" width="10"></div>' +
+        '<div><video src="pr0n.avi">foobar</video><img src="http://foo.gif" height="10" width="10"><img src="/foo.gif"></div>' +
         '<div><a href="http://www.google.de"></a></div>',
         rules
       ),
       '<h2>take this you snorty little sanitizer</h2>' +
       '<h2>yes, you!</h2>' +
-      '<span><img alt="foo" border="1" src="http://foo.gif" height="10" width="10"></span>' +
+      '<span><img alt="foo" border="1" src="http://foo.gif" height="10" width="10"><img alt="foo" border="1"></span>' +
       '<span><i title=""></i></span>'
     );
   });
 
+  test("Attribute check of 'url' cleans up", function() {
+    var rules = {
+      tags: {
+        img: {
+          check_attributes: { src: "url" }
+        }
+      }
+    };
+
+    this.equal(
+      this.sanitize(
+        '<img src="http://url.gif">' +
+        '<img src="/path/to/absolute%20href.gif">' +
+        '<img src="mango time">',
+        rules
+      ),
+      '<img src="http://url.gif"><img><img>'
+    );
+  });
+
+  test("Attribute check of 'src' cleans up", function() {
+    var rules = {
+      tags: {
+        img: {
+          check_attributes: { src: "src" }
+        }
+      }
+    };
+
+    this.equal(
+      this.sanitize(
+        '<img src="HTTP://url.gif">' +
+        '<img src="/path/to/absolute%20href.gif">' +
+        '<img src="mailto:christopher@foobar.com">' +
+        '<img src="mango time">',
+        rules
+      ),
+      '<img src="http://url.gif">' +
+      '<img src="/path/to/absolute%20href.gif">' +
+      '<img>' +
+      '<img>'
+    );
+  });
+  
+  test("Attribute check of 'href' cleans up", function() {
+    var rules = {
+      tags: {
+        a: {
+          check_attributes: { href: "href" }
+        }
+      }
+    };
+
+    this.equal(
+      this.sanitize(
+        '<a href="/foobar"></a>' +
+        '<a href="HTTPS://google.com"></a>' +
+        '<a href="http://google.com"></a>' +
+        '<a href="MAILTO:christopher@foobar.com"></a>' +
+        '<a href="mango time"></a>' +
+        '<a href="ftp://google.com"></a>',
+        rules
+      ),
+      '<a href="/foobar"></a>' +
+      '<a href="https://google.com"></a>' +
+      '<a href="http://google.com"></a>' +
+      '<a href="mailto:christopher@foobar.com"></a>' +
+      '<a></a>' +
+      '<a></a>'
+    );
+  });
 
   test("Bug in IE8 where invalid html causes duplicated content", function() {
     var rules = {
@@ -140,6 +216,7 @@ if (wysihtml5.browser.supported()) {
   
   test("Test cleanup mode", function() {
     var rules = {
+      classes: { a: 1, c: 1 },
       tags: { span: true, div: true }
     };
     
@@ -151,6 +228,18 @@ if (wysihtml5.browser.supported()) {
     this.equal(
       this.sanitize("<span><p>foo</p></span>", rules, null, true),
       "foo"
+    );
+    
+    this.equal(
+      this.sanitize('<span class="a"></span><span class="a">foo</span>', rules, null, true),
+      '<span class="a">foo</span>',
+      "Empty 'span' is correctly removed"
+    );
+    
+    this.equal(
+      this.sanitize('<span><span class="a">1</span> <span class="b">2</span> <span class="c">3</span></span>', rules, null, true),
+      '<span class="a">1</span> 2 <span class="c">3</span>',
+      "Senseless 'span' is correctly removed"
     );
   });
   
@@ -474,6 +563,44 @@ if (wysihtml5.browser.supported()) {
     );
   });
   
+  test("Check mailto links", function() {
+    var rules = {
+      tags: {
+        a: {
+          check_attributes: {
+            href: "href"
+          }
+        }
+      }
+    };
+    
+
+    this.equal(
+      this.sanitize('<a href="mailto:foo@bar.com">foo</a>', rules),
+      '<a href="mailto:foo@bar.com">foo</a>',
+      "'mailto:' urls are not stripped"
+    );
+  });
+  
+  test("Check custom data attributes", function() {
+    var rules = {
+      tags: {
+        span: {
+          check_attributes: {
+            "data-max-width": "numbers"
+          }
+        }
+      }
+    };
+    
+
+    this.equal(
+      this.sanitize('<span data-max-width="24px" data-min-width="25">foo</span>', rules),
+      '<span data-max-width="24">foo</span>',
+      "custom data attributes are not stripped"
+    );
+  });
+  
   test("Check Firefox misbehavior with tilde characters in urls", function() {
     var rules = {
       tags: {
@@ -501,5 +628,105 @@ if (wysihtml5.browser.supported()) {
     ok(
       this.sanitize('<a href="http://google.com/~foo"></a>', rules).indexOf("~") !== -1
     );
+  });
+  
+  test("Check concatenation of text nodes", function() {
+    var rules = {
+      tags: { span: 1, div: 1 }
+    };
+    
+    var tree = document.createElement("div");
+    tree.appendChild(document.createTextNode("foo "));
+    tree.appendChild(document.createTextNode("bar baz "));
+    tree.appendChild(document.createTextNode("bam! "));
+    
+    var span = document.createElement("span");
+    span.innerHTML = "boobs! hihihi ...";
+    tree.appendChild(span);
+    
+    var result = this.sanitize(tree, rules);
+    equal(result.childNodes.length, 2);
+    equal(result.innerHTML, "foo bar baz bam! <span>boobs! hihihi ...</span>");
+  });
+  
+  test("Check element unwrapping", function() {
+    var rules = {
+      tags: { 
+          div: {
+              unwrap: 1
+          },
+          span: {
+            unwrap: 1
+          }
+       }
+    },
+    input = "<div>Hi,<span> there<span></span>!</span></div>",
+    output = "Hi, there!";
+    
+    this.equal(this.sanitize(input, rules), output);
+  });
+  
+  test("Check spacing when unwrapping elements", function() {
+    var rules = {
+      tags: { 
+          table: {
+              unwrap: 1
+          },
+          td: {
+            unwrap: 1
+          },
+          tr: {
+            unwrap: 1
+          },
+          tbody: {
+            unwrap: 1
+          },
+          ul: {
+            unwrap: 1
+          },
+          li: {
+            unwrap: 1
+          }
+       }
+    },
+    input_list = "<ul><li>This</li><li>is</li><li>a</li><li>list</li></ul>",
+    output_list = "This is a list",
+    input_table = "<table><tbody><tr><td>This</td><td>is</td><td>a</td><td>table</td></tr></tbody></table>",
+    output_table = "This is a table";
+    
+    this.equal(this.sanitize(input_list, rules), output_list, "List unwrapping working ok");
+    this.equal(this.sanitize(input_table, rules), output_table, "Table unwrapping working ok");
+  });
+  
+  test("Test valid type check by attributes", function() {
+    var rules = {
+      "type_definitions": {
+        "valid_image_src": {
+            "attrs": {
+                "src": /^[^data\:]/i
+            }
+         } 
+      },
+      "tags": { 
+          "img": {
+              "one_of_type": {
+                  "valid_image_src": 1
+              },
+              "check_attributes": {
+                  "src": "src",
+                  "height": "numbers",
+                  "width": "numbers",
+                  "alt": "alt"
+              } 
+          }
+       }
+    },
+    input = '<img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" alt="alt" />',
+    input_valid = '<img alt="" src="http://www.asd/a.jpg">',
+    input_valid_2 = '<img src="http://reykjavik.edicy.co/photos/photo02.jpg" alt="" height="243" width="710">';
+    
+    this.equal(this.sanitize(input, rules), "", "Image with data src gets removed");
+    this.equal(this.sanitize(input_valid, rules), input_valid, "Valid image is kept");
+    this.equal(this.sanitize(input_valid_2, rules), input_valid_2, "Valid image is kept2");
   });
 }
