@@ -264,6 +264,10 @@ It is possible to use custom translations as well. Just add a new key to $.fn.wy
 
 h1. Release Notes
 
+* *0.3.0* (not yet released):
+* Changed wysihtml implementation to wysihtml5x-0.4.2
+* *0.2.9* (not yet released):
+* Added hebrew translation
 * *0.2.8* (2014/02/11):
 * Updated bootstrap to version 0.3.1 ("32":"https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/32")
 * Fixed issue with IE10 ("30":"https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/30")
