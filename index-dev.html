@@ -68,8 +68,15 @@
 <script>
   $('.textarea').wysihtml5({
     'html': true,
-    locale: 'de-DE'
+    locale: 'de-DE',
+    events: {
+      'load': function() { 
+        $('.textarea').val('Some text here after loading.');
+        console.log('loaded!');
+      }
+    }
   });
+
 </script>
 
 </body>
