@@ -78,7 +78,6 @@
 <script src="src/generated/commands.js"></script>
 
 <script>
-<<<<<<< HEAD
   $('.editable').wysihtml5({
     toolbar: {
       'font-styles': {},
@@ -89,7 +88,7 @@
     },
     events: {
       'load': function() { 
-        $('.textarea').val('Some text here after loading.');
+        $('.editable').html('Some text here after loading.');
         console.log('loaded!');
       }
     },
