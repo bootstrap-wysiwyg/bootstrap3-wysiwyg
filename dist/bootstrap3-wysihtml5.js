@@ -68,7 +68,7 @@
         culture = 'en';
       }
       var localeObject = $.extend(true, {}, locale.en, locale[culture]);
-      for(var key in defaultOptions.toolbar) {
+      for(var key in options.toolbar) {
         if(options.toolbar[key]) {
           toolbar.append(templates(key, localeObject, options));
 
