@@ -1,5 +1,5 @@
 /**
- * Uruguayan spanish translation for bootstrap-wysihtml5
+ * Spanish translation for bootstrap-wysihtml5
  */
 (function($){
     $.fn.wysihtml5.locale["es-ES"] = {
@@ -11,7 +11,6 @@
               h4: "Título 4",
               h5: "Título 5",
               h6: "Título 6"
-
         },
         emphasis: {
               bold: "Negrita",
@@ -26,10 +25,11 @@
         },
         link: {
               insert: "Insertar enlace",
-              cancel: "Cancelar"
+              cancel: "Cancelar",
+              target: "Abrir enlace en una ventana nueva"
         },
         image: {
-              insert: "Insertar imágen",
+              insert: "Insertar imagen",
               cancel: "Cancelar"
         },
         html: {

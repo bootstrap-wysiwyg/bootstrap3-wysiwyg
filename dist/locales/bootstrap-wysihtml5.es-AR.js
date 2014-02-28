@@ -26,10 +26,11 @@
         },
         link: {
             insert: "Insertar enlace",
-            cancel: "Cancelar"
+            cancel: "Cancelar",
+            target: "Abrir enlace en una ventana nueva"
         },
         image: {
-            insert: "Insertar imágen",
+            insert: "Insertar imagen",
             cancel: "Cancelar"
         },
         html: {

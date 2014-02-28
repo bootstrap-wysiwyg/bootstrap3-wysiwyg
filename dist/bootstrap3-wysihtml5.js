@@ -8,7 +8,7 @@
 
   var Wysihtml5 = function(el, options) {
     this.el = el;
-    var toolbarOpts = options || defaultOptions;
+    var toolbarOpts = $.extend(true, {}, defaultOptions, options);
     //extend shortcuts instead of overwriting em
     $.extend(toolbarOpts.shortcuts, defaultOptions.shortcuts);
     for(var t in toolbarOpts.customTemplates) {
@@ -65,7 +65,7 @@
         culture = 'en';
       }
       var localeObject = $.extend(true, {}, locale.en, locale[culture]);
-      for(var key in defaultOptions) {
+      for(var key in options) {
         var value = false;
 
         if(options[key] !== undefined) {
