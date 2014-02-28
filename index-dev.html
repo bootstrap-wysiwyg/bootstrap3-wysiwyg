@@ -78,21 +78,34 @@
 <script src="src/generated/commands.js"></script>
 
 <script>
+ var customTemplates = {
+      custombuttons: function(customOptions) {
+          var size = (customOptions.options && customOptions.options.size) ? ' btn-'+customOptions.options.size : '';
+          return "<li>" +
+              "<div class='btn-group'>" +
+              "<a class='btn btn-default" + size + "' data-wysihtml5-command='insertHTML' data-wysihtml5-command-value='&hellip;' title='CTRL+B' tabindex='-1'>&hellip</a>" +
+              "</div>" +
+              "</li>";
+      },
+  };
+
   $('.editable').wysihtml5({
     toolbar: {
       'font-styles': {},
       'emphasis': {
         'small': true
       },
-      'html': true
+      'html': true,
+      'custombuttons': true,
     },
+    customTemplates: customTemplates,
     events: {
       'load': function() { 
         $('.editable').html('Some text here after loading.');
         console.log('loaded!');
       }
     },
-    locale: 'de-DE'
+    locale: 'de-DE',
   });
 
 </script>
