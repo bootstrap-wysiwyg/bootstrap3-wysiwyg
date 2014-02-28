@@ -277,16 +277,16 @@ It is possible to use custom translations as well. Just add a new key to $.fn.wy
 h1. Release Notes
 
 * *0.3.0* (not yet released):
-* Changed wysihtml implementation to wysihtml5x-0.4.2
+** Changed wysihtml implementation to wysihtml5x-0.4.2
 * *0.2.10* (2014/02/28):
 * *0.2.9* (2014/02/28):
-* Added hebrew translation
-* Updated spanish translations (es-ES, es-AR)
-* Provided easier way of adding custom template ("39":"https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/39")
+** Added hebrew translation
+** Updated spanish translations (es-ES, es-AR)
+** Provided easier way of adding custom template ("39":"https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/39")
 * *0.2.8* (2014/02/11):
-* Updated bootstrap to version 0.3.1 ("32":"https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/32")
-* Fixed issue with IE10 ("30":"https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/30")
-* Updated build dependencies (see package.json)
+** Updated bootstrap to version 0.3.1 ("32":"https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/32")
+** Fixed issue with IE10 ("30":"https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/30")
+** Updated build dependencies (see package.json)
 * *0.2.7* (2014/01/16):
 ** Updated brazilian translation. ("26":"https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/pull/26")
 ** Updated french translation. ("27":"https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/pull/27")
