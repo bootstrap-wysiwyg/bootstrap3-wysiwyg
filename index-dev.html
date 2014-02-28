@@ -66,6 +66,19 @@
 <script src="src/generated/commands.js"></script>
 
 <script>
+
+  var customTemplates = {
+      custombuttons: function(customOptions) {
+          var size = (customOptions.options && customOptions.options.size) ? ' btn-'+customOptions.options.size : '';
+          return "<li>" +
+              "<div class='btn-group'>" +
+              "<a class='btn btn-default" + size + "' data-wysihtml5-command='insertHTML' data-wysihtml5-command-value='&hellip;' title='CTRL+B' tabindex='-1'>&hellip</a>" +
+              "</div>" +
+              "</li>";
+      },
+  };
+
+
   $('.textarea').wysihtml5({
     'html': true,
     locale: 'de-DE',
@@ -74,7 +87,9 @@
         $('.textarea').val('Some text here after loading.');
         console.log('loaded!');
       }
-    }
+    },
+    customTemplates: customTemplates,
+    custombuttons: true
   });
 
 </script>
