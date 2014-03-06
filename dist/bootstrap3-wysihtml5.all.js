@@ -1,5 +1,5 @@
 /**
- * @license wysihtml5x v0.4.2
+ * @license wysihtml5x v0.4.3
  * https://github.com/Edicy/wysihtml5
  *
  * Author: Christopher Blum (https://github.com/tiff)
@@ -10,7 +10,7 @@
  *
  */
 var wysihtml5 = {
-  version: "0.4.2",
+  version: "0.4.3",
 
   // namespaces
   commands:   {},
@@ -3860,6 +3860,70 @@ wysihtml5.dom.query = function(elements, query) {
     }
     return ret;
 };
+wysihtml5.dom.compareDocumentPosition = (function() {
+  var documentElement = document.documentElement;
+  if (documentElement.compareDocumentPosition) {
+    return function(container, element) {
+      return container.compareDocumentPosition(element);
+    };
+  } else {
+    return function( container, element ) {
+      // implementation borrowed from https://github.com/tmpvar/jsdom/blob/681a8524b663281a0f58348c6129c8c184efc62c/lib/jsdom/level3/core.js // MIT license
+      var thisOwner, otherOwner;
+
+      if( container.nodeType === 9) // Node.DOCUMENT_NODE
+        thisOwner = container;
+      else
+        thisOwner = container.ownerDocument;
+
+      if( element.nodeType === 9) // Node.DOCUMENT_NODE
+        otherOwner = element;
+      else
+        otherOwner = element.ownerDocument;
+
+      if( container === element ) return 0;
+      if( container === element.ownerDocument ) return 4 + 16; //Node.DOCUMENT_POSITION_FOLLOWING + Node.DOCUMENT_POSITION_CONTAINED_BY;
+      if( container.ownerDocument === element ) return 2 + 8;  //Node.DOCUMENT_POSITION_PRECEDING + Node.DOCUMENT_POSITION_CONTAINS;
+      if( thisOwner !== otherOwner ) return 1; // Node.DOCUMENT_POSITION_DISCONNECTED;
+
+      // Text nodes for attributes does not have a _parentNode. So we need to find them as attribute child.
+      if( container.nodeType === 2 /*Node.ATTRIBUTE_NODE*/ && container.childNodes && wysihtml5.lang.array(container.childNodes).indexOf( element ) !== -1)
+        return 4 + 16; //Node.DOCUMENT_POSITION_FOLLOWING + Node.DOCUMENT_POSITION_CONTAINED_BY;
+
+      if( element.nodeType === 2 /*Node.ATTRIBUTE_NODE*/ && element.childNodes && wysihtml5.lang.array(element.childNodes).indexOf( container ) !== -1)
+        return 2 + 8; //Node.DOCUMENT_POSITION_PRECEDING + Node.DOCUMENT_POSITION_CONTAINS;
+
+      var point = container;
+      var parents = [ ];
+      var previous = null;
+      while( point ) {
+        if( point == element ) return 2 + 8; //Node.DOCUMENT_POSITION_PRECEDING + Node.DOCUMENT_POSITION_CONTAINS;
+        parents.push( point );
+        point = point.parentNode;
+      }
+      point = element;
+      previous = null;
+      while( point ) {
+        if( point == container ) return 4 + 16; //Node.DOCUMENT_POSITION_FOLLOWING + Node.DOCUMENT_POSITION_CONTAINED_BY;
+        var location_index = wysihtml5.lang.array(parents).indexOf( point );
+        if( location_index !== -1) {
+         var smallest_common_ancestor = parents[ location_index ];
+         var this_index = wysihtml5.lang.array(smallest_common_ancestor.childNodes).indexOf( parents[location_index - 1]);//smallest_common_ancestor.childNodes.toArray().indexOf( parents[location_index - 1] );
+         var other_index = wysihtml5.lang.array(smallest_common_ancestor.childNodes).indexOf( previous ); //smallest_common_ancestor.childNodes.toArray().indexOf( previous );
+         if( this_index > other_index ) {
+               return 2; //Node.DOCUMENT_POSITION_PRECEDING;
+         }
+         else {
+           return 4; //Node.DOCUMENT_POSITION_FOLLOWING;
+         }
+        }
+        previous = point;
+        point = point.parentNode;
+      }
+      return 1; //Node.DOCUMENT_POSITION_DISCONNECTED;
+    };
+  }
+})();
 /**
  * Fix most common html formatting misbehaviors of browsers implementation when inserting
  * content via copy & paste contentEditable
@@ -4815,10 +4879,10 @@ wysihtml5.quirks.tableCellsSelection = function(editable, editor) {
     },
 
     _detectInlineRangeProblems: function(range) {
-      position = range.startContainer.compareDocumentPosition(range.endContainer);
+      position = dom.compareDocumentPosition(range.startContainer, range.endContainer);
       return (
         range.endOffset == 0 &&
-        position & Node.DOCUMENT_POSITION_FOLLOWING
+        position & 4 //Node.DOCUMENT_POSITION_FOLLOWING
       );
     },
 
@@ -6185,7 +6249,52 @@ wysihtml5.commands.bold = {
 
   };
 })(wysihtml5);
-/**
+/* Formats block for as a <pre><code class="classname"></code></pre> block
+ * Useful in conjuction for sytax highlight utility: highlight.js
+ *
+ * Usage:
+ *
+ * editorInstance.composer.commands.exec("formatCode", "language-html");
+*/
+
+wysihtml5.commands.formatCode = {
+
+  exec: function(composer, command, classname) {
+    var pre = this.state(composer),
+        code, range, selectedNodes;
+
+    if (pre) {
+      // caret is already within a <pre><code>...</code></pre>
+      composer.selection.executeAndRestore(function() {
+        code = pre.querySelector("code");
+        wysihtml5.dom.replaceWithChildNodes(pre);
+        if (code) {
+          wysihtml5.dom.replaceWithChildNodes(code);
+        }
+      });
+    } else {
+      // Wrap in <pre><code>...</code></pre>
+      range = composer.selection.getRange();
+      selectedNodes = range.extractContents();
+      pre = composer.doc.createElement("pre");
+      code = composer.doc.createElement("code");
+
+      if (classname) {
+        code.className = classname;
+      }
+
+      pre.appendChild(code);
+      code.appendChild(selectedNodes);
+      range.insertNode(pre);
+      composer.selection.selectNode(pre);
+    }
+  },
+
+  state: function(composer) {
+    var selectedNode = composer.selection.getSelectedNode();
+    return wysihtml5.dom.getParentElement(selectedNode, { nodeName: "CODE" }) && wysihtml5.dom.getParentElement(selectedNode, { nodeName: "PRE" });
+  }
+};/**
  * formatInline scenarios for tag "B" (| = caret, |foo| = selected text)
  *
  *   #1 caret in unformatted text:
@@ -7981,7 +8090,7 @@ wysihtml5.views.View = Base.extend(
 
     // --------- IE 8+9 focus the editor when the iframe is clicked (without actually firing the 'focus' event on the <body>) ---------
     if (!this.config.contentEditableMode && browser.hasIframeFocusIssue()) {
-      dom.observe(this.iframe, "focus", function() {
+      dom.observe(container, "focus", function() {
         setTimeout(function() {
           if (that.doc.querySelector(":focus") !== that.element) {
             that.focus();
@@ -8342,7 +8451,7 @@ wysihtml5.views.Textarea = wysihtml5.views.View.extend(
         }
 
         fieldName = field.getAttribute(ATTRIBUTE_FIELDS);
-        newValue  = this.elementToChange ? (this.elementToChange.getAttribute(fieldName) || "") : field.defaultValue;
+        newValue  = (this.elementToChange && typeof(this.elementToChange) !== 'boolean') ? (this.elementToChange.getAttribute(fieldName) || "") : field.defaultValue;
         field.value = newValue;
       }
     },
