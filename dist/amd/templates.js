@@ -1,3 +1,7 @@
+define("bootstrap.wysihtml5.templates", ["handlebars.runtime", "wysihtml5"], function(HandlebarsEnv, wysihtml5) {
+	this["wysihtml5"] = wysihtml5;
+	var Handlebars = HandlebarsEnv.default;
+
 this["wysihtml5"] = this["wysihtml5"] || {};
 this["wysihtml5"]["tpl"] = this["wysihtml5"]["tpl"] || {};
 
@@ -264,3 +268,5 @@ function program1(depth0,data) {
     + "\" tabindex=\"-1\"><span class=\"glyphicon glyphicon-indent-left\"></span></a>\n  </div>\n</li>\n";
   return buffer;
   });
+
+});

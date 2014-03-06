@@ -1,5 +1,15 @@
 /* jshint expr: true */
-!(function($, wysihtml5) {
+(function (factory) {
+    if (typeof define === 'function' && define.amd) {
+        // AMD. Register as an anonymous module.
+        define('bootstrap.wysihtml5', ['jquery', 'wysihtml5', 'bootstrap.wysihtml5.templates', 'bootstrap.wysihtml5.commands'], factory);
+    } else {
+        // Browser globals
+        factory(jQuery, wysihtml5);
+    }
+}(function ($, wysihtml5) {
+
+var bsWysihtml5 = function($, wysihtml5) {
   'use strict';
 
   var templates = function(key, locale, options) {
@@ -370,4 +380,6 @@
   }
 
   var locale = $.fn.wysihtml5.locale = {};
-})(window.jQuery, window.wysihtml5);
+};
+bsWysihtml5($, wysihtml5);
+}));
