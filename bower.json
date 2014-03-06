@@ -30,5 +30,9 @@
     "Gruntfile.js",
     "package.json",
     "src"
-  ]
+  ],
+  "devDependencies": {
+    "requirejs": "~2.1.11",
+    "requirejs-domready": "~2.0.1"
+  }
 }

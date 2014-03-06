@@ -1,7 +1,15 @@
 /**
  * Spanish translation for bootstrap-wysihtml5
  */
-(function($){
+(function (factory) {
+    if (typeof define === 'function' && define.amd) {
+        // AMD. Register as an anonymous module.
+        define('bootstrap.wysihtml5.es-ES', ['jquery', 'bootstrap.wysihtml5'], factory);
+    } else {
+        // Browser globals
+        factory(jQuery);
+    }
+}(function($){
     $.fn.wysihtml5.locale["es-ES"] = {
         font_styles: {
               normal: "Texto normal",
@@ -49,4 +57,4 @@
           orange: "Naranja"
         }
     };
-}(jQuery));
+}));
