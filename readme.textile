@@ -328,6 +328,7 @@ h1. Release Notes
 ** Changed wysihtml implementation to wysihtml5x-0.4.3
 ** Added support for requirejs ("40": "https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/40")
 * *0.2.10* (not yet released):
+** Added option for small modals (adding class .modal-sm to .modal-dialog) ("42": "https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/42")
 * *0.2.9* (2014/02/28):
 ** Added hebrew translation
 ** Updated spanish translations (es-ES, es-AR)
