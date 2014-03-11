@@ -3,7 +3,9 @@
   'use strict';
 
   var templates = function(key, locale, options) {
-    return wysihtml5.tpl[key]({locale: locale, options: options});
+    if(wysihtml5.tpl[key]) {
+      return wysihtml5.tpl[key]({locale: locale, options: options});
+    }
   };
 
   var Wysihtml5 = function(el, options) {
@@ -304,6 +306,7 @@
     'html': false,
     'link': true,
     'image': true,
+    'smallmodals': false,
     events: {},
     parserRules: {
       classes: {
