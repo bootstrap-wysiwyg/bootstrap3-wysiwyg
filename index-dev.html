@@ -92,6 +92,7 @@
       },
   };
 
+<<<<<<< HEAD
   $('.editable').wysihtml5({
     toolbar: {
       'blockquote': false,
@@ -104,6 +105,13 @@
       'smallmodals': true
     },
     customTemplates: customTemplates,
+=======
+
+  $('.textarea').wysihtml5({
+    'html': true,
+    'smallmodals': false,
+    locale: 'de-DE',
+>>>>>>> Fixed issue #42
     events: {
       'load': function() { 
         $('.editable').html('Some text here after loading.');
