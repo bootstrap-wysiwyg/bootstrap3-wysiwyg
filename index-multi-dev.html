@@ -112,9 +112,21 @@
   //Example for setting value at runtime
   $('#textarea1').val('Some text');
   console.log($('#textarea1').val());
-  $('#textarea2').val('Some text');
-  console.log($('#textarea2').val());
+  $('#textarea3').html('Some text');
+  console.log($('#textarea3').html());
+
+  function copyVals() {
+    console.log('here');
+    $('#textarea2').html($('#textarea1').val());
+  }
 </script>
+
+<div>
+  <p>
+    Copy text from textare1 to textarea2:
+  </p>
+  <input type="button" onclick="copyVals()" value="copy"/>
+</div>
 
 </body>
 </html>
