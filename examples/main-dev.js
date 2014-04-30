@@ -1,7 +1,7 @@
 require.config({
   paths: {
     'domReady': '../components/requirejs-domready/domReady',
-    'jquery': '../components/jquery/jquery.min',
+    'jquery': '../components/jquery/dist/jquery.min',
     'handlebars.runtime': '../components/handlebars/handlebars.runtime.amd',
     'bootstrap': '../components/bootstrap/dist/js/bootstrap.min',
     'bootstrap.wysihtml5': '../dist/bootstrap3-wysihtml5',
