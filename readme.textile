@@ -325,7 +325,7 @@ It is possible to use custom translations as well. Just add a new key to $.fn.wy
 h1. Release Notes
 
 * *0.3.0* (not yet released):
-** Changed wysihtml implementation to wysihtml5x-0.4.3
+** Changed wysihtml implementation to wysihtml5x-0.4.4
 ** Added support for requirejs ("40": "https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/40")
 ** Fixed version of jquery to be higher or equal to 2.1.0
 * *0.2.10* (not yet released):
