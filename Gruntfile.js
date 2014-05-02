@@ -102,7 +102,10 @@ module.exports = function(grunt) {
         src: ['components/wysihtml5x/dist/wysihtml5x-toolbar.js'], 
         dest: 'dist/amd/wysihtml5.js',
         options: {
-          wrapper: ['define(\'wysihtml5\', function (require, exports, module) {\n', '\nreturn wysihtml5;\n});']
+          /*jshint multistr: true */
+          wrapper: ['define(\'wysihtml5\', function (require, exports, module) {\n\
+            var $     = require(\'jquery\'),\n\
+                rangy = require(\'rangy\');\n', '\nreturn wysihtml5;\n});']
         }
       },
       templates: {
