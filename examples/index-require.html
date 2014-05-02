@@ -21,6 +21,20 @@
     -moz-border-radius: 6px;
     border-radius: 6px;
   }
+
+  div.textarea {
+    width: 100%; 
+    font-size: 14px; 
+    line-height: 18px;
+    background-color: white;
+    min-height: 200px;
+  }
+
+  div.textarea.fixed {
+    overflow-y: scroll;
+    height: 200px; 
+  }
+
 </style>
 
 </head>
@@ -29,7 +43,7 @@
   <div class="jumbotron" style="margin-top:40px">
     <h1 style="font-size:58px">bootstrap-wysihtml5 <br/><small>Simple, beautiful wysiwyg editors</small></h1>
     <hr style="border-color: white"/>
-    <textarea class="textarea" placeholder="Enter text ..." style="width: 100%; height: 200px; font-size: 14px; line-height: 18px;"></textarea>
+    <div class="textarea" placeholder="Enter text ..."></div>
   </div>
 
   <div class="row">
@@ -50,6 +64,16 @@
         <pre>$('.textarea').wysihtml5();</pre>     
       </p>
 
+    </div>
+
+    <div class="span6">
+      <h2>Dynamic text</h2>
+      <p>
+        Set text dynamically with javascript:
+      </p>
+      <p style="text-align:center; margin-top:20px">
+        <button id="btn-settext" type="button" class="btn btn-default">Set text</button>
+      </p>
     </div>
   </div>
 </div>
