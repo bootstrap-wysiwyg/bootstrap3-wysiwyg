@@ -323,7 +323,7 @@ It is possible to use custom translations as well. Just add a new key to $.fn.wy
   * This release adds support for div tags instead of textarea as editor container. The div tag will be from now on the recommended way of starting an editor instance.
 * *0.2.10* (not yet released):
   * Added option for small modals (adding class `.modal-sm` to `.modal-dialog`) ([#42](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/42))
-	* Fixed version of jquery to be lower than 2.1.0 because of path incompatibilities
+  * Fixed version of jquery to be lower than 2.1.0 because of path incompatibilities
 * *0.2.9* (2014/02/28):
 	* Added hebrew translation
 	* Updated spanish translations (es-ES, es-AR)
