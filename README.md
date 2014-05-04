@@ -225,7 +225,7 @@ $('#some-textarea').wysihtml5({
 
 #### Events
 
-Wysihtml5 exposes a [number of events|https://github.com/xing/wysihtml5/wiki/Events]. You can hook into these events when initialising the editor:
+Wysihtml5 exposes a [number of events](https://github.com/xing/wysihtml5/wiki/Events). You can hook into these events when initialising the editor:
 
 ```javascript
 $('#some-textarea').wysihtml5({
@@ -242,7 +242,7 @@ $('#some-textarea').wysihtml5({
 
 #### Shallow copy by default, deep on request
 
-Options you pass in will be added to the defaults via a shallow copy.  (see [jQuery.extend|http://api.jquery.com/jQuery.extend/] for details). You can use a deep copy instead (which is probably what you want if you're adding tags or classes to parserRules) via 'deepExtend', as in the parserRules example below.
+Options you pass in will be added to the defaults via a shallow copy.  (see [jQuery.extend](http://api.jquery.com/jQuery.extend/) for details). You can use a deep copy instead (which is probably what you want if you're adding tags or classes to parserRules) via 'deepExtend', as in the parserRules example below.
 
 #### Parser Rules
 
@@ -262,7 +262,7 @@ $('#some-textarea').wysihtml5('deepExtend', {
 });
 ```
 
-There's quite a bit that can be done with parserRules; see [wysihtml5's advanced parser ruleset|https://github.com/xing/wysihtml5/blob/master/parser_rules/advanced.js] for details.  bootstrap-wysihtml5's default parserRules can be found [in the source|https://github.com/jhollingworth/bootstrap-wysihtml5/blob/master/src/bootstrap-wysihtml5.js] (just search for 'parserRules' in the file).
+There's quite a bit that can be done with parserRules; see [wysihtml5's advanced parser ruleset](https://github.com/xing/wysihtml5/blob/master/parser_rules/advanced.js) for details.  bootstrap-wysihtml5's default parserRules can be found [in the source](https://github.com/jhollingworth/bootstrap-wysihtml5/blob/master/src/bootstrap-wysihtml5.js) (just search for 'parserRules' in the file).
 
 #### Shortcuts
 
@@ -294,7 +294,7 @@ Operations on the defaults are not thread-safe; if you're going to change the de
 
 ### The underlying wysihtml5 object
 
-You can access the [wysihtml5 editor object|https://github.com/xing/wysihtml5] like this:
+You can access the [wysihtml5 editor object](https://github.com/xing/wysihtml5) like this:
 
 ```javascript
 var wysihtml5Editor = $('#some-textarea').data("wysihtml5").editor;
@@ -318,35 +318,35 @@ It is possible to use custom translations as well. Just add a new key to $.fn.wy
 
 * *0.3.0* (2014/05/04):
 ** Changed wysihtml implementation to wysihtml5x-0.4.4
-** Added support for requirejs ([#40|https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/40])
+** Added support for requirejs ([#40](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/40))
 ** Fixed version of jquery to be higher or equal to 2.1.0
 ** This release adds support for div tags instead of textarea as editor container. The div tag will be from now on the recommended way of starting an editor instance.
 * *0.2.10* (not yet released):
-** Added option for small modals (adding class `.modal-sm` to `.modal-dialog`) ([#42|https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/42])
+** Added option for small modals (adding class `.modal-sm` to `.modal-dialog`) ([#42](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/42))
 ** Fixed version of jquery to be lower than 2.1.0 because of path incompatibilities
 * *0.2.9* (2014/02/28):
 ** Added hebrew translation
 ** Updated spanish translations (es-ES, es-AR)
-** Provided easier way of adding custom template ([#39|https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/39])
+** Provided easier way of adding custom template ([#39](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/39))
 * *0.2.8* (2014/02/11):
-** Updated bootstrap to version 0.3.1 ([#32|https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/32])
-** Fixed issue with IE10 ([#30|https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/30])
+** Updated bootstrap to version 0.3.1 ([#32](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/32))
+** Fixed issue with IE10 ([#30](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/30))
 ** Updated build dependencies (see package.json)
 * *0.2.7* (2014/01/16):
-** Updated brazilian translation. ([#26|https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/pull/26])
-** Updated french translation. ([#27|https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/pull/27])
-** Updated Bootstrap to the latest version 3.0.3 ([#28|https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/pull/28])
-** Updated handlebars to the latest version 1.3.0 ([#28|https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/pull/28])
+** Updated brazilian translation. ([#26](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/pull/26))
+** Updated french translation. ([#27](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/pull/27))
+** Updated Bootstrap to the latest version 3.0.3 ([#28](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/pull/28))
+** Updated handlebars to the latest version 1.3.0 ([#28](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/pull/28))
 * *0.2.6* (2013/12/20): 
-** Ability to define own shortcuts ([#23|https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/23]).
-** New command "small" ([#19|https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/19]).
-** Normal text writes now "p" instead of "div" ([#21|https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/21]).
-** If a text element has no translation it falls back to english instead of an empty string ([#24|https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/24]).
+** Ability to define own shortcuts ([#23](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/23)).
+** New command "small" ([#19](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/19)).
+** Normal text writes now "p" instead of "div" ([#21](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/21)).
+** If a text element has no translation it falls back to english instead of an empty string ([#24](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/24)).
 ** Some refactoring to add new commands in the future with ease.
 ** New build task for easier development.
 * *0.2.5* (2013/12/17): 
 ** Updated german translation
-** Fix issue [#8|https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/8]: Provide fallback if locale is not found.
+** Fix issue [#8](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/8): Provide fallback if locale is not found.
 * *0.2.4* (2013/12/13): 
 ** Added blockquote format button
 ** Added 2 new data attributes: data-wysihtml5-display-format-name and data-wysihtml5-format-name
