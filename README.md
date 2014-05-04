@@ -317,59 +317,59 @@ It is possible to use custom translations as well. Just add a new key to $.fn.wy
 # Release Notes
 
 * *0.3.0* (2014/05/04):
-** Changed wysihtml implementation to wysihtml5x-0.4.4
-** Added support for requirejs ([#40](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/40))
-** Fixed version of jquery to be higher or equal to 2.1.0
-** This release adds support for div tags instead of textarea as editor container. The div tag will be from now on the recommended way of starting an editor instance.
+  * Changed wysihtml implementation to wysihtml5x-0.4.4
+  * Added support for requirejs ([#40](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/40))
+  * Fixed version of jquery to be higher or equal to 2.1.0
+	* This release adds support for div tags instead of textarea as editor container. The div tag will be from now on the recommended way of starting an editor instance.
 * *0.2.10* (not yet released):
-** Added option for small modals (adding class `.modal-sm` to `.modal-dialog`) ([#42](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/42))
-** Fixed version of jquery to be lower than 2.1.0 because of path incompatibilities
+	* Added option for small modals (adding class `.modal-sm` to `.modal-dialog`) ([#42](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/42))
+	* Fixed version of jquery to be lower than 2.1.0 because of path incompatibilities
 * *0.2.9* (2014/02/28):
-** Added hebrew translation
-** Updated spanish translations (es-ES, es-AR)
-** Provided easier way of adding custom template ([#39](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/39))
+	* Added hebrew translation
+	* Updated spanish translations (es-ES, es-AR)
+	* Provided easier way of adding custom template ([#39](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/39))
 * *0.2.8* (2014/02/11):
-** Updated bootstrap to version 0.3.1 ([#32](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/32))
-** Fixed issue with IE10 ([#30](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/30))
-** Updated build dependencies (see package.json)
+	* Updated bootstrap to version 0.3.1 ([#32](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/32))
+	* Fixed issue with IE10 ([#30](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/30))
+	* Updated build dependencies (see package.json)
 * *0.2.7* (2014/01/16):
-** Updated brazilian translation. ([#26](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/pull/26))
-** Updated french translation. ([#27](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/pull/27))
-** Updated Bootstrap to the latest version 3.0.3 ([#28](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/pull/28))
-** Updated handlebars to the latest version 1.3.0 ([#28](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/pull/28))
+	* Updated brazilian translation. ([#26](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/pull/26))
+	* Updated french translation. ([#27](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/pull/27))
+	* Updated Bootstrap to the latest version 3.0.3 ([#28](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/pull/28))
+	* Updated handlebars to the latest version 1.3.0 ([#28](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/pull/28))
 * *0.2.6* (2013/12/20): 
-** Ability to define own shortcuts ([#23](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/23)).
-** New command "small" ([#19](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/19)).
-** Normal text writes now "p" instead of "div" ([#21](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/21)).
-** If a text element has no translation it falls back to english instead of an empty string ([#24](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/24)).
-** Some refactoring to add new commands in the future with ease.
-** New build task for easier development.
+	* Ability to define own shortcuts ([#23](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/23)).
+	* New command "small" ([#19](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/19)).
+	* Normal text writes now "p" instead of "div" ([#21](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/21)).
+	* If a text element has no translation it falls back to english instead of an empty string ([#24](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/24)).
+	* Some refactoring to add new commands in the future with ease.
+	* New build task for easier development.
 * *0.2.5* (2013/12/17): 
-** Updated german translation
-** Fix issue [#8](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/8): Provide fallback if locale is not found.
+	* Updated german translation
+	* Fix issue [#8](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/8): Provide fallback if locale is not found.
 * *0.2.4* (2013/12/13): 
-** Added blockquote format button
-** Added 2 new data attributes: data-wysihtml5-display-format-name and data-wysihtml5-format-name
+	* Added blockquote format button
+	* Added 2 new data attributes: data-wysihtml5-display-format-name and data-wysihtml5-format-name
 * *0.2.3* (2013/12/11): 
-** Updated arabic translation.
-** Updated bulgarian translation.
-** Updated danish translation.
-** Updated czech translation.
-** Updated catalan translation.
-** Updated brazilian translation.
+	* Updated arabic translation.
+	* Updated bulgarian translation.
+	* Updated danish translation.
+	* Updated czech translation.
+	* Updated catalan translation.
+	* Updated brazilian translation.
 * *0.2.2* (2013/11/23): 
-** Updated polish translation.
+	* Updated polish translation.
 * *0.2.1* (2013/11/23): 
-** Updated french translation.
-** Added hungarian translation.
-** Allow strong, p and em to the list of allowed tags.
+	* Updated french translation.
+	* Added hungarian translation.
+	* Allow strong, p and em to the list of allowed tags.
 * *0.2.0* (2013/11/22): 
-** Clean up code (jshint).
-** Add handlebars for better maintainability of templates.
+	* Clean up code (jshint).
+	* Add handlebars for better maintainability of templates.
 * *0.1.0* (2013/11/20): 
-** Forked code and made it fit for bower.
-** Add build tasks for grunt.
-** Some bug fixes, to run tests again.
+	* Forked code and made it fit for bower.
+	* Add build tasks for grunt.
+	* Some bug fixes, to run tests again.
 
 # Thanks for assistance and contributions
 
