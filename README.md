@@ -1,14 +1,16 @@
-# Overview
+Overview
+========
 
-Bootstrap-wysihtml5 is a javascript plugin that makes it easy to create simple, beautiful wysiwyg editors with the help of "wysihtml5":https://github.com/xing/wysihtml5 and "Twitter Bootstrap":http://twitter.github.com/bootstrap/.
+Bootstrap-wysihtml5 is a javascript plugin that makes it easy to create simple, beautiful wysiwyg editors with the help of [wysihtml5](https://github.com/xing/wysihtml5) and [Twitter Bootstrap](http://twitter.github.com/bootstrap/).
 
-h2. About this fork
+About this fork
+---------------
 
-This fork provides the same functionality as the original by <a href="https://github.com/jhollingworth/bootstrap-wysihtml5">jhollingworth</a> but skips bootstrap 2 support and adds bootstrap 3 support.
+This fork provides the same functionality as the original by [jhollingworth](https://github.com/jhollingworth/bootstrap-wysihtml5) but skips bootstrap 2 support and adds bootstrap 3 support.
 
 Besides it uses bower for client side dependency management.
 
-h3. Why a fork again?
+### Why a fork again?
 
 The old repository seems to be dead. Pull Requests are not accepted anymore since some time. The other bootstrap-wysihtml5 packages in the bower registry do NOT provide bootstrap 3 support, even if the name so suggests. They are not maintained either.
 
@@ -16,90 +18,89 @@ Furthermore the packages on bower do not use proper dependency management.
 
 I will maintain this repo and I will accept pull requests.
 
-h2. Dependencies
+Dependencies
+------------
 
 Additionally to the existing dependencies I added handlebars in version 0.2.0. You only need the handlebars.runtime.min.js. The templates are precompiled during build. This adds less than 7kB to your client (~3kB gzipped). Thus it is easier to maintain the code.
 
 Because maintaining code requires maintainable code.
 
-h2. Development
+Development
+-----------
 
-Install all development dependencies via 
+Install all development dependencies via
 
-<pre>
-npm install
-</pre>
+    npm install
 
 Additionaly you need grunt, grunt-cli and bower as global packages installed.
 
-Also install the client dependencies via 
+Also install the client dependencies via
 
-<pre>
-bower install
-</pre>
+    bower install
 
-There is a grunt task for building. Just run 
+There is a grunt task for building. Just run
 
-<pre>
-grunt
-</pre>
+    grunt
 
 on the command line and everything should build fine.
 
-h2. Installation
+Installation
+------------
 
-If you are using bower use the "bootstrap3-wysihtml5-bower" package. 
+If you are using bower use the “bootstrap3-wysihtml5-bower” package.
 
-<pre>
-bower install bootstrap3-wysihtml5-bower
-</pre>
+    bower install bootstrap3-wysihtml5-bower
 
-h2. Examples
+Examples
+--------
 
-* "http://waxolunist.github.io/bootstrap3-wysihtml5-bower/":http://waxolunist.github.io/bootstrap3-wysihtml5-bower/
+-   [http://waxolunist.github.io/bootstrap3-wysihtml5-bower/](http://waxolunist.github.io/bootstrap3-wysihtml5-bower/)
 
 For use with requirejs see the examples in the repo.
 
-h3. Files to reference
+### Files to reference
 
 In the folder dist you will the plain unminified javascript files and two kinds of minified files.
 
-*bootstrap3-wysihtml5.min.js*: This file contains the jquery plugin, the templates and the english translations. If you are referencing this file, you have to reference jquery, bootstrap jquery plugin, handlebars runtime and wysihtml.js.
+**bootstrap3-wysihtml5.min.js**: This file contains the jquery plugin, the templates and the english translations. If you are referencing this file, you have to reference jquery, bootstrap jquery plugin, handlebars runtime and wysihtml.js.
 
-*bootstrap3-wysihtml5.all.min.js*: This file contains all of the normal minified file plus the handlebars runtime and editor library. If you are referencing this file, you have to reference jquery and bootstrap jquery plugin.
+**bootstrap3-wysihtml5.all.min.js**: This file contains all of the normal minified file plus the handlebars runtime and editor library. If you are referencing this file, you have to reference jquery and bootstrap jquery plugin.
 
-*bootstrap3-wysihtml5.min.css*: This is the stylesheet for this plugin.
+**bootstrap3-wysihtml5.min.css**: This is the stylesheet for this plugin.
 
 If you are using any other translation than english, you have to either build this plugin yourself, or reference it separately.
 
-h3. Usage
+### Usage
 
-h4. Editable Div
+#### Editable Div
 
 This is the new style from version 0.3 on and will be supported on all browsers.
 
-<div class="editable" placeholder="Enter text ..."></div>
+The javascript will keep the same. For example it is easier to change the content dynamically on runtime.
 
-The javascript will keep the same.
+```javascript
+$('.textarea').html('Some text dynamically set.');
 
-h4. Textarea
+```
+
+#### Textarea
 
 This is the old style usage and does use a sandboxed iframe, which will from version 0.3 on not work in IE.
 
-<pre>
+```html
 <textarea id="some-textarea" placeholder="Enter text ..." style="styles to copy to the iframe"></textarea>
 <script type="text/javascript">
 	$('#some-textarea').wysihtml5();
 </script>
-</pre>
+```
 
 You can get the html generated by getting the value of the text area, e.g. 
 
-<pre>
+```javascript
 $('#some-textarea').val();
-</pre>
+```
 
-h4. RequireJS
+#### RequireJS
 
 From version 0.3 on, requirejs is supported.
 
@@ -108,7 +109,7 @@ Also if using english you have to load the locale dependency.
 
 A minimum example:
 
-<pre>
+```javascript
 require.config({
   paths: {
     'domReady': '../components/requirejs-domready/domReady',
@@ -126,9 +127,9 @@ require.config({
     './start'
   ]
 });
-</pre>
+```
 
-<pre>
+```
 define([
   'require',
   'domReady',
@@ -143,23 +144,23 @@ define([
     }); 
   });
 });
-</pre>
+```
 
-h1. Advanced
+# Advanced
 
-h2. Options
+## Options
 
-An options object can be passed in to .wysihtml5() to configure the editor:
+An options object can be passed in to `.wysihtml5()` to configure the editor:
 
-<pre>
+```javascript
 $('#some-textarea').wysihtml5({someOption: 23, ...})
-</pre>
+```
 
-h4. Buttons
+#### Buttons
 
 To override which buttons to show, set the appropriate flags:
 
-<pre>
+```javascript
 $('#some-textarea').wysihtml5({
 	"font-styles": true, //Font styling, e.g. h1, h2, etc. Default true
 	"emphasis": true, //Italics, bold, etc. Default true
@@ -171,25 +172,25 @@ $('#some-textarea').wysihtml5({
 	"blockquote": true, //Blockquote  
   "size": <buttonsize> //default: none, other options are xs, sm, lg
 });
-</pre>
+```
 
-h4. Custom Templates for Toolbar Buttons
+#### Custom Templates for Toolbar Buttons
 
 To define custom templates for buttons, you can submit a customTemplates hash with the new definitions.  Each entry should be a function which expects 'locale' and optional 'options' to manage the translations.
 
 For example, the default template used for the editHtml mode button looks like this (with size fetched from the optional 'options')
 
-<pre>
+```html
 <li>
   <div class='btn-group'>
     <a class='btn" + size + "' data-wysihtml5-action='change_view' title='" + locale.html.edit + "'><i class='icon-pencil'></i></a>"
   </div>
 </li>
-</pre>
+```
 
 You can change it to not use the pencil icon (for example) by defining the custom template like this:
 
-<pre language='javascript'>
+```javascript
 var myCustomTemplates = {
   html : function(locale) {
     return "<li>" +
@@ -204,12 +205,11 @@ var myCustomTemplates = {
 $('#some-textarea').wysihtml5({
    customTemplates: myCustomTemplates
 });
-</pre>
-
+```
 
 This will override only the toolbar template for html, and all others will use the default.
 
-h5. Data Attributes
+##### Data Attributes
 
 As of version 0.2.4 there are two new data attributes. 
 
@@ -220,21 +220,21 @@ As of version 0.2.4 there are two new data attributes.
   <dd>Whether to show the current font style in the toolbar anyways.</dd>
 </dl>
 
-h4. Stylesheets
+#### Stylesheets
 
 It is possible to supply a number of stylesheets for inclusion in the editor `<iframe>`:
 
-<pre>
+```javascript
 $('#some-textarea').wysihtml5({
 	"stylesheets": ["/path/to/editor.css"]
 });
-</pre>
+```
 
-h4. Events
+#### Events
 
 Wysihtml5 exposes a "number of events":https://github.com/xing/wysihtml5/wiki/Events. You can hook into these events when initialising the editor:
 
-<pre>
+```javascript
 $('#some-textarea').wysihtml5({
 	"events": {
 		"load": function() { 
@@ -245,17 +245,17 @@ $('#some-textarea').wysihtml5({
 		}
 	}
 });
-</pre>
+```
 
-h4. Shallow copy by default, deep on request
+#### Shallow copy by default, deep on request
 
 Options you pass in will be added to the defaults via a shallow copy.  (see "jQuery.extend()":http://api.jquery.com/jQuery.extend/ for details). You can use a deep copy instead (which is probably what you want if you're adding tags or classes to parserRules) via 'deepExtend', as in the parserRules example below.
 
-h4. Parser Rules
+#### Parser Rules
 
 If you find the editor is stripping out tags or attributes you need, then you'll want to extend (or replace) parserRules.  This example extends the defaults to allow the <code><strong></code> and <code><em></code> tags, and the class "middle":
 
-<pre>
+```javascript
 $('#some-textarea').wysihtml5('deepExtend', {
   parserRules: {
     classes: {
@@ -267,62 +267,61 @@ $('#some-textarea').wysihtml5('deepExtend', {
     }
   }
 });
-</pre>
+```
 
 There's quite a bit that can be done with parserRules; see "wysihtml5's advanced parser ruleset":https://github.com/xing/wysihtml5/blob/master/parser_rules/advanced.js for details.  bootstrap-wysihtml5's default parserRules can be found "in the source":https://github.com/jhollingworth/bootstrap-wysihtml5/blob/master/src/bootstrap-wysihtml5.js (just search for 'parserRules' in the file).
 
-h4. Shortcuts
+#### Shortcuts
 
 You can map your own shortcuts to commands. For example if you want to map the underline command to Ctrl+T call the editor with following options:
 
-<pre>
+```javascript
 $('#some-textarea').wysihtml5({
   shortcuts: {
     '84': 'underline'
   }
 });
-</pre>
+```
 
-h4. Defaults
+#### Defaults
 
 You can change bootstrap-wysihtml5's defaults by altering:
 
-<pre>
+```javascript
 $.fn.wysihtml5.defaultOptions
-</pre>
+```
 
 This object has the same structure as the options object you pass in to .wysihtml5().  You can revert to the original defaults by calling:
 
-<pre>
+```javascript
 $(this).wysihtml5('resetDefaults') 
-</pre> 
+```
 
 Operations on the defaults are not thread-safe; if you're going to change the defaults, you probably want to do it only once, after you load the bootstrap-wysihtml plugin and before you start instantiating your editors.
 
-h3. The underlying wysihtml5 object
+### The underlying wysihtml5 object
 
 You can access the "wysihtml5 editor object":https://github.com/xing/wysihtml5 like this:
 
-<pre>
+```javascript
 var wysihtml5Editor = $('#some-textarea').data("wysihtml5").editor;
 wysihtml5Editor.composer.commands.exec("bold");
-</pre>
+```
 
-
-h3. I18n
+### I18n
 
 You can use Bootstrap-wysihtml5 in other languages. There are some translations available in the src/locales directory. You can include your desired one after the plugin and pass its key to the editor. Example:
 
-<pre>
+```html
 <script src="src/locales/bootstrap-wysihtml5.pt-BR.js"></script>
 <script type="text/javascript">
   $('#some-textarea').wysihtml5({locale: "pt-BR"});
 </script>
-</pre>
+```
 
 It is possible to use custom translations as well. Just add a new key to $.fn.wysihtml5.locale before calling the editor constructor.
 
-h1. Release Notes
+# Release Notes
 
 * *0.3.0* (2014/05/04):
 ** Changed wysihtml implementation to wysihtml5x-0.4.4
@@ -379,20 +378,7 @@ h1. Release Notes
 ** Add build tasks for grunt.
 ** Some bug fixes, to run tests again.
 
-h1. Thanks for assistance and contributions
+# Thanks for assistance and contributions
 
 * Garito (Github)
-* SiamKreative (Github)
-* Adriano Ueda (aueda on Github)
-* Oliver Kopp (koppor on Github)
 
-h1. TODO
-
-* -Upload gh-pages and update according to readme-
-* -Tests should run again-
-* -Substitute old component.json with newer bower.json-
-* -Add bower install command to readme-
-* Test other features such as color, etc.
-* Prepare the code for new features. This is needed for the further development.
-
-!https://cruel-carlota.pagodabox.com/26b1987d3632c76a1697e97b6147f68e!:http://githalytics.com/Waxolunist/bootstrap3-wysihtml5-bower
