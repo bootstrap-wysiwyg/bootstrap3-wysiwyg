@@ -385,3 +385,4 @@ It is possible to use custom translations as well. Just add a new key to $.fn.wy
 * Garito (https://github.com/Garito)
 * jmlweb (https://github.com/jmlweb)
 * corbinu (https://github.com/corbinu)
+* Nerian (https://github.com/Nerian)
