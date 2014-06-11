@@ -266,7 +266,7 @@ There's quite a bit that can be done with parserRules; see [wysihtml5's advanced
 
 #### Shortcuts
 
-You can map your own shortcuts to commands. For example if you want to map the underline command to Ctrl+T call the editor with following options:
+You can map your own shortcuts to commands. For example if you want to map the underline command to <Alt>+T call the editor with following options:
 
 ```javascript
 $('#some-textarea').wysihtml5({
@@ -275,6 +275,8 @@ $('#some-textarea').wysihtml5({
   }
 });
 ```
+
+The code executes the command with <Alt>, <Ctrl> or <Meta> pressed. In the example above <Ctrl>-T in Chrome is already occupied by "New Tab", thus not overridable.
 
 #### Defaults
 
