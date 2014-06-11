@@ -318,7 +318,8 @@ It is possible to use custom translations as well. Just add a new key to $.fn.wy
 
 * *0.3.1* (2014/06/11):
   * Updated locales es-ES and es-AR ([#49](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/pull/49))
-  * Updated wysihtml5x to 0.4.8
+  * Updated wysihtml5x to 0.4.8 ([#53](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/53))
+  * Added toolbar option for enabling font awesome ([#51](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/pull/51))
 * *0.3.0* (2014/05/04):
   * Changed wysihtml implementation to wysihtml5x-0.4.4
   * Added support for requirejs ([#40](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/40))
@@ -379,3 +380,4 @@ It is possible to use custom translations as well. Just add a new key to $.fn.wy
 
 * Garito (https://github.com/Garito)
 * jmlweb (https://github.com/jmlweb)
+* corbinu (https://github.com/corbinu)
