@@ -247,7 +247,7 @@ var bsWysihtml5 = function($, wysihtml5) {
       wysihtml5.dom.observe(el, 'keydown', function(event) {
         var keyCode  = event.keyCode,
             command  = shortcuts[keyCode];
-        if ((event.ctrlKey || event.metaKey) && !event.altKey && command && wysihtml5.commands[command]) {
+        if ((event.ctrlKey || event.metaKey || event.altKey) && command && wysihtml5.commands[command]) {
           wysihtml5.commands[command].exec(editor.composer, command);
           event.preventDefault();
         }
