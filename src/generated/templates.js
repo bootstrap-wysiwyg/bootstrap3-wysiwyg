@@ -14,10 +14,25 @@ function program1(depth0,data) {
   return buffer;
   }
 
+function program3(depth0,data) {
+  
+  
+  return " \n      <span class=\"fa fa-quote-left\"></span>\n    ";
+  }
+
+function program5(depth0,data) {
+  
+  
+  return "\n      <span class=\"glyphicon glyphicon-quote\"></span>\n    ";
+  }
+
   buffer += "<li>\n  <a class=\"btn ";
   stack2 = helpers['if'].call(depth0, ((stack1 = (depth0 && depth0.options)),stack1 == null || stack1 === false ? stack1 : stack1.size), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
   if(stack2 || stack2 === 0) { buffer += stack2; }
-  buffer += " btn-default\" data-wysihtml5-command=\"formatBlock\" data-wysihtml5-command-value=\"blockquote\" data-wysihtml5-display-format-name=\"false\" tabindex=\"-1\">\n    <span class=\"glyphicon glyphicon-quote\"></span>\n  </a>\n</li>\n";
+  buffer += " btn-default\" data-wysihtml5-command=\"formatBlock\" data-wysihtml5-command-value=\"blockquote\" data-wysihtml5-display-format-name=\"false\" tabindex=\"-1\">\n    ";
+  stack2 = helpers['if'].call(depth0, ((stack1 = ((stack1 = (depth0 && depth0.options)),stack1 == null || stack1 === false ? stack1 : stack1.toolbar)),stack1 == null || stack1 === false ? stack1 : stack1.fa), {hash:{},inverse:self.program(5, program5, data),fn:self.program(3, program3, data),data:data});
+  if(stack2 || stack2 === 0) { buffer += stack2; }
+  buffer += "\n  </a>\n</li>\n";
   return buffer;
   });
 
@@ -125,10 +140,25 @@ function program1(depth0,data) {
   return buffer;
   }
 
+function program3(depth0,data) {
+  
+  
+  return "\n      <span class=\"fa fa-font\"></span>\n    ";
+  }
+
+function program5(depth0,data) {
+  
+  
+  return "\n      <span class=\"glyphicon glyphicon-font\"></span>\n    ";
+  }
+
   buffer += "<li class=\"dropdown\">\n  <a class=\"btn btn-default dropdown-toggle ";
   stack2 = helpers['if'].call(depth0, ((stack1 = (depth0 && depth0.options)),stack1 == null || stack1 === false ? stack1 : stack1.size), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
   if(stack2 || stack2 === 0) { buffer += stack2; }
-  buffer += "\" data-toggle=\"dropdown\">\n    <span class=\"glyphicon glyphicon-font\"></span>\n    <span class=\"current-font\">"
+  buffer += "\" data-toggle=\"dropdown\">\n    ";
+  stack2 = helpers['if'].call(depth0, ((stack1 = ((stack1 = (depth0 && depth0.options)),stack1 == null || stack1 === false ? stack1 : stack1.toolbar)),stack1 == null || stack1 === false ? stack1 : stack1.fa), {hash:{},inverse:self.program(5, program5, data),fn:self.program(3, program3, data),data:data});
+  if(stack2 || stack2 === 0) { buffer += stack2; }
+  buffer += "\n    <span class=\"current-font\">"
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = (depth0 && depth0.locale)),stack1 == null || stack1 === false ? stack1 : stack1.font_styles)),stack1 == null || stack1 === false ? stack1 : stack1.normal)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
     + "</span>\n    <b class=\"caret\"></b>\n  </a>\n  <ul class=\"dropdown-menu\">\n    <li><a data-wysihtml5-command=\"formatBlock\" data-wysihtml5-command-value=\"p\" tabindex=\"-1\">"
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = (depth0 && depth0.locale)),stack1 == null || stack1 === false ? stack1 : stack1.font_styles)),stack1 == null || stack1 === false ? stack1 : stack1.normal)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
@@ -161,12 +191,27 @@ function program1(depth0,data) {
   return buffer;
   }
 
+function program3(depth0,data) {
+  
+  
+  return "\n        <span class=\"fa fa-pencil\"></span>\n      ";
+  }
+
+function program5(depth0,data) {
+  
+  
+  return "\n        <span class=\"glyphicon glyphicon-pencil\"></span>\n      ";
+  }
+
   buffer += "<li>\n  <div class=\"btn-group\">\n    <a class=\"btn ";
   stack2 = helpers['if'].call(depth0, ((stack1 = (depth0 && depth0.options)),stack1 == null || stack1 === false ? stack1 : stack1.size), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
   if(stack2 || stack2 === 0) { buffer += stack2; }
   buffer += " btn-default\" data-wysihtml5-action=\"change_view\" title=\""
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = (depth0 && depth0.locale)),stack1 == null || stack1 === false ? stack1 : stack1.html)),stack1 == null || stack1 === false ? stack1 : stack1.edit)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + "\" tabindex=\"-1\">\n      <span class=\"glyphicon glyphicon-pencil\"></span>\n    </a>\n  </div>\n</li>\n";
+    + "\" tabindex=\"-1\">\n      ";
+  stack2 = helpers['if'].call(depth0, ((stack1 = ((stack1 = (depth0 && depth0.options)),stack1 == null || stack1 === false ? stack1 : stack1.toolbar)),stack1 == null || stack1 === false ? stack1 : stack1.fa), {hash:{},inverse:self.program(5, program5, data),fn:self.program(3, program3, data),data:data});
+  if(stack2 || stack2 === 0) { buffer += stack2; }
+  buffer += "\n    </a>\n  </div>\n</li>\n";
   return buffer;
   });
 
@@ -189,6 +234,18 @@ function program3(depth0,data) {
   return buffer;
   }
 
+function program5(depth0,data) {
+  
+  
+  return "\n      <span class=\"fa fa-file-image-o\"></span>\n    ";
+  }
+
+function program7(depth0,data) {
+  
+  
+  return "\n      <span class=\"glyphicon glyphicon-picture\"></span>\n    ";
+  }
+
   buffer += "<li>\n  <div class=\"bootstrap-wysihtml5-insert-image-modal modal fade\">\n    <div class=\"modal-dialog ";
   stack2 = helpers['if'].call(depth0, ((stack1 = ((stack1 = (depth0 && depth0.options)),stack1 == null || stack1 === false ? stack1 : stack1.toolbar)),stack1 == null || stack1 === false ? stack1 : stack1.smallmodals), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
   if(stack2 || stack2 === 0) { buffer += stack2; }
@@ -203,7 +260,10 @@ function program3(depth0,data) {
   if(stack2 || stack2 === 0) { buffer += stack2; }
   buffer += " btn-default\" data-wysihtml5-command=\"insertImage\" title=\""
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = (depth0 && depth0.locale)),stack1 == null || stack1 === false ? stack1 : stack1.image)),stack1 == null || stack1 === false ? stack1 : stack1.insert)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + "\" tabindex=\"-1\">\n    <span class=\"glyphicon glyphicon-picture\"></span>\n  </a>\n</li>\n";
+    + "\" tabindex=\"-1\">\n    ";
+  stack2 = helpers['if'].call(depth0, ((stack1 = ((stack1 = (depth0 && depth0.options)),stack1 == null || stack1 === false ? stack1 : stack1.toolbar)),stack1 == null || stack1 === false ? stack1 : stack1.fa), {hash:{},inverse:self.program(7, program7, data),fn:self.program(5, program5, data),data:data});
+  if(stack2 || stack2 === 0) { buffer += stack2; }
+  buffer += "\n  </a>\n</li>\n";
   return buffer;
   });
 
@@ -226,6 +286,18 @@ function program3(depth0,data) {
   return buffer;
   }
 
+function program5(depth0,data) {
+  
+  
+  return "\n      <span class=\"fa fa-share-square-o\"></span>\n    ";
+  }
+
+function program7(depth0,data) {
+  
+  
+  return "\n      <span class=\"glyphicon glyphicon-share\"></span>\n    ";
+  }
+
   buffer += "<li>\n  <div class=\"bootstrap-wysihtml5-insert-link-modal modal fade\">\n    <div class=\"modal-dialog ";
   stack2 = helpers['if'].call(depth0, ((stack1 = ((stack1 = (depth0 && depth0.options)),stack1 == null || stack1 === false ? stack1 : stack1.toolbar)),stack1 == null || stack1 === false ? stack1 : stack1.smallmodals), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
   if(stack2 || stack2 === 0) { buffer += stack2; }
@@ -242,7 +314,10 @@ function program3(depth0,data) {
   if(stack2 || stack2 === 0) { buffer += stack2; }
   buffer += " btn-default\" data-wysihtml5-command=\"createLink\" title=\""
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = (depth0 && depth0.locale)),stack1 == null || stack1 === false ? stack1 : stack1.link)),stack1 == null || stack1 === false ? stack1 : stack1.insert)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + "\" tabindex=\"-1\">\n    <span class=\"glyphicon glyphicon-share\"></span>\n  </a>\n</li>\n";
+    + "\" tabindex=\"-1\">\n    ";
+  stack2 = helpers['if'].call(depth0, ((stack1 = ((stack1 = (depth0 && depth0.options)),stack1 == null || stack1 === false ? stack1 : stack1.toolbar)),stack1 == null || stack1 === false ? stack1 : stack1.fa), {hash:{},inverse:self.program(7, program7, data),fn:self.program(5, program5, data),data:data});
+  if(stack2 || stack2 === 0) { buffer += stack2; }
+  buffer += "\n  </a>\n</li>\n";
   return buffer;
   });
 
@@ -259,26 +334,86 @@ function program1(depth0,data) {
   return buffer;
   }
 
+function program3(depth0,data) {
+  
+  
+  return "\n      <span class=\"fa fa-list-ul\"></span>\n    ";
+  }
+
+function program5(depth0,data) {
+  
+  
+  return "\n      <span class=\"glyphicon glyphicon-list\"></span>\n    ";
+  }
+
+function program7(depth0,data) {
+  
+  
+  return "\n      <span class=\"fa fa-list-ol\"></span>\n    ";
+  }
+
+function program9(depth0,data) {
+  
+  
+  return "\n      <span class=\"glyphicon glyphicon-th-list\"></span>\n    ";
+  }
+
+function program11(depth0,data) {
+  
+  
+  return "\n      <span class=\"fa fa-outdent\"></span>\n    ";
+  }
+
+function program13(depth0,data) {
+  
+  
+  return "\n      <span class=\"glyphicon glyphicon-indent-right\"></span>\n    ";
+  }
+
+function program15(depth0,data) {
+  
+  
+  return "\n      <span class=\"fa fa-indent\"></span>\n    ";
+  }
+
+function program17(depth0,data) {
+  
+  
+  return "\n      <span class=\"glyphicon glyphicon-indent-left\"></span>\n    ";
+  }
+
   buffer += "<li>\n  <div class=\"btn-group\">\n    <a class=\"btn ";
   stack2 = helpers['if'].call(depth0, ((stack1 = (depth0 && depth0.options)),stack1 == null || stack1 === false ? stack1 : stack1.size), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
   if(stack2 || stack2 === 0) { buffer += stack2; }
   buffer += " btn-default\" data-wysihtml5-command=\"insertUnorderedList\" title=\""
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = (depth0 && depth0.locale)),stack1 == null || stack1 === false ? stack1 : stack1.lists)),stack1 == null || stack1 === false ? stack1 : stack1.unordered)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + "\" tabindex=\"-1\"><span class=\"glyphicon glyphicon-list\"></span></a>\n    <a class=\"btn ";
+    + "\" tabindex=\"-1\">\n    ";
+  stack2 = helpers['if'].call(depth0, ((stack1 = ((stack1 = (depth0 && depth0.options)),stack1 == null || stack1 === false ? stack1 : stack1.toolbar)),stack1 == null || stack1 === false ? stack1 : stack1.fa), {hash:{},inverse:self.program(5, program5, data),fn:self.program(3, program3, data),data:data});
+  if(stack2 || stack2 === 0) { buffer += stack2; }
+  buffer += "\n    </a>\n    <a class=\"btn ";
   stack2 = helpers['if'].call(depth0, ((stack1 = (depth0 && depth0.options)),stack1 == null || stack1 === false ? stack1 : stack1.size), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
   if(stack2 || stack2 === 0) { buffer += stack2; }
   buffer += " btn-default\" data-wysihtml5-command=\"insertOrderedList\" title=\""
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = (depth0 && depth0.locale)),stack1 == null || stack1 === false ? stack1 : stack1.lists)),stack1 == null || stack1 === false ? stack1 : stack1.ordered)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + "\" tabindex=\"-1\"><span class=\"glyphicon glyphicon-th-list\"></span></a>\n    <a class=\"btn ";
+    + "\" tabindex=\"-1\">\n    ";
+  stack2 = helpers['if'].call(depth0, ((stack1 = ((stack1 = (depth0 && depth0.options)),stack1 == null || stack1 === false ? stack1 : stack1.toolbar)),stack1 == null || stack1 === false ? stack1 : stack1.fa), {hash:{},inverse:self.program(9, program9, data),fn:self.program(7, program7, data),data:data});
+  if(stack2 || stack2 === 0) { buffer += stack2; }
+  buffer += "\n    </a>\n    <a class=\"btn ";
   stack2 = helpers['if'].call(depth0, ((stack1 = (depth0 && depth0.options)),stack1 == null || stack1 === false ? stack1 : stack1.size), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
   if(stack2 || stack2 === 0) { buffer += stack2; }
   buffer += " btn-default\" data-wysihtml5-command=\"Outdent\" title=\""
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = (depth0 && depth0.locale)),stack1 == null || stack1 === false ? stack1 : stack1.lists)),stack1 == null || stack1 === false ? stack1 : stack1.outdent)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + "\" tabindex=\"-1\"><span class=\"glyphicon glyphicon-indent-right\"></span></a>\n    <a class=\"btn ";
+    + "\" tabindex=\"-1\">\n    ";
+  stack2 = helpers['if'].call(depth0, ((stack1 = ((stack1 = (depth0 && depth0.options)),stack1 == null || stack1 === false ? stack1 : stack1.toolbar)),stack1 == null || stack1 === false ? stack1 : stack1.fa), {hash:{},inverse:self.program(13, program13, data),fn:self.program(11, program11, data),data:data});
+  if(stack2 || stack2 === 0) { buffer += stack2; }
+  buffer += "\n    </a>\n    <a class=\"btn ";
   stack2 = helpers['if'].call(depth0, ((stack1 = (depth0 && depth0.options)),stack1 == null || stack1 === false ? stack1 : stack1.size), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
   if(stack2 || stack2 === 0) { buffer += stack2; }
   buffer += " btn-default\" data-wysihtml5-command=\"Indent\" title=\""
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = (depth0 && depth0.locale)),stack1 == null || stack1 === false ? stack1 : stack1.lists)),stack1 == null || stack1 === false ? stack1 : stack1.indent)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + "\" tabindex=\"-1\"><span class=\"glyphicon glyphicon-indent-left\"></span></a>\n  </div>\n</li>\n";
+    + "\" tabindex=\"-1\">\n    ";
+  stack2 = helpers['if'].call(depth0, ((stack1 = ((stack1 = (depth0 && depth0.options)),stack1 == null || stack1 === false ? stack1 : stack1.toolbar)),stack1 == null || stack1 === false ? stack1 : stack1.fa), {hash:{},inverse:self.program(17, program17, data),fn:self.program(15, program15, data),data:data});
+  if(stack2 || stack2 === 0) { buffer += stack2; }
+  buffer += "\n    </a>\n  </div>\n</li>\n";
   return buffer;
   });

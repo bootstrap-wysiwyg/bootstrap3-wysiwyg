@@ -326,6 +326,7 @@ It is possible to use custom translations as well. Just add a new key to $.fn.wy
   * Updated locales es-ES and es-AR ([#49](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/pull/49))
   * Updated wysihtml5x to 0.4.8 ([#53](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/53))
   * Added toolbar option for enabling font awesome ([#51](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/pull/51))
+  * Resolved custom shortcut issue ([#43](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/43))
 * *0.3.0* (2014/05/04):
   * Changed wysihtml implementation to wysihtml5x-0.4.4
   * Added support for requirejs ([#40](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/40))
@@ -335,6 +336,7 @@ It is possible to use custom translations as well. Just add a new key to $.fn.wy
   * Added option for small modals (adding class `.modal-sm` to `.modal-dialog`) ([#42](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/42))
   * Fixed version of jquery to be lower than 2.1.0 because of path incompatibilities
   * Updated locales es-ES and es-AR ([#49](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/pull/49))
+  * Resolved custom shortcut issue ([#43](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/43))
 * *0.2.9* (2014/02/28):
 	* Added hebrew translation
 	* Updated spanish translations (es-ES, es-AR)
