@@ -171,6 +171,36 @@ $('#some-textarea').wysihtml5({
 });
 ```
 
+Since v0.3.0 toolbar options are nested in toolbar. So use therefore following syntax:
+
+```javascript
+$('#some-textarea').wysihtml5({
+  toolbar: {
+    "font-styles": true, //Font styling, e.g. h1, h2, etc. Default true
+    "emphasis": true, //Italics, bold, etc. Default true
+    "lists": true, //(Un)ordered lists, e.g. Bullets, Numbers. Default true
+    "html": false, //Button which allows you to edit the generated HTML. Default false
+    "link": true, //Button to insert a link. Default true
+    "image": true, //Button to insert an image. Default true,
+    "color": false, //Button to change color of font  
+    "blockquote": true, //Blockquote  
+    "size": <buttonsize> //default: none, other options are xs, sm, lg
+  }
+});
+```
+
+#### Font Awesome
+
+To use Font Awesome for the icons of the toolbar you can use since v0.3.1 following option:
+
+```javascript
+  toolbar: {
+    "fa": true
+  }
+```
+
+Don't forget to add the font awesome stylesheet in this case, which is a bower dependency since v0.3.1.
+
 #### Custom Templates for Toolbar Buttons
 
 To define custom templates for buttons, you can submit a customTemplates hash with the new definitions.  Each entry should be a function which expects 'locale' and optional 'options' to manage the translations.
