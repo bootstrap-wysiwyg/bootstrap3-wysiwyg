@@ -23,7 +23,8 @@
         emphasis: {
               bold: "Negrita",
               italic: "Itálica",
-              underline: "Subrayado"
+              underline: "Subrayado",
+              small: "Subíndice"
         },
         lists: {
               unordered: "Lista desordenada",

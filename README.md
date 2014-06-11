@@ -373,5 +373,5 @@ It is possible to use custom translations as well. Just add a new key to $.fn.wy
 
 # Thanks for assistance and contributions
 
-* Garito (Github)
-
+* Garito (https://github.com/Garito)
+* jmlweb (https://github.com/jmlweb)
