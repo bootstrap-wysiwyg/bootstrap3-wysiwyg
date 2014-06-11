@@ -46,6 +46,10 @@ If you are using bower use the “bootstrap3-wysihtml5-bower” package.
 
     bower install bootstrap3-wysihtml5-bower
 
+If using Rails, use ["bootstrap-wysihtml5-rails"](https://github.com/Nerian/bootstrap-wysihtml5-rails):
+
+    gem bootstrap-wysihtml5-rails
+
 ## Examples
 
 -   [http://waxolunist.github.io/bootstrap3-wysihtml5-bower/](http://waxolunist.github.io/bootstrap3-wysihtml5-bower/)
@@ -266,7 +270,7 @@ There's quite a bit that can be done with parserRules; see [wysihtml5's advanced
 
 #### Shortcuts
 
-You can map your own shortcuts to commands. For example if you want to map the underline command to <Alt>+T call the editor with following options:
+You can map your own shortcuts to commands. For example if you want to map the underline command to Alt+T call the editor with following options:
 
 ```javascript
 $('#some-textarea').wysihtml5({
@@ -276,7 +280,7 @@ $('#some-textarea').wysihtml5({
 });
 ```
 
-The code executes the command with <Alt>, <Ctrl> or <Meta> pressed. In the example above <Ctrl>-T in Chrome is already occupied by "New Tab", thus not overridable.
+The code executes the command with Alt, Meta or Ctrl pressed. In the example above Ctrl-T in Chrome is already occupied by "New Tab", thus not overridable.
 
 #### Defaults
 
@@ -318,6 +322,11 @@ It is possible to use custom translations as well. Just add a new key to $.fn.wy
 
 # Release Notes
 
+* *0.3.1* (2014/06/11):
+  * Updated locales es-ES and es-AR ([#49](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/pull/49))
+  * Updated wysihtml5x to 0.4.8 ([#53](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/53))
+  * Added toolbar option for enabling font awesome ([#51](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/pull/51))
+  * Resolved custom shortcut issue ([#43](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/43))
 * *0.3.0* (2014/05/04):
   * Changed wysihtml implementation to wysihtml5x-0.4.4
   * Added support for requirejs ([#40](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/40))
@@ -325,7 +334,9 @@ It is possible to use custom translations as well. Just add a new key to $.fn.wy
   * This release adds support for div tags instead of textarea as editor container. The div tag will be from now on the recommended way of starting an editor instance.
 * *0.2.10* (not yet released):
   * Added option for small modals (adding class `.modal-sm` to `.modal-dialog`) ([#42](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/42))
-	* Fixed version of jquery to be lower than 2.1.0 because of path incompatibilities
+  * Fixed version of jquery to be lower than 2.1.0 because of path incompatibilities
+  * Updated locales es-ES and es-AR ([#49](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/pull/49))
+  * Resolved custom shortcut issue ([#43](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/43))
 * *0.2.9* (2014/02/28):
 	* Added hebrew translation
 	* Updated spanish translations (es-ES, es-AR)
@@ -375,5 +386,7 @@ It is possible to use custom translations as well. Just add a new key to $.fn.wy
 
 # Thanks for assistance and contributions
 
-* Garito (Github)
-
+* Garito (https://github.com/Garito)
+* jmlweb (https://github.com/jmlweb)
+* corbinu (https://github.com/corbinu)
+* Nerian (https://github.com/Nerian)

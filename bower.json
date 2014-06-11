@@ -1,6 +1,6 @@
 {
   "name": "bootstrap3-wysihtml5-bower",
-  "version": "0.2.10-alpha.2",
+  "version": "0.2.10",
   "main": [
     "dist/bootstrap3-wysihtml5.min.css",
     "dist/bootstrap3-wysihtml5.min.js"
