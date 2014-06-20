@@ -1,5 +1,23 @@
 module.exports = function(grunt) {
 
+  grunt.registerTask('bowerupdate', 'update the frontend dependencies', function() {
+    var exec = require('child_process').exec;
+    var cb = this.async();
+    exec('bower update', {cwd: '.'}, function(err, stdout, stderr) {
+      console.log(stdout);
+      cb();
+    });
+  });
+
+  grunt.registerTask('npmupdate', 'update the development dependencies', function() {
+    var exec = require('child_process').exec;
+    var cb = this.async();
+    exec('npm update', {cwd: '.'}, function(err, stdout, stderr) {
+      console.log(stdout);
+      cb();
+    });
+  });
+
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -143,6 +161,8 @@ module.exports = function(grunt) {
   // Default task(s).
   grunt.registerTask('dev', ['handlebars', 'concat:commands']);
   grunt.registerTask('amd', ['concat:all', 'wrap:wysihtml5', 'wrap:templates', 'wrap:commands', 'copy:amd', 'concat:amd']);
-  grunt.registerTask('default', ['clean:build', 'handlebars:compile', 'concat:commands', 'amd', 'uglify', 'cssmin', 'copy:main']);
+  grunt.registerTask('build', ['clean:build', 'handlebars:compile', 'concat:commands', 'amd', 'uglify', 'cssmin', 'copy:main']);
+  grunt.registerTask('with-update', ['bowerupdate', 'npmupdate', 'build']);
+  grunt.registerTask('default', ['build']);
 
 };
