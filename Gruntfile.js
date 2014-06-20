@@ -56,6 +56,9 @@ module.exports = function(grunt) {
         }
       }
     },
+    clean: {
+      build: ["dist"]
+    },
     copy: {
       main: {
         files: [
@@ -129,7 +132,7 @@ module.exports = function(grunt) {
     }
   });
 
-  // Load the plugin that provides the "uglify" task.
+  grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-copy');
@@ -140,6 +143,6 @@ module.exports = function(grunt) {
   // Default task(s).
   grunt.registerTask('dev', ['handlebars', 'concat:commands']);
   grunt.registerTask('amd', ['concat:all', 'wrap:wysihtml5', 'wrap:templates', 'wrap:commands', 'copy:amd', 'concat:amd']);
-  grunt.registerTask('default', ['handlebars:compile', 'concat:commands', 'amd', 'uglify', 'cssmin', 'copy:main']);
+  grunt.registerTask('default', ['clean:build', 'handlebars:compile', 'concat:commands', 'amd', 'uglify', 'cssmin', 'copy:main']);
 
 };
