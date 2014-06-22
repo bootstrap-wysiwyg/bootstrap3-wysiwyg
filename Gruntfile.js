@@ -1,5 +1,23 @@
 module.exports = function(grunt) {
 
+  grunt.registerTask('bowerupdate', 'update the frontend dependencies', function() {
+    var exec = require('child_process').exec;
+    var cb = this.async();
+    exec('bower update', {cwd: '.'}, function(err, stdout, stderr) {
+      console.log(stdout);
+      cb();
+    });
+  });
+
+  grunt.registerTask('npmupdate', 'update the development dependencies', function() {
+    var exec = require('child_process').exec;
+    var cb = this.async();
+    exec('npm update', {cwd: '.'}, function(err, stdout, stderr) {
+      console.log(stdout);
+      cb();
+    });
+  });
+
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -53,6 +71,9 @@ module.exports = function(grunt) {
         }
       }
     },
+    clean: {
+      build: ["dist"]
+    },
     copy: {
       main: {
         files: [
@@ -73,7 +94,7 @@ module.exports = function(grunt) {
     }
   });
 
-  // Load the plugin that provides the "uglify" task.
+  grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-copy');
@@ -82,6 +103,8 @@ module.exports = function(grunt) {
 
   // Default task(s).
   grunt.registerTask('dev', ['handlebars', 'concat:commands']);
-  grunt.registerTask('default', ['handlebars', 'concat:commands', 'uglify', 'cssmin', 'copy']);
+  grunt.registerTask('build', ['clean:build', 'handlebars', 'concat:commands', 'uglify', 'cssmin', 'copy']);
+  grunt.registerTask('with-update', ['bowerupdate', npmupdate, 'build']);
+  grunt.registerTask('default', ['build']);
 
 };
