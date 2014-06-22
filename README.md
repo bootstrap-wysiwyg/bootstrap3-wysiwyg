@@ -352,6 +352,10 @@ It is possible to use custom translations as well. Just add a new key to $.fn.wy
 
 # Release Notes
 
+* *0.3.2* (2014/06/22):
+  * Updated and better build (see #60 and #56).
+  * Corrected size option in templates (see #58)
+  * Updated wysihtml5x to 0.4.9 (see #57)
 * *0.3.1* (2014/06/11):
   * Updated locales es-ES and es-AR ([#49](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/pull/49))
   * Updated wysihtml5x to 0.4.8 ([#53](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/53))
@@ -362,7 +366,10 @@ It is possible to use custom translations as well. Just add a new key to $.fn.wy
   * Added support for requirejs ([#40](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/40))
   * Fixed version of jquery to be higher or equal to 2.1.0
   * This release adds support for div tags instead of textarea as editor container. The div tag will be from now on the recommended way of starting an editor instance.
-* *0.2.10* (not yet released):
+* *0.2.12* (not yet released):
+* *0.2.11* (2014/06/22):
+  * Updated and better build (see #60 and #56).
+* *0.2.10* (2014/06/11):
   * Added option for small modals (adding class `.modal-sm` to `.modal-dialog`) ([#42](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/42))
   * Fixed version of jquery to be lower than 2.1.0 because of path incompatibilities
   * Updated locales es-ES and es-AR ([#49](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/pull/49))

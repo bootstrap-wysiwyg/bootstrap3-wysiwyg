@@ -79,6 +79,7 @@ module.exports = function(grunt) {
         files: [
           {expand: true, cwd: 'src/', src: ['*.js'], dest: 'dist/'},
           {expand: true, cwd: 'src/', src: ['*.css'], dest: 'dist/'},
+          {expand: true, cwd: 'src/generated', src: ['*.js'], dest: 'dist/'},
           {expand: true, cwd: 'src/', src: ['locales/*.js'], dest: 'dist/'},
         ]
       }
@@ -104,7 +105,7 @@ module.exports = function(grunt) {
   // Default task(s).
   grunt.registerTask('dev', ['handlebars', 'concat:commands']);
   grunt.registerTask('build', ['clean:build', 'handlebars', 'concat:commands', 'uglify', 'cssmin', 'copy']);
-  grunt.registerTask('with-update', ['bowerupdate', npmupdate, 'build']);
+  grunt.registerTask('with-update', ['bowerupdate', 'npmupdate', 'build']);
   grunt.registerTask('default', ['build']);
 
 };
