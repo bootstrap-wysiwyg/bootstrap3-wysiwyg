@@ -277,7 +277,7 @@ if (wysihtml5.browser.supported()) {
 
   // create table
     asyncTest("Create lists", function() {
-      expect(4);
+      expect(7);
       var that = this,
           editor = new wysihtml5.Editor(this.editableArea),
           text = "";
@@ -285,25 +285,83 @@ if (wysihtml5.browser.supported()) {
       editor.on("load", function() {
         var editableElement   = that.editableArea,
             expectText = '<ul><li></li></ul>',
+            expectTextBr = '<ul><li><br></li></ul>',
             expectTextWithContents = '<ul><li>text</li></ul>',
+            expectTextWithContentsBr = '<ul><li>text<br></li></ul>',
             expectOrdText = '<ol><li></li></ol>',
-            expectOrdTextWithContents = '<ol><li>text</li></ol>';
+            expectOrdTextBr = '<ol><li><br></li></ol>',
+            expectOrdTextWithContents = '<ol><li>text</li></ol>',
+            expectOrdTextWithContentsBr = '<ol><li>text<br></li></ol>';
 
         editor.setValue(text, true);
         editor.composer.selection.selectNode(editor.editableElement);
         editor.composer.commands.exec('insertUnorderedList');
-        equal(editableElement.innerHTML.toLowerCase(), expectText, "Unordered list created");
+        ok(editableElement.innerHTML.toLowerCase() == expectText || editableElement.innerHTML.toLowerCase() == expectTextBr, "Unordered list created");
 
         editor.composer.commands.exec('insertHTML', 'text');
-        equal(editableElement.innerHTML.toLowerCase(), expectTextWithContents, "In unordered list placed caret correctly");
+        ok(editableElement.innerHTML.toLowerCase() == expectTextWithContents || editableElement.innerHTML.toLowerCase() == expectTextWithContentsBr , "In unordered list placed caret correctly");
 
         editor.setValue(text, true);
         editor.composer.selection.selectNode(editor.editableElement);
         editor.composer.commands.exec('insertOrderedList');
-        equal(editableElement.innerHTML.toLowerCase(), expectOrdText, "Ordered list created");
+        ok(editableElement.innerHTML.toLowerCase() == expectOrdText || editableElement.innerHTML.toLowerCase() == expectOrdTextBr, "Ordered list created");
 
         editor.composer.commands.exec('insertHTML', 'text');
-        equal(editableElement.innerHTML.toLowerCase(), expectOrdTextWithContents, "In ordered list placed caret correctly");
+        ok(editableElement.innerHTML.toLowerCase() == expectOrdTextWithContents || editableElement.innerHTML.toLowerCase() == expectOrdTextWithContentsBr, "In ordered list placed caret correctly");
+
+        editableElement.innerHTML = '<ul><li>test</li><li class="second">test</li><li>test</li></ul>';
+        editor.composer.selection.selectNode(editor.editableElement.querySelector('.second'));
+        editor.composer.commands.exec('indentList');
+        equal(editableElement.innerHTML.toLowerCase(), '<ul><li>test<ul><li class="second">test</li></ul></li><li>test</li></ul>', "List indent increases level correctly");
+
+        editor.composer.commands.exec('outdentList');
+        equal(editableElement.innerHTML.toLowerCase(), '<ul><li>test</li><li class="second">test</li><li>test</li></ul>', "List outdent decreases level correctly");
+
+        editor.composer.commands.exec('outdentList');
+        equal(editableElement.innerHTML.toLowerCase(), '<ul><li>test</li></ul><br>test<ul><li>test</li></ul>', "List outdent escapes current list item correctly out of list");
+
+
+        start();
+      });
+    });
+
+
+  // create blockQuote
+    asyncTest("Create blockquote", function() {
+      expect(4);
+      var that = this,
+        editor = new wysihtml5.Editor(this.editableArea, {
+          parserRules: {
+            tags: {
+              h1: true,
+              p: true,
+              blockquote: true
+            }
+          }
+        }),
+        text = "<h1>heading</h1><p>text</p>",
+        text2 = "test<h1>heading</h1>test";
+
+      editor.on("load", function() {
+        var editableElement   = that.editableArea;
+
+        editor.setValue(text, true);
+
+        editor.composer.selection.selectNode(editor.editableElement);
+        editor.composer.commands.exec('insertBlockQuote');
+        equal(editableElement.innerHTML.toLowerCase(), "<blockquote>" + text + "</blockquote>" , "Blockquote created with headings and paragraphs preserved.");
+
+        editor.composer.commands.exec('insertBlockQuote');
+        equal(editableElement.innerHTML.toLowerCase(), text, "Blockquote removed with headings and paragraphs preserved.");
+
+
+        editor.setValue(text2, true);
+        editor.composer.selection.selectNode(editor.editableElement.querySelector('h1'));
+        editor.composer.commands.exec('insertBlockQuote');
+        equal(editableElement.innerHTML.toLowerCase(), "test<blockquote><h1>heading</h1></blockquote>test" , "Blockquote created.");
+
+        editor.composer.commands.exec('insertBlockQuote');
+        equal(editableElement.innerHTML.toLowerCase(), "test<br><h1>heading</h1><br>test" , "Blockquote removed and line breaks added.");
 
         start();
       });
