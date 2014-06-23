@@ -352,6 +352,7 @@ It is possible to use custom translations as well. Just add a new key to $.fn.wy
 
 # Release Notes
 
+* *0.3.3* (not yet released):
 * *0.3.2* (2014/06/22):
   * Updated and better build (see [#60](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/60) and [#56](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/56)).
   * Corrected size option in templates (see [#58](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/58))
