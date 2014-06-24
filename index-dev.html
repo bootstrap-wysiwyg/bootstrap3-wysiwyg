@@ -91,6 +91,7 @@
 
   $('.editable').wysihtml5({
     toolbar: {
+      'blockquote': false,
       'font-styles': {},
       'emphasis': {
         'small': true
@@ -107,6 +108,9 @@
       }
     },
     locale: 'de-DE',
+    shortcuts: {
+      75: "createLink"
+    }
   });
 
 </script>
