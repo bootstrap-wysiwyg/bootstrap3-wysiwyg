@@ -2,7 +2,7 @@
 (function (factory) {
     if (typeof define === 'function' && define.amd) {
         // AMD. Register as an anonymous module.
-        define('bootstrap.wysihtml5', ['jquery', 'wysihtml5', 'bootstrap.wysihtml5.templates', 'bootstrap.wysihtml5.commands'], factory);
+        define('bootstrap.wysihtml5', ['jquery', 'wysihtml5', 'bootstrap', 'bootstrap.wysihtml5.templates', 'bootstrap.wysihtml5.commands'], factory);
     } else {
         // Browser globals
         factory(jQuery, wysihtml5);
