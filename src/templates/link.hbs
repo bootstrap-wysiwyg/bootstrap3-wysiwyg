@@ -1,5 +1,5 @@
 <li>
-  <div class="bootstrap-wysihtml5-insert-link-modal modal fade">
+  <div class="bootstrap-wysihtml5-insert-link-modal modal fade" data-wysihtml5-dialog="createLink">
     <div class="modal-dialog {{#if options.toolbar.smallmodals}}modal-sm{{/if}}">
       <div class="modal-content">
         <div class="modal-header">
@@ -7,17 +7,23 @@
           <h3>{{locale.link.insert}}</h3>
         </div>
         <div class="modal-body">
-          <input value="http://" class="bootstrap-wysihtml5-insert-link-url form-control">
-          <label class="checkbox"> <input type="checkbox" class="bootstrap-wysihtml5-insert-link-target" checked>{{locale.link.target}}</label>
+          <div class="form-group">
+            <input value="http://" class="bootstrap-wysihtml5-insert-link-url form-control" data-wysihtml5-dialog-field="href">
+          </div> 
+          <div class="checkbox">
+            <label> 
+              <input type="checkbox" class="bootstrap-wysihtml5-insert-link-target" checked>{{locale.link.target}}
+            </label>
+          </div>
         </div>
         <div class="modal-footer">
-          <a class="btn btn-default" data-dismiss="modal">{{locale.link.cancel}}</a>
-          <a href="#" class="btn btn-primary" data-dismiss="modal">{{locale.link.insert}}</a>
+          <a class="btn btn-default" data-dismiss="modal" data-wysihtml5-dialog-action="cancel">{{locale.link.cancel}}</a>
+          <a href="#" class="btn btn-primary" data-dismiss="modal" data-wysihtml5-dialog-action="save">{{locale.link.insert}}</a>
         </div>
       </div>
     </div>
   </div>
-  <a class="btn {{#if options.toolbar.size}}btn-{{options.toolbar.size}}{{/if}} btn-default" data-wysihtml5-command="createLink" title="{{locale.link.insert}}" tabindex="-1">
+  <a class="btn {{#if options.toolbar.size}}btn-{{options.toolbar.size}}{{/if}} btn-default" data-wysihtml5-command="createLink" title="{{locale.link.insert}}" tabindex="-1" data-toggle="modal" data-target=".bootstrap-wysihtml5-insert-link-modal">
     {{#if options.toolbar.fa}}
       <span class="fa fa-share-square-o"></span>
     {{else}}
