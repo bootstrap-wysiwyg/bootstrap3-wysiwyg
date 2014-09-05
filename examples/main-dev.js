@@ -4,7 +4,7 @@ require.config({
     'jquery': '../components/jquery/dist/jquery.min',
     'handlebars.runtime': '../components/handlebars/handlebars.runtime.amd',
     'bootstrap': '../components/bootstrap/dist/js/bootstrap.min',
-    'bootstrap.wysihtml5': '../dist/bootstrap3-wysihtml5',
+    'bootstrap.wysihtml5': '../src/bootstrap3-wysihtml5',
     'rangy': '../components/rangy-1.3/rangy-core',
     'wysihtml5': '../dist/amd/wysihtml5',
     'bootstrap.wysihtml5.commands': '../dist/amd/commands',
