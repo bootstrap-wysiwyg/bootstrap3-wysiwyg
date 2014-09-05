@@ -5,12 +5,15 @@
 
 <title>wysihtml5 - Test Suite</title>
 
-<link rel="stylesheet" href="http://code.jquery.com/qunit/qunit-git.css">
+<link rel="stylesheet" href="../node_modules/qunitjs/qunit/qunit.css">
 
-<script src="http://code.jquery.com/qunit/qunit-1.12.0.js"></script>
+<script src="../components/jquery/dist/jquery.min.js"></script>
+
+<script src="../node_modules/qunitjs/qunit/qunit.js"></script>
+<script src="../node_modules/happen/happen.js"></script>
+<script src="../node_modules/qunit-assert-html/dist/qunit-assert-html.js"></script>
 
 <script src="../components/wysihtml5x/dist/wysihtml5x-toolbar.js"></script>
-<script src="../components/jquery/dist/jquery.min.js"></script>
 <script src="../components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="../components/handlebars/handlebars.runtime.min.js"></script>
 <script src="../src/generated/templates.js"></script>
@@ -18,8 +21,7 @@
 <script src="../src/locales/bootstrap-wysihtml5.en-US.js"></script>
 <script src="../src/locales/bootstrap-wysihtml5.de-DE.js"></script>
 <script src="../src/generated/commands.js"></script>
-
-<script src="html_equal.js"></script>
+<script src="testhelper.js"></script>
 
 <script src="browser_test.js"></script>
 <script src="incompatible_test.js"></script>
@@ -27,7 +29,6 @@
 <script>
   if (wysihtml5.browser.supported()) {
     document.write(
-      '<script src="assert/html_equal_test.js"><\/script>'                +
       '<script src="lang/array_test.js"><\/script>'                       +
       '<script src="lang/object_test.js"><\/script>'                      +
       '<script src="lang/string_test.js"><\/script>'                      +
@@ -59,7 +60,9 @@
       '<script src="editor_test.js"><\/script>'                           +
       '<script src="editor_contenteditablemode_test.js"><\/script>'       +
       '<script src="editor_commands_test.js"><\/script>'                  +
-      '<script src="bootstrap_editor_commands_test.js"><\/script>'
+      '<script src="bs/bootstrap_editor_link_test.js"><\/script>'            +
+      '<script src="bs/bootstrap_editor_image_test.js"><\/script>'            +
+      '<script src="bs/bootstrap_editor_commands_test.js"><\/script>'
     );
   }
 </script>
@@ -69,3 +72,4 @@
 <div id="qunit-testrunner-toolbar"></div>
 <h2 id="qunit-userAgent"></h2>
 <ol id="qunit-tests"></ol>
+<div id="qunit-fixture"></div>
