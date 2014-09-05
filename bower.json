@@ -6,7 +6,7 @@
     "dist/bootstrap3-wysihtml5.min.js"
   ],
   "dependencies": {
-    "wysihtml5x": "0.4.12",
+    "wysihtml5x": "0.4.13",
     "rangy-1.3": "master",
     "bootstrap": ">=3",
     "components-font-awesome": "~4.1.0",
