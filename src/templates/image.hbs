@@ -1,5 +1,5 @@
 <li>
-  <div class="bootstrap-wysihtml5-insert-image-modal modal fade">
+  <div class="bootstrap-wysihtml5-insert-image-modal modal fade" data-wysihtml5-dialog="insertImage">
     <div class="modal-dialog {{#if options.toolbar.smallmodals}}modal-sm{{/if}}">
       <div class="modal-content">
         <div class="modal-header">
@@ -7,11 +7,13 @@
           <h3>{{locale.image.insert}}</h3>
         </div>
         <div class="modal-body">
-          <input value="http://" class="bootstrap-wysihtml5-insert-image-url form-control">
+          <div class="form-group">
+            <input value="http://" class="bootstrap-wysihtml5-insert-image-url form-control">
+          </div> 
         </div>
         <div class="modal-footer">
-          <a class="btn btn-default" data-dismiss="modal">{{locale.image.cancel}}</a>
-          <a class="btn btn-primary" data-dismiss="modal">{{locale.image.insert}}</a>
+          <a class="btn btn-default" data-dismiss="modal" data-wysihtml5-dialog-action="cancel" href="#">{{locale.image.cancel}}</a>
+          <a class="btn btn-primary" data-dismiss="modal"  data-wysihtml5-dialog-action="save" href="#">{{locale.image.insert}}</a>
         </div>
       </div>
     </div>

@@ -93,7 +93,16 @@
     toolbar: {
       'html': true
     },
-    locale: 'de-DE'
+    locale: 'de-DE',
+    parserRules: {
+      'tags': {
+        'a': {
+          'check_attributes': {
+            'href': 'href'
+          } 
+        }
+      }
+    }
   });
     
   $('#textarea2').wysihtml5({

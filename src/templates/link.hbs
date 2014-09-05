@@ -17,13 +17,13 @@
           </div>
         </div>
         <div class="modal-footer">
-          <a class="btn btn-default" data-dismiss="modal" data-wysihtml5-dialog-action="cancel">{{locale.link.cancel}}</a>
+          <a class="btn btn-default" data-dismiss="modal" data-wysihtml5-dialog-action="cancel" href="#">{{locale.link.cancel}}</a>
           <a href="#" class="btn btn-primary" data-dismiss="modal" data-wysihtml5-dialog-action="save">{{locale.link.insert}}</a>
         </div>
       </div>
     </div>
   </div>
-  <a class="btn {{#if options.toolbar.size}}btn-{{options.toolbar.size}}{{/if}} btn-default" data-wysihtml5-command="createLink" title="{{locale.link.insert}}" tabindex="-1" data-toggle="modal" data-target=".bootstrap-wysihtml5-insert-link-modal">
+  <a class="btn {{#if options.toolbar.size}}btn-{{options.toolbar.size}}{{/if}} btn-default" data-wysihtml5-command="createLink" title="{{locale.link.insert}}" tabindex="-1">
     {{#if options.toolbar.fa}}
       <span class="fa fa-share-square-o"></span>
     {{else}}
