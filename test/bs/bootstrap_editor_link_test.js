@@ -26,14 +26,23 @@ asyncTest('open link modal with mouse', function(){
     var createLinkModal = that.container.find('[data-wysihtml5-dialog="createLink"]');
     ok(!createLinkModal.hasClass('in'), 'CreateLink modal is hidden'); 
 
-    createLinkButton.happen('click');
+    //createLinkButton.click();
+    //createLinkButton.happen('mousedown');
+    var e = document.createEvent('MouseEvents');
+    e.initEvent(
+      'click'     // event type
+      ,true      // can bubble?
+      ,true      // cancelable?
+    );
+    createLinkButton.get(0).dispatchEvent(e);
+
 
     // 150 is the length of the fade transition
     setTimeout(function() {
       ok(createLinkModal.hasClass('in'), 'CreateLink modal is visible (class on modal)'); 
       ok(createLinkButton.hasClass('wysihtml5-command-dialog-opened'), 'CreateLink modal is visible (class on button)'); 
       start();
-    }, 150);
+    }, 200);
   };
 
   var onShow = function(event) {

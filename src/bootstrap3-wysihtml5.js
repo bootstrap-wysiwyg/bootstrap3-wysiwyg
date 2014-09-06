@@ -82,10 +82,10 @@ var bsWysihtml5 = function($, wysihtml5) {
       }).map(function(commandObj, idx, arr) {
         return commandObj.dialog;
       }).forEach(function(dialog, idx, arr) {
-        dialog.on('show', function() {
+        dialog.on('show', function(event) {
           $(this.container).modal('show');
         });
-        dialog.on('hide', function() {
+        dialog.on('hide', function(event) {
           $(this.container).modal('hide');
           editor.composer.focus();
         });
@@ -93,15 +93,6 @@ var bsWysihtml5 = function($, wysihtml5) {
           $(this).find('input, select, textarea').first().focus();
         });
       });
-
-      /*
-          console.log('event show:dialog');
-          $(this.container).on('shown.bs.modal', function () {
-            console.log('event bs:modal:shown');
-            $(this).find('input, select, textarea').first().focus();
-          });
-          $(this.container).modal();
-          */
     },
 
     createToolbar: function(el, options) {

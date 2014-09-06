@@ -33,6 +33,11 @@ module.exports = function(config) {
       {pattern: 'src/locales/bootstrap-wysihtml5.en-US.js', watched: true, included: true, served: true},
       {pattern: 'src/generated/commands.js', watched: true, included: true, served: true},
 
+      //CSS
+      {pattern: 'components/bootstrap/dist/css/*.min.css', watched: false, included: true, served: true},
+      {pattern: 'components/bootstrap/dist/fonts/*', watched: false, included: false, served: true},
+      {pattern: 'src/*.css', watched: false, included: true, served: true},
+
       // Test helpers
       {pattern: 'test/testhelper.js', watched: true, included: true, served: true},
       {pattern: 'test/karma/test-main.js', watched: true, included: true, served: true},
