@@ -43,7 +43,8 @@ module.exports = function(config) {
       {pattern: 'test/karma/test-main.js', watched: true, included: true, served: true},
 
       // Tests
-      {pattern: 'test/**/*test.js', watched: true, included: true, served: true}
+      {pattern: 'test/bs/*link*test.js', watched: true, included: true, served: true}
+      //{pattern: 'test/**/*test.js', watched: true, included: true, served: true}
     ],
 
 
