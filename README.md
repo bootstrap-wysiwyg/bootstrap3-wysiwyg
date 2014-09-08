@@ -321,8 +321,12 @@ It is possible to use custom translations as well. Just add a new key to $.fn.wy
 
 # Release Notes
 
-* *0.3.3* (not yet released):
+* *0.3.4* (not yet released):
+* *0.3.3* (2014/09/08):
   * Refined bower dependency versions (see [#64](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/64)).
+  * Updated wysihtml5x to 0.4.13 (see [#80](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/80))
+  * Added automated tests with karma
+  * Switched create link and create image modals to use wysihtml5 events, solving [#61](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/61).
 * *0.3.2* (2014/06/22):
   * Updated and better build (see [#60](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/60) and [#56](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/56)).
   * Corrected size option in templates (see [#58](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/58))
