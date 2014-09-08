@@ -14319,16 +14319,6 @@ var bsWysihtml5 = function($, wysihtml5) {
     }
     this.toolbar = this.createToolbar(el, toolbarOpts);
     this.editor =  this.createEditor(toolbarOpts);
-
-    window.editor = this.editor;
-
-    $('iframe.wysihtml5-sandbox').each(function(i, el){
-      $(el.contentWindow).off('focus.wysihtml5').on({
-        'focus.wysihtml5' : function(){
-          $('li.dropdown').removeClass('open');
-        }
-      });
-    });
   };
 
   Wysihtml5.prototype = {
@@ -14360,8 +14350,8 @@ var bsWysihtml5 = function($, wysihtml5) {
         }
       }
       
-      editor.on('load', this.syncBootstrapDialogEvents);
-
+      editor.on('beforeload', this.syncBootstrapDialogEvents);
+      //syncBootstrapDialogEvents();
       return editor;
     },
 
