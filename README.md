@@ -203,38 +203,7 @@ Don't forget to add the font awesome stylesheet in this case, which is a bower d
 
 #### Custom Templates for Toolbar Buttons
 
-To define custom templates for buttons, you can submit a customTemplates hash with the new definitions.  Each entry should be a function which expects 'locale' and optional 'options' to manage the translations.
-
-For example, the default template used for the editHtml mode button looks like this (with size fetched from the optional 'options')
-
-```html
-<li>
-  <div class='btn-group'>
-    <a class='btn" + size + "' data-wysihtml5-action='change_view' title='" + locale.html.edit + "'><i class='icon-pencil'></i></a>"
-  </div>
-</li>
-```
-
-You can change it to not use the pencil icon (for example) by defining the custom template like this:
-
-```javascript
-var myCustomTemplates = {
-  html : function(locale) {
-    return "<li>" +
-           "<div class='btn-group'>" +
-           "<a class='btn' data-wysihtml5-action='change_view' title='" + locale.html.edit + "'>HTML</a>" +
-           "</div>" +
-           "</li>";
-  }
-}
-
-// pass in your custom templates on init
-$('#some-textarea').wysihtml5({
-   customTemplates: myCustomTemplates
-});
-```
-
-This will override only the toolbar template for html, and all others will use the default.
+see wikie: [Custom Templates](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/wiki/Custom-Templates)
 
 ##### Data Attributes
 
@@ -352,7 +321,12 @@ It is possible to use custom translations as well. Just add a new key to $.fn.wy
 
 # Release Notes
 
-* *0.3.3* (not yet released):
+* *0.3.4* (not yet released):
+* *0.3.3* (2014/09/08):
+  * Refined bower dependency versions (see [#64](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/64)).
+  * Updated wysihtml5x to 0.4.13 (see [#80](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/80))
+  * Added automated tests with karma
+  * Switched create link and create image modals to use wysihtml5 events, solving [#61](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/61).
 * *0.3.2* (2014/06/22):
   * Updated and better build (see [#60](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/60) and [#56](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/56)).
   * Corrected size option in templates (see [#58](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/58))
