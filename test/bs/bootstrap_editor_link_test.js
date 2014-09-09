@@ -12,9 +12,8 @@ module('bootstrap3-wysihtml5-bower.toolbar.link', {
   }
 });
 
-
 asyncTest('open link modal with mouse', function(){
-  expect(5);
+  expect(6);
 
   var that = this;
 
@@ -28,29 +27,37 @@ asyncTest('open link modal with mouse', function(){
 
     createLinkButton.happen('click');
 
-    // 150 is the length of the fade transition
-    setTimeout(function() {
-      ok(createLinkModal.hasClass('in'), 'CreateLink modal is visible (class on modal)'); 
-      ok(createLinkButton.hasClass('wysihtml5-command-dialog-opened'), 'CreateLink modal is visible (class on button)'); 
-      start();
-    }, 250);
+    ok(createLinkButton.hasClass('wysihtml5-command-dialog-opened'), 'CreateLink modal is visible (class on button)'); 
   };
 
   var onShow = function(event) {
     ok(true, 'show:dialog event was fired');
+    // 150 is the length of the fade transition
+    setTimeout(function() {
+      var modal = $(event.dialogContainer);
+      ok(modal.hasClass('in'), 'CreateLink modal is visible (class on modal)'); 
+      var cancelBtn = modal.find('[data-wysihtml5-dialog-action="cancel"]');
+      cancelBtn.happen('click');
+    }, 200);
+  };
+
+  var onHide = function(event) {
+    ok(true, 'cancel:dialog event was fired');
+    start();
   };
 
   var editor = this.editableArea.wysihtml5({
     events: {
       'load': onLoad,
-      'show:dialog': onShow
+      'show:dialog': onShow,
+      'cancel:dialog': onHide
     }
   });
 
 });
 
 asyncTest('open link modal with keyboard', function(){
-  expect(5);
+  expect(6);
 
   var that = this;
 
@@ -65,23 +72,28 @@ asyncTest('open link modal with keyboard', function(){
     //trigger key Ctrl+k
     $(this.composer.editableArea.contentDocument.body).happen({ type: 'keydown', keyCode: 75, ctrlKey: true });
 
-    // 150 is the length of the fade transition
-    setTimeout(function() {
-      ok(createLinkModal.hasClass('in'), 'CreateLink modal is visible (class on modal)'); 
-      ok(createLinkButton.hasClass('wysihtml5-command-dialog-opened'), 'CreateLink modal is visible (class on button)'); 
-
-      start();
-    }, 150);
+    ok(createLinkButton.hasClass('wysihtml5-command-dialog-opened'), 'CreateLink modal is visible (class on button)'); 
   };
 
   var onShow = function(event) {
     ok(true, 'show:dialog event was fired');
+    setTimeout(function() {
+      var modal = $(event.dialogContainer);
+      ok(modal.hasClass('in'), 'CreateLink modal is visible (class on modal)'); 
+      modal.happen({ type: 'keydown', keyCode: 27, ctrlKey: false });
+    }, 200);
+  };
+
+  var onHide = function(event) {
+    ok(true, 'cancel:dialog event was fired');
+    start();
   };
 
   var editor = this.editableArea.wysihtml5({
     events: {
       'load': onLoad,
-      'show:dialog': onShow
+      'show:dialog': onShow,
+      'cancel:dialog': onHide
     },
     shortcuts: {
       '75': 'createLink' //k

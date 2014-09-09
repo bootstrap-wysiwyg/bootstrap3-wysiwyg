@@ -14,7 +14,7 @@ module('bootstrap3-wysihtml5-bower.toolbar.image', {
 
 
 asyncTest('open image modal with mouse', function(){
-  expect(5);
+  expect(6);
 
   var that = this;
 
@@ -28,22 +28,29 @@ asyncTest('open image modal with mouse', function(){
 
     insertImageButton.happen('click');
 
-    // 150 is the length of the fade transition
-    setTimeout(function () {
-      ok(insertImageModal.hasClass('in'), 'InsertImage modal is visible'); 
-      ok(insertImageButton.hasClass('wysihtml5-command-dialog-opened'), 'CreateImage modal is visible (class on button)'); 
-      start();
-    }, 150);
+    ok(insertImageButton.hasClass('wysihtml5-command-dialog-opened'), 'CreateImage modal is visible (class on button)'); 
   };
 
   var onShow = function(event) {
     ok(true, 'show:dialog event was fired');
+    setTimeout(function() {
+      var modal = $(event.dialogContainer);
+      ok(modal.hasClass('in'), 'CreateLink modal is visible (class on modal)'); 
+      var cancelBtn = modal.find('[data-wysihtml5-dialog-action="cancel"]');
+      cancelBtn.happen('click');
+    }, 200);
+  };
+
+  var onHide = function(event) {
+    ok(true, 'cancel:dialog event was fired');
+    start();
   };
 
   var editor = this.editableArea.wysihtml5({
     events: {
       'load': onLoad,
-      'show:dialog': onShow
+      'show:dialog': onShow,
+      'cancel:dialog': onHide
     }
   });
 
@@ -51,7 +58,7 @@ asyncTest('open image modal with mouse', function(){
 
 //Test for issue #82
 asyncTest('set_class on img tag', function() {
-   expect(5);
+   expect(2);
 
   var that = this;
 
@@ -62,23 +69,39 @@ asyncTest('set_class on img tag', function() {
   };
 
   var onShow = function(event) {
-    var modal = event.dialogContainer;
-    var input = $(modal).find('input').first();
-    var saveBtn = $(modal).find('[data-wysihtml5-dialog-action="save"]');
-    input.val('http://example.com/example.png'); 
+    ok(true, 'show:dialog event was fired');
+    //Wait for modal to fade in
     setTimeout(function() {
-
+      var modal = event.dialogContainer;
+      var input = $(modal).find('input').first();
+      var saveBtn = $(modal).find('[data-wysihtml5-dialog-action="save"]');
+      input.val('http://example.com/example.png'); 
       saveBtn.happen('click');
-      setTimeout(function() {
-          console.log(editor);
-      });
+    }, 200);
+  };
+
+  var onHide = function(event) {
+    ok(true, 'save:dialog event was fired');
+    setTimeout(function() {
+      htmlEqual(that.editableArea.val(), '<img alt="" src="http://example.com/example.png" class="mytxtimg">', 'Class should be inserted into image tag.');
+      start();
     }, 200);
   };
 
   var editor = this.editableArea.wysihtml5({
+    toolbar: {
+      html: true
+    },
     events: {
       'load': onLoad,
-      'show:dialog': onShow
+      'show:dialog': onShow,
+      'save:dialog': onHide
+    },
+    parserRules: { 
+      classes: { 'mytxtimg': 1 }, 
+      tags: { 'img': 
+        { 'set_class': 'mytxtimg' }
+      }
     }
   });
 
