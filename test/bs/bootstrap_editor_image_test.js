@@ -49,4 +49,39 @@ asyncTest('open image modal with mouse', function(){
 
 });
 
+//Test for issue #82
+asyncTest('set_class on img tag', function() {
+   expect(5);
+
+  var that = this;
+
+  var onLoad = function() {
+    //find link modal
+    var insertImageButton = that.container.find('[data-wysihtml5-command="insertImage"]');
+    insertImageButton.happen('click');
+  };
+
+  var onShow = function(event) {
+    var modal = event.dialogContainer;
+    var input = $(modal).find('input').first();
+    var saveBtn = $(modal).find('[data-wysihtml5-dialog-action="save"]');
+    input.val('http://example.com/example.png'); 
+    setTimeout(function() {
+
+      saveBtn.happen('click');
+      setTimeout(function() {
+          console.log(editor);
+      });
+    }, 200);
+  };
+
+  var editor = this.editableArea.wysihtml5({
+    events: {
+      'load': onLoad,
+      'show:dialog': onShow
+    }
+  });
+
+});
+
 }
