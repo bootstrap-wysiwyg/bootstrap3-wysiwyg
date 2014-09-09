@@ -10,7 +10,11 @@ require.config({
   shim: {
     'bootstrap': {
       deps: ['jquery']
+    },
+    'rangy': {
+      exports: 'rangy'
     }
+
   },
   deps: [
     './start'

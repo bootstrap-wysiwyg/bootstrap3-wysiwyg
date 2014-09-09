@@ -5,7 +5,7 @@ require.config({
     'handlebars.runtime': '../components/handlebars/handlebars.runtime.amd',
     'bootstrap': '../components/bootstrap/dist/js/bootstrap.min',
     'bootstrap.wysihtml5': '../src/bootstrap3-wysihtml5',
-    'rangy': '../components/rangy-1.3/rangy-core',
+    'rangy': '../components/rangy-official/rangy-core',
     'wysihtml5': '../dist/amd/wysihtml5',
     'bootstrap.wysihtml5.commands': '../dist/amd/commands',
     'bootstrap.wysihtml5.templates': '../dist/amd/templates',
@@ -14,6 +14,9 @@ require.config({
   shim: {
     'bootstrap': {
       deps: ['jquery']
+    },
+    'rangy': {
+      exports: 'rangy'
     }
   },
   deps: [
