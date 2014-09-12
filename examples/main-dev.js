@@ -5,7 +5,8 @@ require.config({
     'handlebars.runtime': '../components/handlebars/handlebars.runtime.amd',
     'bootstrap': '../components/bootstrap/dist/js/bootstrap.min',
     'bootstrap.wysihtml5': '../src/bootstrap3-wysihtml5',
-    'rangy': '../components/rangy-official/rangy-core',
+    'rangy-core': '../components/rangy-official/rangy-core',
+    'rangy-selectionsaverestore': '../components/rangy-official/rangy-selectionsaverestore',
     'wysihtml5': '../dist/amd/wysihtml5',
     'bootstrap.wysihtml5.commands': '../dist/amd/commands',
     'bootstrap.wysihtml5.templates': '../dist/amd/templates',
@@ -15,8 +16,8 @@ require.config({
     'bootstrap': {
       deps: ['jquery']
     },
-    'rangy': {
-      exports: 'rangy'
+    'rangy-selectionsaverestore': {
+      deps: ['rangy-core']
     }
   },
   deps: [

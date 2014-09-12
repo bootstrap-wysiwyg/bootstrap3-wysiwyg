@@ -31,7 +31,6 @@ define([
       }
     };
 
-
     $('.textarea').wysihtml5({
       toolbar: {
         custom1: true,
