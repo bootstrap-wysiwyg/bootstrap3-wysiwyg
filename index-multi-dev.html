@@ -95,11 +95,17 @@
     },
     locale: 'de-DE',
     parserRules: {
+      'classes': {
+        'mytxtimg': 1
+      },
       'tags': {
         'a': {
           'check_attributes': {
             'href': 'href'
           } 
+        },
+        'img': {
+          'set_class': 'mytxtimg'
         }
       }
     }
