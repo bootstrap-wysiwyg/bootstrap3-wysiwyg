@@ -38,7 +38,10 @@
   <div class="jumbotron" style="margin-top:40px">
     <h1 style="font-size:58px">bootstrap-wysihtml5 <br/><small>Simple, beautiful wysiwyg editors</small></h1>
     <hr style="border-color: white"/>
+    <!--
     <div class="editable" placeholder="Enter text ..."></div>
+    -->
+    <textarea class="editable" placeholder="Enter text ..."></textarea>
   </div>
 
   <div class="row">
@@ -105,6 +108,9 @@
       'load': function() { 
         $('.editable').html('Some text here after loading.');
         console.log('loaded!');
+      },
+      'change_view': function() {
+        console.log('View changed');
       }
     },
     locale: 'de-DE',

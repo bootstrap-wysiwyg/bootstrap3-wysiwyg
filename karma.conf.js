@@ -52,7 +52,7 @@ module.exports = function(config) {
     // list of files to exclude or ignored tests
     exclude: [
       //small doesn't work at the moment. see https://github.com/Edicy/wysihtml5/issues/59
-      'test/bs/bootstrap_editor_commands_test.js'
+      //'test/bs/bootstrap_editor_commands_test.js'
     ],
 
 
