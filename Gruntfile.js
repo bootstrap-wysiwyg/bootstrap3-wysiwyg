@@ -147,7 +147,7 @@ module.exports = function(grunt) {
         dest: 'dist/amd/wysihtml5.js',
         options: {
           /*jshint multistr: true */
-          wrapper: ['define(\'wysihtml5\', [\'rangy-core\', \'rangy-selectionsaverestore\'], function (rangy) {\n\
+          wrapper: ['define(\'wysihtml5\', [\'rangy\', \'rangy-selectionsaverestore\'], function (rangy) {\n\
                 window.rangy = rangy;\n', '\nreturn wysihtml5;\n});']
         }
       },
