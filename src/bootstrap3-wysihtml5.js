@@ -40,6 +40,13 @@
         // of the WYISYWG don't break because 'toolbar' is already defined
         options = $.extend(true, {}, options);
         options.toolbar = this.toolbar[0];
+        
+        if($.type(options.parserRules) === 'string') {
+          // parserRules is a url, load the json from address
+          $.getJSON(options.parserRules, function(parserRules) {
+            options.parserRules = parserRules;
+          });
+        }
 
         var editor = new wysihtml5.Editor(this.el[0], options);
 
@@ -203,6 +210,7 @@
         'smallmodals': false
       },
       useLineBreaks: false,
+      //parserRules: 'src/default_parser_rules_pretty.js',
       parserRules: {
         classes: {
           'wysiwyg-color-silver' : 1,
