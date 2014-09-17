@@ -40,6 +40,13 @@
         // of the WYISYWG don't break because 'toolbar' is already defined
         options = $.extend(true, {}, options);
         options.toolbar = this.toolbar[0];
+        
+        if($.type(options.parserRules) === 'string') {
+          // parserRules is a url, load the json from address
+          $.getJSON(options.parserRules, function(parserRules) {
+            options.parserRules = parserRules;
+          });
+        }
 
         var editor = new wysihtml5.Editor(this.el[0], options);
 
@@ -202,68 +209,7 @@
         'image': true,
         'smallmodals': false
       },
-      parserRules: {
-        classes: {
-          'wysiwyg-color-silver' : 1,
-          'wysiwyg-color-gray' : 1,
-          'wysiwyg-color-white' : 1,
-          'wysiwyg-color-maroon' : 1,
-          'wysiwyg-color-red' : 1,
-          'wysiwyg-color-purple' : 1,
-          'wysiwyg-color-fuchsia' : 1,
-          'wysiwyg-color-green' : 1,
-          'wysiwyg-color-lime' : 1,
-          'wysiwyg-color-olive' : 1,
-          'wysiwyg-color-yellow' : 1,
-          'wysiwyg-color-navy' : 1,
-          'wysiwyg-color-blue' : 1,
-          'wysiwyg-color-teal' : 1,
-          'wysiwyg-color-aqua' : 1,
-          'wysiwyg-color-orange' : 1
-        },
-        tags: {
-          'b':  {},
-          'i':  {},
-          'strong': {},
-          'em': {},
-          'p': {},
-          'br': {},
-          'ol': {},
-          'ul': {},
-          'li': {},
-          'h1': {},
-          'h2': {},
-          'h3': {},
-          'h4': {},
-          'h5': {},
-          'h6': {},
-          'blockquote': {},
-          'u': 1,
-          'img': {
-            'check_attributes': {
-              'width': 'numbers',
-              'alt': 'alt',
-              'src': 'url',
-              'height': 'numbers'
-            }
-          },
-          'a':  {
-            'check_attributes': {
-              'href': 'url' // important to avoid XSS
-            },
-            'set_attributes': {
-              'target': '_blank',
-              'rel': 'nofollow'
-            }
-          },
-          'span': 1,
-          'div': 1,
-          'small': 1,
-          // to allow save and edit files with code tag hacks
-          'code': 1,
-          'pre': 1
-        }
-      },
+      parserRules: 'src/default_parser_rules_pretty.js',
       locale: 'en',
       shortcuts: {
         '83': 'small'     // S
