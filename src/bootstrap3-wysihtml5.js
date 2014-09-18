@@ -202,6 +202,7 @@
         'image': true,
         'smallmodals': false
       },
+      useLineBreaks: false,
       parserRules: {
         classes: {
           'wysiwyg-color-silver' : 1,
