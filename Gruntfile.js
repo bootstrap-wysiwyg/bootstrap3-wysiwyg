@@ -165,7 +165,20 @@ module.exports = function(grunt) {
           wrapper: ['define("bootstrap.wysihtml5.commands", ["wysihtml5"], function(wysihtml5) {\n', '\n});']
         }
       }
-    }
+    },
+    'http-server': {
+      'dev': {
+        // the server root directory
+        root: '.',
+        port: 8282,
+        host: '127.0.0.1',
+        cache: 0,
+        showDir : true,
+        autoIndex: true,
+        ext: 'html',
+        runInBackground: false
+      }
+    } 
   });
 
   grunt.loadNpmTasks('grunt-contrib-clean');
@@ -175,6 +188,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-handlebars');
   grunt.loadNpmTasks('grunt-wrap');
+  grunt.loadNpmTasks('grunt-http-server');
 
   // Default task(s).
   grunt.registerTask('dev', ['handlebars', 'concat:commands']);

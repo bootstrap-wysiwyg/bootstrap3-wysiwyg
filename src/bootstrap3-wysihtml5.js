@@ -88,7 +88,7 @@
           });
           dialog.on('hide', function() {
             $(this.container).modal('hide');
-            editor.composer.focus();
+            setTimeout(editor.composer.focus, 0);
           });
           $(dialog.container).on('shown.bs.modal', function () {
             $(this).find('input, select, textarea').first().focus();
@@ -210,7 +210,7 @@
         'smallmodals': false
       },
       useLineBreaks: false,
-      //parserRules: 'src/default_parser_rules_pretty.js',
+      //parserRules: 'src/default_parser_rules_pretty.json',
       parserRules: {
         classes: {
           'wysiwyg-color-silver' : 1,
