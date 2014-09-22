@@ -28,15 +28,17 @@ module.exports = function(grunt) {
     var phantomjs = require('phantomjs');
     var path = require('path');
     var binPath = phantomjs.path;
+    var cb = this.async();
 
-    console.log('here');
     var childArgs = [
-      path.join(__dirname, 'generator/print_parser_rules.js')
+      path.join(__dirname, this.data.script)
     ];
 
     childProcess.execFile(binPath, childArgs, function(err, stdout, stderr) {
-      console.log(stdout);
-      console.err(stderr);
+      grunt.log.writeln(stdout);
+      grunt.log.error(stderr);
+      grunt.log.writeln('Done');
+      cb();
     }); 
   });
 
@@ -116,7 +118,9 @@ module.exports = function(grunt) {
       }
     },
     clean: {
-      build: ["dist"]
+      build: ['dist'],
+      'parser_rules': ['src/parser_rules'],
+      'generated': ['src/generated']
     },
     copy: {
       main: {
@@ -130,6 +134,11 @@ module.exports = function(grunt) {
       amd: {
         files: [
           {expand: true, cwd: 'components/handlebars', src: ['handlebars.runtime.amd.js'], dest: 'dist/amd'}
+        ]
+      },
+      'parser_rules': {
+        files: [
+          {expand: true, cwd: 'src/parser_rules', src: ['*.json'], dest: 'dist/parser_rules'}
         ]
       }
     },
@@ -200,7 +209,12 @@ module.exports = function(grunt) {
         ext: 'html',
         runInBackground: false
       }
-    } 
+    },
+    phantomjs: {
+      'parser_rules': {
+        script: 'generator/print_parser_rules.js'
+      }
+    }
   });
 
   grunt.loadNpmTasks('grunt-contrib-clean');
@@ -213,9 +227,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-http-server');
 
   // Default task(s).
-  grunt.registerTask('dev', ['handlebars', 'concat:commands', 'phantomjs']);
+  grunt.registerTask('parser_rules', ['clean:parser_rules', 'phantomjs:parser_rules', 'copy:parser_rules']);
+  grunt.registerTask('dev', ['handlebars', 'concat:commands', 'parser_rules']);
   grunt.registerTask('amd', ['concat:all', 'wrap:wysihtml5', 'wrap:templates', 'wrap:commands', 'copy:amd', 'concat:amd']);
-  grunt.registerTask('build', ['clean:build', 'handlebars:compile', 'concat:commands', 'amd', 'uglify', 'cssmin', 'copy:main']);
+  grunt.registerTask('build', ['clean', 'handlebars', 'concat:commands', 'amd', 'uglify', 'cssmin', 'copy:main', 'parser_rules']);
   grunt.registerTask('with-update', ['bowerupdate', 'npmupdate', 'build']);
   grunt.registerTask('default', ['build']);
 

@@ -210,7 +210,8 @@
         'smallmodals': false
       },
       useLineBreaks: false,
-      //parserRules: 'src/default_parser_rules_pretty.json',
+      parserRules: 'src/default_parser_rules_pretty.json',
+      /*
       parserRules: {
         classes: {
           'wysiwyg-color-silver' : 1,
@@ -273,6 +274,7 @@
           'pre': 1
         }
       },
+      */
       locale: 'en',
       shortcuts: {
         '83': 'small'     // S
