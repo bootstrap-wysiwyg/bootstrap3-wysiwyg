@@ -1,10 +1,14 @@
+/* jshint maxstatements: false */
+/* global __dirname, module */
 module.exports = function(grunt) {
+  'use strict';
 
   grunt.registerTask('bowerupdate', 'update the frontend dependencies', function() {
     var exec = require('child_process').exec;
     var cb = this.async();
     exec('bower update', {cwd: '.'}, function(err, stdout, stderr) {
       console.log(stdout);
+      console.err(stderr);
       cb();
     });
   });
@@ -14,8 +18,26 @@ module.exports = function(grunt) {
     var cb = this.async();
     exec('npm update', {cwd: '.'}, function(err, stdout, stderr) {
       console.log(stdout);
+      console.err(stderr);
       cb();
     });
+  });
+
+  grunt.registerMultiTask('phantomjs', 'execute script with phantomjs', function() {
+    var childProcess = require('child_process');
+    var phantomjs = require('phantomjs');
+    var path = require('path');
+    var binPath = phantomjs.path;
+
+    console.log('here');
+    var childArgs = [
+      path.join(__dirname, 'generator/print_parser_rules.js')
+    ];
+
+    childProcess.execFile(binPath, childArgs, function(err, stdout, stderr) {
+      console.log(stdout);
+      console.err(stderr);
+    }); 
   });
 
   // Project configuration.
@@ -191,7 +213,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-http-server');
 
   // Default task(s).
-  grunt.registerTask('dev', ['handlebars', 'concat:commands']);
+  grunt.registerTask('dev', ['handlebars', 'concat:commands', 'phantomjs']);
   grunt.registerTask('amd', ['concat:all', 'wrap:wysihtml5', 'wrap:templates', 'wrap:commands', 'copy:amd', 'concat:amd']);
   grunt.registerTask('build', ['clean:build', 'handlebars:compile', 'concat:commands', 'amd', 'uglify', 'cssmin', 'copy:main']);
   grunt.registerTask('with-update', ['bowerupdate', 'npmupdate', 'build']);
