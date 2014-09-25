@@ -25,7 +25,7 @@ if(!Array.isArray) {
     return Object.prototype.toString.call(arg) === '[object Array]';
   };
 };/**
- * @license wysihtml5x v0.4.14
+ * @license wysihtml5x v0.4.15
  * https://github.com/Edicy/wysihtml5
  *
  * Author: Christopher Blum (https://github.com/tiff)
@@ -36,7 +36,7 @@ if(!Array.isArray) {
  *
  */
 var wysihtml5 = {
-  version: "0.4.14",
+  version: "0.4.15",
 
   // namespaces
   commands:   {},
@@ -8325,15 +8325,15 @@ wysihtml5.dom.getPastedHtml = function(event) {
 wysihtml5.dom.getPastedHtmlWithDiv = function (composer, f) {
   var selBookmark = composer.selection.getBookmark(),
       doc = composer.element.ownerDocument,
-      cleanerDiv = coc.createElement('DIV');
+      cleanerDiv = doc.createElement('DIV');
   
+  doc.body.appendChild(cleanerDiv);
+
   cleanerDiv.style.width = "1px";
   cleanerDiv.style.height = "1px";
-  cleanerDiv.style.visibility = "hidden";
   cleanerDiv.style.overflow = "hidden";
 
   cleanerDiv.setAttribute('contenteditable', 'true');
-  doc.body.appendChild(cleanerDiv);
   cleanerDiv.focus();
 
   setTimeout(function () {
@@ -9489,6 +9489,10 @@ wysihtml5.quirks.ensureProperClearing = (function() {
 
     isCollapsed: function() {
         return this.getSelection().isCollapsed;
+    },
+
+    getHtml: function() {
+      return this.getSelection().toHtml();
     },
 
     isEndToEndInNode: function(nodeNames) {
@@ -12470,6 +12474,7 @@ wysihtml5.views.View = Base.extend(
         if (that.config.useLineBreaks && keyCode === wysihtml5.ENTER_KEY && !wysihtml5.browser.insertsLineBreaksOnReturn()) {
           event.preventDefault();
           that.commands.exec("insertLineBreak");
+
         }
       });
     }
@@ -12862,10 +12867,21 @@ wysihtml5.views.View = Base.extend(
     });
 
     dom.observe(element, pasteEvents, function(event) {
-      //setTimeout(function() {
-        that.parent.fire(event.type, event).fire(event.type + ":composer", event);
-      //}, 0);
+      that.parent.fire(event.type, event).fire(event.type + ":composer", event);
     });
+
+
+    if (this.config.copyedFromMarking) {
+      // If supported the copied source is based directly on selection
+      // Very useful for webkit based browsers where copy will otherwise contain a lot of code and styles based on whatever and not actually in selection.
+      dom.observe(element, "copy", function(event) {
+        if (event.clipboardData) {
+          event.clipboardData.setData("text/html", that.config.copyedFromMarking + that.selection.getHtml());
+          event.preventDefault();
+        }
+        that.parent.fire(event.type, event).fire(event.type + ":composer", event);
+      });
+    }
 
     // --------- neword event ---------
     dom.observe(element, "keyup", function(event) {
@@ -13247,7 +13263,12 @@ wysihtml5.views.View = Base.extend(
     contentEditableMode: false,
     // Classname of container that editor should not touch and pass through
     // Pass false to disable
-    uneditableContainerClassname: "wysihtml5-uneditable-container"
+    uneditableContainerClassname: "wysihtml5-uneditable-container",
+    // Browsers that support copied source handling will get a marking of the origin of the copied source (for determinig code cleanup rules on paste)
+    // Also copied source is based directly on selection - 
+    // (very useful for webkit based browsers where copy will otherwise contain a lot of code and styles based on whatever and not actually in selection).
+    // If falsy value is passed source override is also disabled
+    copyedFromMarking: '<meta name="copied-from" content="wysihtml5">'
   };
 
   wysihtml5.Editor = wysihtml5.lang.Dispatcher.extend(
@@ -14803,8 +14824,6 @@ function program17(depth0,data) {
         'smallmodals': false
       },
       useLineBreaks: false,
-      parserRules: 'src/parser_rules/advanced_unwrap.json',
-      /*
       parserRules: {
         classes: {
           'wysiwyg-color-silver' : 1,
@@ -14852,7 +14871,7 @@ function program17(depth0,data) {
           },
           'a':  {
             'check_attributes': {
-              'href': 'url' // important to avoid XSS
+              'href': 'url'
             },
             'set_attributes': {
               'target': '_blank',
@@ -14862,15 +14881,14 @@ function program17(depth0,data) {
           'span': 1,
           'div': 1,
           'small': 1,
-          // to allow save and edit files with code tag hacks
           'code': 1,
           'pre': 1
         }
       },
-      */
       locale: 'en',
       shortcuts: {
-        '83': 'small'     // S
+        '83': 'small',// S
+        '75': 'createLink'// K
       }
     };
 
