@@ -240,8 +240,6 @@
         'smallmodals': false
       },
       useLineBreaks: false,
-      parserRules: 'src/parser_rules/advanced_unwrap.json',
-      /*
       parserRules: {
         classes: {
           'wysiwyg-color-silver' : 1,
@@ -289,7 +287,7 @@
           },
           'a':  {
             'check_attributes': {
-              'href': 'url' // important to avoid XSS
+              'href': 'url'
             },
             'set_attributes': {
               'target': '_blank',
@@ -299,15 +297,14 @@
           'span': 1,
           'div': 1,
           'small': 1,
-          // to allow save and edit files with code tag hacks
           'code': 1,
           'pre': 1
         }
       },
-      */
       locale: 'en',
       shortcuts: {
-        '83': 'small'     // S
+        '83': 'small',// S
+        '75': 'createLink'
       }
     };
 
