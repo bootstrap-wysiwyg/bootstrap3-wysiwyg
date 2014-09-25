@@ -304,7 +304,7 @@
       locale: 'en',
       shortcuts: {
         '83': 'small',// S
-        '75': 'createLink'
+        '75': 'createLink'// K
       }
     };
 
