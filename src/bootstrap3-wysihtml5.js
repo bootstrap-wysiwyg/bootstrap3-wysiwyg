@@ -41,14 +41,15 @@
         options = $.extend(true, {}, options);
         options.toolbar = this.toolbar[0];
         
-        if($.type(options.parserRules) === 'string') {
-          // parserRules is a url, load the json from address
-          $.getJSON(options.parserRules, function(parserRules) {
-            options.parserRules = parserRules;
-          });
-        }
+        this.initializeEditor(this.el[0], options);
+      },
 
+
+      initializeEditor: function(el, options) {
         var editor = new wysihtml5.Editor(this.el[0], options);
+
+        editor.on('beforeload', this.syncBootstrapDialogEvents);
+        editor.on('beforeload', this.loadParserRules);
 
         // #30 - body is in IE 10 not created by default, which leads to nullpointer
         // 2014/02/13 - adapted to wysihtml5-0.4, does not work in IE
@@ -60,7 +61,6 @@
           this.addMoreShortcuts(editor, editor.composer.editableArea, options.shortcuts);    
         }
 
-
         if(options && options.events) {
           for(var eventName in options.events) {
             if (options.events.hasOwnProperty(eventName)) {
@@ -69,8 +69,38 @@
           }
         }
 
-        editor.on('beforeload', this.syncBootstrapDialogEvents);
         return editor;
+      },
+
+      loadParserRules: function() {
+        if($.type(this.config.parserRules) === 'string') {
+          $.ajax({
+            dataType: 'json',
+            url: this.config.parserRules,
+            context: this,
+            error: function (jqXHR, textStatus, errorThrown) {
+              console.log(errorThrown);
+            },
+            success: function (parserRules) {
+              this.config.parserRules = parserRules;
+              console.log('parserrules loaded');
+            }
+          });
+        }
+
+        if(this.config.pasteParserRulesets && $.type(this.config.pasteParserRulesets) === 'string') {
+          $.ajax({
+            dataType: 'json',
+            url: this.config.pasteParserRulesets,
+            context: this,
+            error: function (jqXHR, textStatus, errorThrown) {
+              console.log(errorThrown);
+            },
+            success: function (pasteParserRulesets) {
+              this.config.pasteParserRulesets = pasteParserRulesets;
+            }
+          });
+        }
       },
 
       //sync wysihtml5 events for dialogs with bootstrap events
@@ -210,7 +240,7 @@
         'smallmodals': false
       },
       useLineBreaks: false,
-      parserRules: 'src/default_parser_rules_pretty.json',
+      parserRules: 'src/parser_rules/advanced_unwrap.json',
       /*
       parserRules: {
         classes: {

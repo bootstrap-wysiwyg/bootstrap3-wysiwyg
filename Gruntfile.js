@@ -36,7 +36,9 @@ module.exports = function(grunt) {
 
     childProcess.execFile(binPath, childArgs, function(err, stdout, stderr) {
       grunt.log.writeln(stdout);
-      grunt.log.error(stderr);
+      if(stderr) {
+        grunt.log.error(stderr);
+      }
       grunt.log.writeln('Done');
       cb();
     }); 
