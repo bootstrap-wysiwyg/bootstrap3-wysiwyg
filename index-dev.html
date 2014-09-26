@@ -92,6 +92,7 @@
       },
   };
 
+<<<<<<< HEAD
   $('.editable').wysihtml5({
     toolbar: {
       'blockquote': false,
@@ -104,6 +105,13 @@
       'smallmodals': true
     },
     customTemplates: customTemplates,
+=======
+
+  $('.textarea').wysihtml5({
+    'html': true,
+    'smallmodals': false,
+    locale: 'de-DE',
+>>>>>>> origin/master
     events: {
       'load': function() { 
         $('.editable').html('Some text here after loading.');
@@ -113,9 +121,16 @@
         console.log('View changed');
       }
     },
+<<<<<<< HEAD
     locale: 'de-DE',
     shortcuts: {
       75: "createLink"
+=======
+    customTemplates: customTemplates,
+    custombuttons: true,
+    shortcuts: {
+      '84': 'underline'
+>>>>>>> origin/master
     }
   });
 

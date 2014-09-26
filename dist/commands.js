@@ -1,4 +1,8 @@
 (function(wysihtml5) {
+<<<<<<< HEAD
+=======
+  var undef;
+>>>>>>> origin/master
   wysihtml5.commands.small = {
     exec: function(composer, command) {
       return wysihtml5.commands.formatInline.exec(composer, command, "small");
