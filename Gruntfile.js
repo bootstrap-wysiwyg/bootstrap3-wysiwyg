@@ -44,24 +44,6 @@ module.exports = function(grunt) {
     }); 
   });
 
-  grunt.registerTask('bowerupdate', 'update the frontend dependencies', function() {
-    var exec = require('child_process').exec;
-    var cb = this.async();
-    exec('bower update', {cwd: '.'}, function(err, stdout, stderr) {
-      console.log(stdout);
-      cb();
-    });
-  });
-
-  grunt.registerTask('npmupdate', 'update the development dependencies', function() {
-    var exec = require('child_process').exec;
-    var cb = this.async();
-    exec('npm update', {cwd: '.'}, function(err, stdout, stderr) {
-      console.log(stdout);
-      cb();
-    });
-  });
-
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -83,7 +65,6 @@ module.exports = function(grunt) {
       options: {
         banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n',
         compress: {
-<<<<<<< HEAD
           sequences     : true,  // join consecutive statemets with the “comma operator”
           properties    : true,  // optimize property access: a["foo"] → a.foo
           dead_code     : true,  // discard unreachable code
@@ -104,9 +85,6 @@ module.exports = function(grunt) {
           side_effects  : false,  // drop side-effect-free statements
           warnings      : true,  // warn about potentially dangerous optimizations/code
           global_defs   : {}     // global definitions 
-=======
-          drop_console: true
->>>>>>> origin/master
         }
       },
       build: {
@@ -142,13 +120,9 @@ module.exports = function(grunt) {
       }
     },
     clean: {
-<<<<<<< HEAD
       build: ['dist'],
       'parser_rules': ['src/parser_rules'],
       'generated': ['src/generated']
-=======
-      build: ["dist"]
->>>>>>> origin/master
     },
     copy: {
       main: {
@@ -255,15 +229,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-http-server');
 
   // Default task(s).
-<<<<<<< HEAD
   grunt.registerTask('parser_rules', ['clean:parser_rules', 'phantomjs:parser_rules', 'copy:parser_rules']);
   grunt.registerTask('dev', ['handlebars', 'concat:commands', 'parser_rules']);
   grunt.registerTask('amd', ['concat:all', 'wrap:wysihtml5', 'wrap:templates', 'wrap:commands', 'copy:amd', 'concat:amd']);
   grunt.registerTask('build', ['clean', 'handlebars', 'concat:commands', 'amd', 'uglify', 'cssmin', 'copy:main', 'parser_rules']);
-=======
-  grunt.registerTask('dev', ['handlebars', 'concat:commands']);
-  grunt.registerTask('build', ['clean:build', 'handlebars', 'concat:commands', 'uglify', 'cssmin', 'copy']);
->>>>>>> origin/master
   grunt.registerTask('with-update', ['bowerupdate', 'npmupdate', 'build']);
   grunt.registerTask('default', ['build']);
 
