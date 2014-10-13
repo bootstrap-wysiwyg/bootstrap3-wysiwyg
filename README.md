@@ -22,6 +22,11 @@ Additionally to the existing dependencies I added handlebars in version 0.2.0. Y
 
 Because maintaining code requires maintainable code.
 
+## About us
+
+ - [Waxolunist](https://github.com/Waxolunist) 
+ - [schnawel007](https://github.com/schnawel007) 
+
 ## Development
 
 Install all development dependencies via
@@ -52,7 +57,7 @@ If using Rails, use ["bootstrap-wysihtml5-rails"](https://github.com/Nerian/boot
 
 ## Examples
 
--   [http://waxolunist.github.io/bootstrap3-wysihtml5-bower/](http://waxolunist.github.io/bootstrap3-wysihtml5-bower/)
+-   [http://waxolunist.github.io/bootstrap3-wysihtml5-bower/](http://bootstrap-wysiwyg.github.io/bootstrap3-wysiwyg/)
 
 For use with requirejs see the examples in the repo.
 
@@ -203,7 +208,7 @@ Don't forget to add the font awesome stylesheet in this case, which is a bower d
 
 #### Custom Templates for Toolbar Buttons
 
-see wikie: [Custom Templates](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/wiki/Custom-Templates)
+see wikie: [Custom Templates](https://github.com/bootstrap-wysiwyg/bootstrap3-wysiwyg/wiki/Custom-Templates)
 
 ##### Data Attributes
 
@@ -323,55 +328,55 @@ It is possible to use custom translations as well. Just add a new key to $.fn.wy
 
 * *0.3.4* (not yet released):
 * *0.3.3* (2014/09/08):
-  * Refined bower dependency versions (see [#64](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/64)).
-  * Updated wysihtml5x to 0.4.13 (see [#80](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/80))
+  * Refined bower dependency versions (see [#64](https://github.com/bootstrap-wysiwyg/bootstrap3-wysiwyg/issues/64)).
+  * Updated wysihtml5x to 0.4.13 (see [#80](https://github.com/bootstrap-wysiwyg/bootstrap3-wysiwyg/issues/80))
   * Added automated tests with karma
-  * Switched create link and create image modals to use wysihtml5 events, solving [#61](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/61).
+  * Switched create link and create image modals to use wysihtml5 events, solving [#61](https://github.com/bootstrap-wysiwyg/bootstrap3-wysiwyg/issues/61).
 * *0.3.2* (2014/06/22):
-  * Updated and better build (see [#60](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/60) and [#56](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/56)).
-  * Corrected size option in templates (see [#58](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/58))
-  * Updated wysihtml5x to 0.4.9 (see [#57](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/57))
+  * Updated and better build (see [#60](https://github.com/bootstrap-wysiwyg/bootstrap3-wysiwyg/issues/60) and [#56](https://github.com/bootstrap-wysiwyg/bootstrap3-wysiwyg/issues/56)).
+  * Corrected size option in templates (see [#58](https://github.com/bootstrap-wysiwyg/bootstrap3-wysiwyg/issues/58))
+  * Updated wysihtml5x to 0.4.9 (see [#57](https://github.com/bootstrap-wysiwyg/bootstrap3-wysiwyg/issues/57))
 * *0.3.1* (2014/06/11):
-  * Updated locales es-ES and es-AR ([#49](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/pull/49))
-  * Updated wysihtml5x to 0.4.8 ([#53](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/53))
-  * Added toolbar option for enabling font awesome ([#51](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/pull/51))
-  * Resolved custom shortcut issue ([#43](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/43))
+  * Updated locales es-ES and es-AR ([#49](https://github.com/bootstrap-wysiwyg/bootstrap3-wysiwyg/pull/49))
+  * Updated wysihtml5x to 0.4.8 ([#53](https://github.com/bootstrap-wysiwyg/bootstrap3-wysiwyg/issues/53))
+  * Added toolbar option for enabling font awesome ([#51](https://github.com/bootstrap-wysiwyg/bootstrap3-wysiwyg/pull/51))
+  * Resolved custom shortcut issue ([#43](https://github.com/bootstrap-wysiwyg/bootstrap3-wysiwyg/issues/43))
 * *0.3.0* (2014/05/04):
   * Changed wysihtml implementation to wysihtml5x-0.4.4
-  * Added support for requirejs ([#40](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/40))
+  * Added support for requirejs ([#40](https://github.com/bootstrap-wysiwyg/bootstrap3-wysiwyg/issues/40))
   * Fixed version of jquery to be higher or equal to 2.1.0
   * This release adds support for div tags instead of textarea as editor container. The div tag will be from now on the recommended way of starting an editor instance.
 * *0.2.12* (not yet released):
 * *0.2.11* (2014/06/22):
-  * Updated and better build (see [#60](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/60) and [#56](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/56)).
+  * Updated and better build (see [#60](https://github.com/bootstrap-wysiwyg/bootstrap3-wysiwyg/issues/60) and [#56](https://github.com/bootstrap-wysiwyg/bootstrap3-wysiwyg/issues/56)).
 * *0.2.10* (2014/06/11):
-  * Added option for small modals (adding class `.modal-sm` to `.modal-dialog`) ([#42](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/42))
+  * Added option for small modals (adding class `.modal-sm` to `.modal-dialog`) ([#42](https://github.com/bootstrap-wysiwyg/bootstrap3-wysiwyg/issues/42))
   * Fixed version of jquery to be lower than 2.1.0 because of path incompatibilities
-  * Updated locales es-ES and es-AR ([#49](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/pull/49))
-  * Resolved custom shortcut issue ([#43](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/43))
+  * Updated locales es-ES and es-AR ([#49](https://github.com/bootstrap-wysiwyg/bootstrap3-wysiwyg/pull/49))
+  * Resolved custom shortcut issue ([#43](https://github.com/bootstrap-wysiwyg/bootstrap3-wysiwyg/issues/43))
 * *0.2.9* (2014/02/28):
 	* Added hebrew translation
 	* Updated spanish translations (es-ES, es-AR)
-	* Provided easier way of adding custom template ([#39](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/39))
+	* Provided easier way of adding custom template ([#39](https://github.com/bootstrap-wysiwyg/bootstrap3-wysiwyg/issues/39))
 * *0.2.8* (2014/02/11):
-	* Updated bootstrap to version 0.3.1 ([#32](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/32))
-	* Fixed issue with IE10 ([#30](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/30))
+	* Updated bootstrap to version 0.3.1 ([#32](https://github.com/bootstrap-wysiwyg/bootstrap3-wysiwyg/issues/32))
+	* Fixed issue with IE10 ([#30](https://github.com/bootstrap-wysiwyg/bootstrap3-wysiwyg/issues/30))
 	* Updated build dependencies (see package.json)
 * *0.2.7* (2014/01/16):
-	* Updated brazilian translation. ([#26](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/pull/26))
-	* Updated french translation. ([#27](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/pull/27))
-	* Updated Bootstrap to the latest version 3.0.3 ([#28](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/pull/28))
-	* Updated handlebars to the latest version 1.3.0 ([#28](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/pull/28))
+	* Updated brazilian translation. ([#26](https://github.com/bootstrap-wysiwyg/bootstrap3-wysiwyg/pull/26))
+	* Updated french translation. ([#27](https://github.com/bootstrap-wysiwyg/bootstrap3-wysiwyg/pull/27))
+	* Updated Bootstrap to the latest version 3.0.3 ([#28](https://github.com/bootstrap-wysiwyg/bootstrap3-wysiwyg/pull/28))
+	* Updated handlebars to the latest version 1.3.0 ([#28](https://github.com/bootstrap-wysiwyg/bootstrap3-wysiwyg/pull/28))
 * *0.2.6* (2013/12/20): 
-	* Ability to define own shortcuts ([#23](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/23)).
-	* New command "small" ([#19](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/19)).
-	* Normal text writes now "p" instead of "div" ([#21](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/21)).
-	* If a text element has no translation it falls back to english instead of an empty string ([#24](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/24)).
+	* Ability to define own shortcuts ([#23](https://github.com/bootstrap-wysiwyg/bootstrap3-wysiwyg/issues/23)).
+	* New command "small" ([#19](https://github.com/bootstrap-wysiwyg/bootstrap3-wysiwyg/issues/19)).
+	* Normal text writes now "p" instead of "div" ([#21](https://github.com/bootstrap-wysiwyg/bootstrap3-wysiwyg/issues/21)).
+	* If a text element has no translation it falls back to english instead of an empty string ([#24](https://github.com/bootstrap-wysiwyg/bootstrap3-wysiwyg/issues/24)).
 	* Some refactoring to add new commands in the future with ease.
 	* New build task for easier development.
 * *0.2.5* (2013/12/17): 
 	* Updated german translation
-	* Fix issue [#8](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues/8): Provide fallback if locale is not found.
+	* Fix issue [#8](https://github.com/bootstrap-wysiwyg/bootstrap3-wysiwyg/issues/8): Provide fallback if locale is not found.
 * *0.2.4* (2013/12/13): 
 	* Added blockquote format button
 	* Added 2 new data attributes: data-wysihtml5-display-format-name and data-wysihtml5-format-name
