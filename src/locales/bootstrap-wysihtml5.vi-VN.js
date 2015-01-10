@@ -16,7 +16,10 @@
 			normal: "Bình thường",
 			h1: "Tiêu đề 1",
 			h2: "Tiêu đề 2",
-			h3: "Tiêu đề 3"
+			h3: "Tiêu đề 3",
+			h3: "Tiêu đề 4",
+			h3: "Tiêu đề 5",
+			h3: "Tiêu đề 6"
 		},
 		emphasis: {
 			bold: "Đậm",
