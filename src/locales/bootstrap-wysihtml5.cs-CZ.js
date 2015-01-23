@@ -37,7 +37,8 @@
         },
         image: {
             insert: "Vložit obrázek",
-            cancel: "Zrušit"
+            cancel: "Zrušit",
+            target: "Otevřít odkaz v novém okně"
         },
         html: {
             edit: "Upravit HTML"
