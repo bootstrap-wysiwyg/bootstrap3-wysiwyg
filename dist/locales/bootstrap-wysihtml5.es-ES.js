@@ -46,16 +46,16 @@
         },
         colours: {
           black: "Negro",
-          silver: "Plata",
+          silver: "Plateado",
           gray: "Gris",
           maroon: "Marrón",
           red: "Rojo",
-          purple: "Púrpura",
+          purple: "Morado",
           green: "Verde",
           olive: "Oliva",
           navy: "Azul Marino",
           blue: "Azul",
-          orange: "Naranja"
+          orange: "Anaranjado"
         }
     };
 }));
