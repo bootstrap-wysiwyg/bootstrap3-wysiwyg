@@ -1,6 +1,6 @@
 if (wysihtml5.browser.supported()) {
 
-module('bootstrap3-wysihtml5-bower.toolbar.image', {
+module('bootstrap3-wysiwyg.toolbar.image', {
 
   setup: function() {
     this.container = testhelper.prepareFixtureWithTextarea();

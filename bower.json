@@ -1,5 +1,5 @@
 {
-  "name": "bootstrap3-wysihtml5-bower",
+  "name": "bootstrap3-wysiwyg",
   "version": "0.3.4-wip",
   "main": [
     "dist/bootstrap3-wysihtml5.min.css",
@@ -12,7 +12,7 @@
     "handlebars": "~1.3.0",
     "jquery": ">=2.1"
   },
-  "homepage": "https://github.com/Waxolunist/bootstrap3-wysihtml5-bower",
+  "homepage": "https://github.com/bootstrap3-wysiwyg/bootstrap3-wysiwyg",
   "authors": [
     "Christian Sterzl <christian.sterzl@gmail.com>"
   ],

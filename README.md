@@ -24,7 +24,7 @@ Because maintaining code requires maintainable code.
 
 ## About us
 
- - [Waxolunist](https://github.com/Waxolunist) 
+ - [bootstrap3-wysiwyg](https://github.com/bootstrap3-wysiwyg) 
  - [schnawel007](https://github.com/schnawel007) 
 
 ## Development
@@ -47,9 +47,9 @@ on the command line and everything should build fine.
 
 ## Installation
 
-If you are using bower use the “bootstrap3-wysihtml5-bower” package.
+If you are using bower use the “bootstrap3-wysiwyg” package.
 
-    bower install bootstrap3-wysihtml5-bower
+    bower install bootstrap3-wysiwyg
 
 If using Rails, use ["bootstrap-wysihtml5-rails"](https://github.com/Nerian/bootstrap-wysihtml5-rails):
 
@@ -57,7 +57,7 @@ If using Rails, use ["bootstrap-wysihtml5-rails"](https://github.com/Nerian/boot
 
 ## Examples
 
--   [http://waxolunist.github.io/bootstrap3-wysihtml5-bower/](http://bootstrap-wysiwyg.github.io/bootstrap3-wysiwyg/)
+-   [http://bootstrap3-wysiwyg.github.io/bootstrap3-wysiwyg/](http://bootstrap-wysiwyg.github.io/bootstrap3-wysiwyg/)
 
 For use with requirejs see the examples in the repo.
 
