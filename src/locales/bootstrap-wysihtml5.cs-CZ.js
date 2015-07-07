@@ -33,12 +33,12 @@
         },
         link: {
             insert: "Vložit odkaz",
-            cancel: "Zrušit"
+            cancel: "Zrušit",
+	    target: "Otevřít odkaz v novém okně"
         },
         image: {
             insert: "Vložit obrázek",
-            cancel: "Zrušit",
-            target: "Otevřít odkaz v novém okně"
+            cancel: "Zrušit"
         },
         html: {
             edit: "Upravit HTML"
