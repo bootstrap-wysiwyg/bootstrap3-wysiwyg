@@ -14,7 +14,7 @@ The old repository seems to be dead. Pull Requests are not accepted anymore sinc
 
 Furthermore the packages on bower do not use proper dependency management.
 
-I will maintain this repo and I will accept pull requests.
+I will (eventually) maintain this repo and I will (eventually) accept pull requests.
 
 ## Dependencies
 
