@@ -15082,9 +15082,20 @@ function program17(depth0,data) {
   return buffer;
   });
 
-});define("bootstrap.wysihtml5.commands", ["wysihtml5"], function(wysihtml5) {
-
-(function(wysihtml5) {
+});undefined
+(function (factory) {
+  'use strict';
+  if (typeof define === 'function' && define.amd) {
+    // AMD. Register as an anonymous module.
+    define('bootstrap.wysihtml5.commands', ['wysihtml5'], factory);
+  } else if(typeof exports == 'object') {
+    var wysihtml5 = require('wysihtml5x');
+    factory(wysihtml5);
+  } else {
+    // Browser globals
+    factory(wysihtml5); // jshint ignore:line
+  }
+}(function(wysihtml5) {
   wysihtml5.commands.small = {
     exec: function(composer, command) {
       return wysihtml5.commands.formatInline.exec(composer, command, "small");
@@ -15094,15 +15105,22 @@ function program17(depth0,data) {
       return wysihtml5.commands.formatInline.state(composer, command, "small");
     }
   };
-})(wysihtml5);
-
-
-
-});(function (factory) {
+}))();
+undefined(function (factory) {
   'use strict';
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define('bootstrap.wysihtml5', ['jquery', 'wysihtml5', 'bootstrap', 'bootstrap.wysihtml5.templates', 'bootstrap.wysihtml5.commands'], factory);
+    define('bootstrap.wysihtml5', ['jquery',
+      'wysihtml5',
+      'bootstrap',
+      'bootstrap.wysihtml5.templates',
+      'bootstrap.wysihtml5.commands'], factory);
+  } else if(typeof exports == 'object') {
+    var jquery = require('jquery')
+      , wysihtml5 = require('wysihtml5x')
+      , bootstrap = require('bootstrap');
+    require('./commands/small');
+    module.exports = factory(jquery, wysihtml5);
   } else {
     // Browser globals
     factory(jQuery, wysihtml5); // jshint ignore:line
@@ -15141,7 +15159,7 @@ function program17(depth0,data) {
         options = $.extend(true, {}, options);
         options.toolbar = this.toolbar[0];
         
-        this.initializeEditor(this.el[0], options);
+        return this.initializeEditor(this.el[0], options);
       },
 
 

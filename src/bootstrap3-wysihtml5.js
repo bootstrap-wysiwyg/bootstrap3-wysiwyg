@@ -2,7 +2,17 @@
   'use strict';
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define('bootstrap.wysihtml5', ['jquery', 'wysihtml5', 'bootstrap', 'bootstrap.wysihtml5.templates', 'bootstrap.wysihtml5.commands'], factory);
+    define('bootstrap.wysihtml5', ['jquery',
+      'wysihtml5',
+      'bootstrap',
+      'bootstrap.wysihtml5.templates',
+      'bootstrap.wysihtml5.commands'], factory);
+  } else if(typeof exports == 'object') {
+    var jquery = require('jquery')
+      , wysihtml5 = require('wysihtml5x')
+      , bootstrap = require('bootstrap');
+    require('./commands/small');
+    module.exports = factory(jquery, wysihtml5);
   } else {
     // Browser globals
     factory(jQuery, wysihtml5); // jshint ignore:line

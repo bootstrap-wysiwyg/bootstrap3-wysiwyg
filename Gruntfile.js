@@ -195,7 +195,7 @@ module.exports = function(grunt) {
         src: ['src/generated/commands.js'],
         dest: 'dist/amd/commands.js',
         options: {
-          wrapper: ['define("bootstrap.wysihtml5.commands", ["wysihtml5"], function(wysihtml5) {\n', '\n});']
+          wrapper: []
         }
       }
     },
