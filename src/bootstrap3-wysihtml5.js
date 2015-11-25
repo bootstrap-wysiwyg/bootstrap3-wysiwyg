@@ -9,7 +9,7 @@
       'bootstrap.wysihtml5.commands'], factory);
   } else if(typeof exports == 'object') {
     var jquery = require('jquery')
-      , wysihtml5 = require('wysihtml5x/dist/wysihtml5x-toolbar')
+      , wysihtml5 = require('wysihtml/dist/wysihtml-toolbar')
       , bootstrap = require('bootstrap');
     require('./commands');
     factory(jquery, wysihtml5);
