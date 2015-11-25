@@ -6,10 +6,10 @@
     "dist/bootstrap3-wysihtml5.min.js"
   ],
   "dependencies": {
-    "wysihtml5x": "0.4.15",
+    "wysihtml5x": "0.5.2",
     "bootstrap": ">=3",
     "components-font-awesome": ">=4",
-    "handlebars": "~1.3.0",
+    "handlebars": "~4.0.5",
     "jquery": ">=2.1"
   },
   "homepage": "https://github.com/Waxolunist/bootstrap3-wysihtml5-bower",

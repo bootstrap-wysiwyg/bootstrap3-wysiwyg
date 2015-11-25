@@ -12,10 +12,16 @@
       , wysihtml5 = require('wysihtml5x')
       , bootstrap = require('bootstrap');
     require('./commands');
-    module.exports = factory(jquery, wysihtml5);
+    factory(jquery, wysihtml5);
   } else {
+    var root = {};
+    if (window) {
+      root = window;
+    } else if (global) {
+      root = global;
+    }
     // Browser globals
-    factory(jQuery, wysihtml5); // jshint ignore:line
+    factory(jQuery, root.wysihtml5); // jshint ignore:line
   }
 }(function ($, wysihtml5) {
   'use strict';

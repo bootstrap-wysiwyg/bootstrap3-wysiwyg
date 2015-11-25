@@ -8,8 +8,14 @@
     var wysihtml5 = require('wysihtml5x');
     factory(wysihtml5);
   } else {
+    var root = {};
+    if (window) {
+      root = window;
+    } else if (global) {
+      root = global;
+    }
     // Browser globals
-    factory(wysihtml5); // jshint ignore:line
+    factory(root.wysihtml5); // jshint ignore:line
   }
 }(function(wysihtml5) {
   wysihtml5.commands.small = {
@@ -21,4 +27,4 @@
       return wysihtml5.commands.formatInline.state(composer, command, "small");
     }
   };
-}))();
+}));
