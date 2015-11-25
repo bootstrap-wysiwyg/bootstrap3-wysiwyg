@@ -5,7 +5,7 @@
     // AMD. Register as an anonymous module.
     define('bootstrap.wysihtml5.commands', ['wysihtml5'], factory);
   } else if(typeof exports == 'object') {
-    var wysihtml5 = require('wysihtml5x');
+    var wysihtml5 = require('wysihtml/dist/wysihtml-toolbar');
     factory(wysihtml5);
   } else {
     var root = {};
