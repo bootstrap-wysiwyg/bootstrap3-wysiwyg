@@ -195,7 +195,10 @@ module.exports = function(grunt) {
         src: ['src/generated/commands.js'],
         dest: 'dist/amd/commands.js',
         options: {
-          wrapper: []
+          wrapper: [
+            '',
+            ''
+          ]
         }
       }
     },
