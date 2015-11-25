@@ -14595,7 +14595,7 @@ function program17(depth0,data) {
     var jquery = require('jquery')
       , wysihtml5 = require('wysihtml5x')
       , bootstrap = require('bootstrap');
-    require('./commands/small');
+    require('./commands');
     module.exports = factory(jquery, wysihtml5);
   } else {
     // Browser globals
