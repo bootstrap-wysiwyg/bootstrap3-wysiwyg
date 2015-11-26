@@ -31,7 +31,7 @@
     "qunit-assert-html": "^0.2.1",
     "qunitjs": "~1.14.0",
     "requirejs": "^2.1.14",
-    "wysihtml": "voog/wysihtml#0.5.2"
+    "wysihtml": "github:trickeyone/wysihtml#0.5.3"
   },
   "scripts": {
     "test": "./node_modules/karma/bin/karma start --single-run"
