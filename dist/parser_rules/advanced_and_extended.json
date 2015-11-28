@@ -235,10 +235,10 @@
    },
    "check_attributes": {
     "alt": "alt",
-    "height": "numbers",
+    "height": "dimension",
     "id": "any",
     "src": "src",
-    "width": "numbers"
+    "width": "dimension"
    },
    "one_of_type": {
     "valid_image_src": 1
@@ -407,15 +407,11 @@
     "type": "any"
    }
   },
-  "sub": {
-   "unwrap": 1
-  },
+  "sub": {},
   "summary": {
    "unwrap": 1
   },
-  "sup": {
-   "unwrap": 1
-  },
+  "sup": {},
   "svg": {
    "remove": 1
   },
