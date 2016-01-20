@@ -254,7 +254,7 @@ Options you pass in will be added to the defaults via a shallow copy.  (see [jQu
 
 #### Parser Rules
 
-If you find the editor is stripping out tags or attributes you need, then you'll want to extend (or replace) parserRules.  This example extends the defaults to allow the <code><strong></code> and <code><em></code> tags, and the class "middle":
+If you find the editor is stripping out tags or attributes you need, then you'll want to extend (or replace) parserRules.  This example extends the defaults to allow the `<code><strong></code>` and `<code><em></code>` tags, and the class "middle":
 
 ```javascript
 $('#some-textarea').wysihtml5('deepExtend', {
