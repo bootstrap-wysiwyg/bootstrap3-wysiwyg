@@ -30,7 +30,8 @@
         },
         link: {
             insert: "リンクの挿入",
-            cancel: "キャンセル"
+            cancel: "キャンセル",
+            target: "新しいウィンドウでリンクを開く"
         },
         image: {
             insert: "画像の挿入",

@@ -30,7 +30,8 @@
         },
         link: {
             insert: "Umetni poveznicu",
-            cancel: "Otkaži"
+            cancel: "Otkaži",
+            target: "Otvori vezu u novom prozoru"
         },
         image: {
             insert: "Umetni sliku",

@@ -30,7 +30,8 @@
         },
         link: {
               insert: "Įterpti nuorodą",
-              cancel: "Atšaukti"
+              cancel: "Atšaukti",
+              target: "Atidaryti nuorodą naujame lange"
         },
         image: {
               insert: "Įterpti atvaizdą",

@@ -30,7 +30,8 @@
         },
         link: {
             insert: "링크 삽입",
-            cancel: "취소"
+            cancel: "취소",
+            target: "새 창에서 링크 열기"
         },
         image: {
             insert: "이미지 삽입",

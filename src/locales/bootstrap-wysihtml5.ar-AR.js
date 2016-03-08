@@ -33,7 +33,8 @@
         },
         link: {
               insert: "إضافة رابط",
-              cancel: "إلغاء"
+              cancel: "إلغاء",
+              target: "فتح في نافذة جديدة"
         },
         image: {
               insert: "إضافة صورة",

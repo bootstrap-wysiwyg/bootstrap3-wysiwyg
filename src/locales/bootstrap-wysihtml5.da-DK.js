@@ -33,7 +33,8 @@
         },
         link: {
             insert: "Indsæt Link",
-            cancel: "Annuler"
+            cancel: "Annuler",
+            target: "Åbn link i nyt vindue"
         },
         image: {
             insert: "Indsæt billede",
