@@ -1,5 +1,5 @@
 {
-  "name": "bootstrap3-wysihtml5-bower",
+  "name": "bootstrap3-wysiwyg",
   "version": "0.3.4-wip",
   "description": "Bootstrap 3 compatible wysiwyg editor",
   "directories": {
@@ -32,7 +32,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/Waxolunist/bootstrap3-wysihtml5-bower.git"
+    "url": "git://github.com/bootstrap3-wysiwyg/bootstrap3-wysiwyg.git"
   },
   "keywords": [
     "bootstrap",
@@ -41,7 +41,7 @@
   "author": "Christian Sterzl <christian.sterzl@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Waxolunist/bootstrap3-wysihtml5-bower/issues"
+    "url": "https://github.com/bootstrap3-wysiwyg/bootstrap3-wysiwyg/issues"
   },
-  "homepage": "https://github.com/Waxolunist/bootstrap3-wysihtml5-bower"
+  "homepage": "https://github.com/bootstrap3-wysiwyg/bootstrap3-wysiwyg"
 }

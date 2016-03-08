@@ -1,4 +1,4 @@
-module('bootstrap3-wysihtml5-bower.testframework', {
+module('bootstrap3-wysiwyg.testframework', {
 
 });
 test("if test runner framework is working", function(){
