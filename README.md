@@ -51,9 +51,9 @@ If you are using bower use the “bootstrap3-wysihtml5-bower” package.
 
     bower install bootstrap3-wysihtml5-bower
 
-If using Rails, use ["bootstrap-wysihtml5-rails"](https://github.com/Nerian/bootstrap-wysihtml5-rails):
+If using Rails, use the gem ["bootstrap-wysihtml5-rails"](https://github.com/Nerian/bootstrap-wysihtml5-rails) by adding the following to your Gemfile
 
-    gem bootstrap-wysihtml5-rails
+    gem "bootstrap-wysihtml5-rails"
 
 ## Examples
 
