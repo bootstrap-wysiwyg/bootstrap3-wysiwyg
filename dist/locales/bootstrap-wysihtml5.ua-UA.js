@@ -9,18 +9,22 @@
         // Browser globals
         factory(jQuery);
     }
-}(function($){
+}(function ($) {
     $.fn.wysihtml5.locale["ua-UA"] = {
         font_styles: {
             normal: "Звичайний текст",
             h1: "Заголовок 1",
             h2: "Заголовок 2",
-            h3: "Заголовок 3"
+            h3: "Заголовок 3",
+            h4: "Заголовок 4",
+            h5: "Заголовок 5",
+            h6: "Заголовок 6"
         },
         emphasis: {
             bold: "Напівжирний",
             italic: "Курсив",
-            underline: "Підкреслений"
+            underline: "Підкреслений",
+            small: "Малий"
         },
         lists: {
             unordered: "Маркований список",
@@ -34,7 +38,8 @@
         },
         image: {
             insert: "Вставити зображення",
-            cancel: "Відміна"
+            cancel: "Відміна",
+            target: 'Відкрити у новому вікні'
         },
         html: {
             edit: "HTML код"
@@ -54,4 +59,3 @@
         }
     };
 }));
-
