@@ -15,12 +15,16 @@
               normal: "Normal tekst",
               h1: "Tittel 1",
               h2: "Tittel 2",
-              h3: "Tittel 3"
+              h3: "Tittel 3",
+              h4: "Tittel 4",
+              h5: "Tittel 5",
+              h6: "Tittel 6"
         },
         emphasis: {
               bold: "Fet",
               italic: "Kursiv",
-              underline: "Understrekning"
+              underline: "Understrekning",
+              small: "Liten"
         },
         lists: {
               unordered: "Usortert",
@@ -31,7 +35,8 @@
         },
         link: {
               insert: "Sett inn lenke",
-              cancel: "Avbryt"
+              cancel: "Avbryt",
+              target: "Åpne lenke i nytt vindu"
         },
         image: {
               insert: "Sett inn bilde",
@@ -51,7 +56,7 @@
           olive: "Oliven",
           navy: "Marineblå",
           blue: "Blå",
-          orange: "Oransj"
+          orange: "Oransje"
         }
     };
 }));
