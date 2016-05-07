@@ -15,7 +15,10 @@
               normal: "Normal tekst",
               h1: "Tittel 1",
               h2: "Tittel 2",
-              h3: "Tittel 3"
+              h3: "Tittel 3",
+              h4: "Tittel 4",
+              h5: "Tittel 5",
+              h6: "Tittel 6"
         },
         emphasis: {
               bold: "Fet",
