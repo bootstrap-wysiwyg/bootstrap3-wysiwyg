@@ -23,7 +23,8 @@
         emphasis: {
               bold: "Fet",
               italic: "Kursiv",
-              underline: "Understrekning"
+              underline: "Understrekning",
+              small: "Liten"
         },
         lists: {
               unordered: "Usortert",
@@ -34,7 +35,8 @@
         },
         link: {
               insert: "Sett inn lenke",
-              cancel: "Avbryt"
+              cancel: "Avbryt",
+              target: "Åpne lenke i nytt vindu"
         },
         image: {
               insert: "Sett inn bilde",
@@ -54,7 +56,7 @@
           olive: "Oliven",
           navy: "Marineblå",
           blue: "Blå",
-          orange: "Oransj"
+          orange: "Oransje"
         }
     };
 }));
