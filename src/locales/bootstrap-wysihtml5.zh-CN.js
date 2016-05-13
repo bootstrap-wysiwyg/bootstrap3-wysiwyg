@@ -23,7 +23,8 @@
         emphasis: {
             bold: "粗体",
             italic: "斜体",
-            underline: "下划线"
+            underline: "下划线",
+            small: '小体'
         },
         lists: {
             unordered: "项目符号",
