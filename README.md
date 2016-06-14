@@ -82,8 +82,8 @@ This is the new style from version 0.3 on and will be supported on all browsers.
 The javascript will keep the same. For example it is easier to change the content dynamically on runtime.
 
 ```javascript
-$(".text_area").wysihtml5();
-var editorObj = $(".text_area").data('wysihtml5');
+$("#some-textarea").wysihtml5();
+var editorObj = $("#some-textarea").data('wysihtml5');
 var editor = editorObj.editor;
 editor.setValue('Some text dynamically set.');
 ```
