@@ -24,6 +24,7 @@
             bold: "Fed",
             italic: "Kursiv",
             underline: "Understreget"
+            small: "Småt"
         },
         lists: {
             unordered: "Uordnet liste",
@@ -32,16 +33,16 @@
             indent: "Indryk"
         },
         link: {
-            insert: "Indsæt Link",
-            cancel: "Annuler",
+            insert: "Indsæt link",
+            cancel: "Annuller",
             target: "Åbn link i nyt vindue"
         },
         image: {
             insert: "Indsæt billede",
-            cancel: "Annuler"
+            cancel: "Annuller"
         },
         html: {
-            edit: "Rediger HTML"
+            edit: "Redigér HTML"
         },
         colours: {
             black: "Sort",
