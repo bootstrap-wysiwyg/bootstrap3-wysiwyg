@@ -57,7 +57,7 @@ If using Rails, use the gem ["bootstrap-wysihtml5-rails"](https://github.com/Ner
 
 ## Examples
 
--   [http://waxolunist.github.io/bootstrap3-wysihtml5-bower/](http://bootstrap-wysiwyg.github.io/bootstrap3-wysiwyg/)
+-   [https://bootstrap-wysiwyg.github.io/bootstrap3-wysiwyg/](https://bootstrap-wysiwyg.github.io/bootstrap3-wysiwyg/)
 
 For use with requirejs see the examples in the repo.
 
