@@ -12785,7 +12785,9 @@ wysihtml5.views.View = Base.extend(
     }
 
     // Is &emsp; close enough to tab. Could not find enough counter arguments for now.
-    composer.commands.exec("insertHTML", "&emsp;");
+    //composer.commands.exec("insertHTML", "&emsp;");
+    //$emsp not working properly, switching to 4 nbsp;
+    composer.commands.exec("insertHTML", "&nbsp;&nbsp;&nbsp;&nbsp;");
   };
 
   wysihtml5.views.Composer.prototype.observe = function() {
