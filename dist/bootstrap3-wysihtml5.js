@@ -76,6 +76,7 @@
         if($.type(this.config.parserRules) === 'string') {
           $.ajax({
             dataType: 'json',
+            mimeType: "application/json",
             url: this.config.parserRules,
             context: this,
             error: function (jqXHR, textStatus, errorThrown) {
@@ -91,6 +92,7 @@
         if(this.config.pasteParserRulesets && $.type(this.config.pasteParserRulesets) === 'string') {
           $.ajax({
             dataType: 'json',
+            mimeType: "application/json",
             url: this.config.pasteParserRulesets,
             context: this,
             error: function (jqXHR, textStatus, errorThrown) {
