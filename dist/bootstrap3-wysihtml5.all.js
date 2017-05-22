@@ -14660,6 +14660,7 @@ function program17(depth0,data) {
         if($.type(this.config.parserRules) === 'string') {
           $.ajax({
             dataType: 'json',
+	    mimeType: "application/json",
             url: this.config.parserRules,
             context: this,
             error: function (jqXHR, textStatus, errorThrown) {
@@ -14675,6 +14676,7 @@ function program17(depth0,data) {
         if(this.config.pasteParserRulesets && $.type(this.config.pasteParserRulesets) === 'string') {
           $.ajax({
             dataType: 'json',
+	    mimeType: "application/json",
             url: this.config.pasteParserRulesets,
             context: this,
             error: function (jqXHR, textStatus, errorThrown) {
